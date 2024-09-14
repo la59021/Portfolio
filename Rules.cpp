@@ -1,8 +1,9 @@
 #include <iostream>
-#include "Prompts.hpp"
+#include "Rules.hpp"
 using namespace std;
 
-Prompts::Prompts()
+
+Rules::Rules()
 {
     //ctor
 }

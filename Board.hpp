@@ -1,16 +1,8 @@
-#include <array>
-#include <iostream>
-using namespace std;
 
-class GameBoard {
+class Board
+{
     public:
-        explicit GameBoard();
-        bool pickedSpaceUnoccupied(int* cords);
-        void addPiece(int* cords, string marker);
-        bool checkForWin();
-        void printBoard();
+        Board();
 
     private:
-        string board[3][3] = {{"", "", ""}, {"", "", ""}, {"", "", ""}};
 };
-

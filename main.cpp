@@ -1,11 +1,9 @@
 #include <iostream>
-#include <array>
-#include "Game.hpp"
+
 using namespace std;
 
 int main()
 {
-    Game game;
-
+    cout << "Hello world!" << endl;
     return 0;
 }
