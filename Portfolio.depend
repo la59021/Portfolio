@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1726101804 source:c:\users\legom\documents\code\repos\portfolio\main.cpp
+	<iostream>
+	<array>
+	"Game.hpp"
+
+1726172476 source:c:\users\legom\documents\code\repos\portfolio\game.cpp
+	<iostream>
+	"Prompts.hpp"
+	"Game.hpp"
+
+1726177099 c:\users\legom\documents\code\repos\portfolio\prompts.hpp
+	<iostream>
+	<array>
+
+1726102035 c:\users\legom\documents\code\repos\portfolio\game.hpp
+	<iostream>
+	<array>
+
+1726177271 source:c:\users\legom\documents\code\repos\portfolio\prompts.cpp
+	<iostream>
+	<cstring>
+	"Board.hpp"
+	"Prompts.hpp"
+
+1726177142 c:\users\legom\documents\code\repos\portfolio\board.hpp
+	<array>
+	<iostream>
+
+1726177339 source:c:\users\legom\documents\code\repos\portfolio\board.cpp
+	<string>
+	<array>
+	"Board.hpp"
+
