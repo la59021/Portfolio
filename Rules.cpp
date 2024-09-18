@@ -9,10 +9,10 @@ Rules::Rules() {
 }
 
 void Rules::takeXTurn() {
-    if (checkForWin(true) || checkForWin(false)) {
+    if (!won && checkForWin(true) || checkForWin(false)) {
         won = true;
     }
-    if (!checkForWin(true) && !checkForWin(false) && !won) {
+    if (!won && !checkForWin(true) && !checkForWin(false)) {
         goto start;
     }
     else {
@@ -39,8 +39,7 @@ void Rules::takeXTurn() {
 
     valid:
         board.setSpaceStatus(row, col, 1);
-        if (followsRules(1, true, 0, 0)) {
-            responses.winnerIsX();
+        if (!won && checkForWin(true)) {
         }
         else {
             responses.printBoard(board);
@@ -50,10 +49,10 @@ void Rules::takeXTurn() {
 }
 
 void Rules::takeOTurn() {
-    if (checkForWin(true) || checkForWin(false)) {
+    if (!won && (checkForWin(true) || checkForWin(false))) {
         won = true;
     }
-    if (!checkForWin(true) && !checkForWin(false)&& !won) {
+    if (!won && !checkForWin(true) && !checkForWin(false)) {
         goto start;
     }
     else {
@@ -80,8 +79,7 @@ void Rules::takeOTurn() {
 
     valid:
         board.setSpaceStatus(row, col, 2);
-        if (followsRules(1, false, 0, 0)) {
-            responses.winnerIsO();
+        if (checkForWin(false)) {
         }
         else {
             responses.printBoard(board);
@@ -222,4 +220,8 @@ bool Rules::checkForTie() {
         return false;
     }
     return true;
+}
+
+bool Rules::wasThereAWinner() {
+    return won;
 }

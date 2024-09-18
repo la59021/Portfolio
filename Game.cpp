@@ -18,18 +18,15 @@ void Game::takeTurn(bool isXsTurn) {
 void Game::startGame() {
     int x = 0;
     for (int i = 0; x < 9; x++) {
-        if (i % 2 == 0) {
-            this -> takeTurn(true);
+        if (!rules.wasThereAWinner()) {
+            if (i % 2 == 0) {
+                takeTurn(true);
+            }
+            else {
+                takeTurn(false);
+            }
         }
-        else {
-            this -> takeTurn(false);
-        }
-
     }
-    if (x == 9) {
-
-    }
-
 }
 
 

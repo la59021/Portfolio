@@ -5,7 +5,7 @@ class Rules {
     public:
         Rules();
         bool followsRules(int typeOfCheck, bool lookingAtX, int row, int col); // 0 is in range and occupancy, 1 is win, 2 is tie
-
+        bool wasThereAWinner();
         void takeXTurn();
         void takeOTurn();
 
