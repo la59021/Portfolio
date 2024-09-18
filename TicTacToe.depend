@@ -1,0 +1,58 @@
+# depslib dependency file v1.0
+1726519541 source:c:\users\legom\documents\code\repos\portfolio\space.cpp
+	"Space.hpp"
+
+1726519611 c:\users\legom\documents\code\repos\portfolio\space.hpp
+
+1726521502 source:c:\users\legom\documents\code\repos\portfolio\board.cpp
+	<iostream>
+	<array>
+	"Board.hpp"
+
+1726519649 c:\users\legom\documents\code\repos\portfolio\board.hpp
+	<array>
+	"Space.hpp"
+
+1726608680 source:c:\users\legom\documents\code\repos\portfolio\promptsandresponses.cpp
+	<iostream>
+	"PromptsAndResponses.hpp"
+
+1726522056 c:\users\legom\documents\code\repos\portfolio\promptsandresponses.hpp
+	"Board.hpp"
+	<string>
+
+1726340927 source:c:\users\legom\documents\code\repos\portfolio\main.cpp
+	<iostream>
+	"Game.hpp"
+
+1726520480 c:\users\legom\documents\code\repos\portfolio\game.hpp
+	"Rules.hpp"
+
+1726520300 c:\users\legom\documents\code\repos\portfolio\\rules.hpp
+	"PromptsAndResponses.hpp"
+	"Board.hpp"
+
+1726519801 c:\users\legom\documents\code\repos\portfolio\\promptsandresponses.hpp
+	"Board.hpp"
+	<string>
+
+1726519649 c:\users\legom\documents\code\repos\portfolio\\board.hpp
+	<array>
+	"Space.hpp"
+
+1726519611 c:\users\legom\documents\code\repos\portfolio\\space.hpp
+
+1726609527 c:\users\legom\documents\code\repos\portfolio\rules.hpp
+	"PromptsAndResponses.hpp"
+	"Board.hpp"
+
+1726522772 source:c:\users\legom\documents\code\repos\portfolio\game.cpp
+	<iostream>
+	"Game.hpp"
+
+1726608633 source:c:\users\legom\documents\code\repos\portfolio\rules.cpp
+	<iostream>
+	"PromptsAndResponses.hpp"
+	"Board.hpp"
+	"Rules.hpp"
+
