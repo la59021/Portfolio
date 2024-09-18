@@ -19,7 +19,7 @@ void Game::startGame() {
     int x = 0;
     for (int i = 0; x < 9; x++) {
         if (!rules.wasThereAWinner()) {
-            if (i % 2 == 0) {
+            if (x % 2 == 0) {
                 takeTurn(true);
             }
             else {
