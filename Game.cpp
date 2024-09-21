@@ -6,7 +6,6 @@ Game::Game() {
 }
 
 void Game::startGame() {
-    Start:
         for (int i = 0; i < 9; i++) {
             if (!rules.wasThereAWinner()) {
                 if (isXsTurn) {
@@ -20,15 +19,6 @@ void Game::startGame() {
             }
             rules.checkForTie();
         }
-    if (rules.playAgain()) {
-        if (rules.getLastWinner() == 2) {
-            isXsTurn = true;
-        }
-        else {
-            isXsTurn = false;
-        }
-        goto Start;
-    }
 }
 
 void Game::takeTurn() {

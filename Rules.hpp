@@ -8,14 +8,12 @@ class Rules {
         void takeXTurn();
         void takeOTurn();
         bool checkForTie();
-        bool playAgain();
-        int getLastWinner();
 
     private:
         Prompts prompts;
         Responses responses;
         Board board;
-        int index, winner;
+        int index;
         char rowChar, colChar;
         bool won = false;
         bool inputIsInRange();

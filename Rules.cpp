@@ -3,7 +3,6 @@ using namespace std;
 
 Rules::Rules() {
     index = 10;
-    winner = 0;
 }
 
 bool Rules::followsRules() {
@@ -127,23 +126,6 @@ bool Rules::checkForTie() {
     return false;
 }
 
-bool Rules::playAgain() {
-    char reply = 'N';
-    prompts.askToPlayAgain();
-    cin >> reply;
-    if (reply == 'Y' || reply == 'y') {
-        for (int i = 1; i <= board.getLength(); i++) {
-            board.setSpaceStatus(i, 0);
-        }
-        return true;
-    }
-    return false;
-}
-
-int Rules::getLastWinner() {
-    return winner;
-}
-
 bool Rules::inputIsInRange() {
     array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
     array <char, 3> rowRange = {'1', '2', '3'};
@@ -221,9 +203,6 @@ string Rules::checkForWin(bool checkingX) {
                 reply = "The Winning combo was (3, A), (3, B), (3, C).";
             }
         }
-    }
-    if (reply != "") {
-        winner = toCheck;
     }
     return reply;
 }
