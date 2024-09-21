@@ -1,18 +1,8 @@
-#include <iostream>
 #include "Game.hpp"
 using namespace std;
 
 Game::Game() {
     isXsTurn = true;
-}
-
-void Game::takeTurn() {
-    if (isXsTurn) {
-        rules.takeXTurn();
-    }
-    else if (!isXsTurn) {
-        rules.takeOTurn();
-    }
 }
 
 void Game::startGame() {
@@ -40,6 +30,16 @@ void Game::startGame() {
         goto Start;
     }
 }
+
+void Game::takeTurn() {
+    if (isXsTurn) {
+        rules.takeXTurn();
+    }
+    else if (!isXsTurn) {
+        rules.takeOTurn();
+    }
+}
+
 
 
 

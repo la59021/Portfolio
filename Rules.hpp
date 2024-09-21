@@ -1,5 +1,4 @@
 #include "PromptsAndResponses.hpp"
-#include "Board.hpp"
 
 class Rules {
     public:

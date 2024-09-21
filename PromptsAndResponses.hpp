@@ -1,7 +1,5 @@
-#ifndef PROMPTSANDRESPONSES_HPP
-#define PROMPTSANDRESPONSES_HPP
-
 #include "Board.hpp"
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -19,13 +17,13 @@ class Prompts {
 class Responses {
     public:
         Responses();
-        void printBoard(Board board);
+        void printBoard(Board newBoard);
         void isInvalidSpace();
         void winnerIsX();
         void winnerIsO();
         void gameWasTie();
+
     private:
-        string statusToMark(int index);
         Board board;
+        string statusToMark(int index);
 };
-#endif

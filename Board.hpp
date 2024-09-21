@@ -1,5 +1,3 @@
-#ifndef BOARD_HPP
-#define BOARD_HPP
 #include <array>
 #include "Space.hpp"
 
@@ -13,4 +11,3 @@ class Board {
         Space currentBoard[9] = {Space(), Space(), Space(), Space(), Space(), Space(), Space(), Space(), Space()};
         int length;
 };
-#endif

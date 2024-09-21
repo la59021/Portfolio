@@ -1,11 +1,5 @@
-#include <iostream>
-#include "PromptsAndResponses.hpp"
-#include "Board.hpp"
 #include "Rules.hpp"
-#include <array>
-#include <stdlib.h>
 using namespace std;
-
 
 Rules::Rules() {
     index = 10;
