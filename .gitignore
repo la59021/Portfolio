@@ -34,3 +34,5 @@
 #Project files
 *.cbp
 *.layout
+*.depend
+TicTacToe.depend
