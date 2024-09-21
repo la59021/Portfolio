@@ -8,18 +8,19 @@ class Rules {
         bool wasThereAWinner();
         void takeXTurn();
         void takeOTurn();
+        bool checkForTie();
+        bool playAgain();
+        int getLastWinner();
 
     private:
-        bool inputIsInRange();
-        bool spaceIsOpen();
-        string checkForWin(bool checkingX);
-        bool checkForTie();
-        void changeToIndex();
         Prompts prompts;
         Responses responses;
         Board board;
-        int index;
+        int index, winner;
         char rowChar, colChar;
         bool won = false;
-
+        bool inputIsInRange();
+        bool spaceIsOpen();
+        string checkForWin(bool checkingX);
+        void changeToIndex();
 };

@@ -3,10 +3,10 @@
 using namespace std;
 
 Game::Game() {
-    //ctor
+    isXsTurn = true;
 }
 
-void Game::takeTurn(bool isXsTurn) {
+void Game::takeTurn() {
     if (isXsTurn) {
         rules.takeXTurn();
     }
@@ -16,16 +16,28 @@ void Game::takeTurn(bool isXsTurn) {
 }
 
 void Game::startGame() {
-    int x = 0;
-    for (int i = 0; x < 9; x++) {
-        if (!rules.wasThereAWinner()) {
-            if (x % 2 == 0) {
-                takeTurn(true);
+    Start:
+        for (int i = 0; i < 9; i++) {
+            if (!rules.wasThereAWinner()) {
+                if (isXsTurn) {
+                    takeTurn();
+                    isXsTurn = false;
+                }
+                else {
+                    takeTurn();
+                    isXsTurn = true;
+                }
             }
-            else {
-                takeTurn(false);
-            }
+            rules.checkForTie();
         }
+    if (rules.playAgain()) {
+        if (rules.getLastWinner() == 2) {
+            isXsTurn = true;
+        }
+        else {
+            isXsTurn = false;
+        }
+        goto Start;
     }
 }
 

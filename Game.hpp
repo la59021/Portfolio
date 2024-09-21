@@ -8,5 +8,6 @@ class Game {
 
     private:
         Rules rules;
-        void takeTurn(bool isXsTurn);
+        bool isXsTurn;
+        void takeTurn();
 };

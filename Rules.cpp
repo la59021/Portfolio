@@ -2,15 +2,28 @@
 #include "PromptsAndResponses.hpp"
 #include "Board.hpp"
 #include "Rules.hpp"
-//#include <string>
 #include <array>
 #include <stdlib.h>
 using namespace std;
 
 
 Rules::Rules() {
-    responses.printBoard(board);
     index = 10;
+    winner = 0;
+}
+
+bool Rules::followsRules() {
+    if (inputIsInRange()) {
+        changeToIndex();
+        if (spaceIsOpen()) {
+           return true;
+        }
+    }
+    return false;
+}
+
+bool Rules::wasThereAWinner() {
+    return won;
 }
 
 void Rules::takeXTurn() {
@@ -27,9 +40,11 @@ void Rules::takeXTurn() {
         goto leave;
     }
     start:
+        responses.printBoard(board);
         prompts.askForXSpace();
         cin >> rowChar;
         cin >> colChar;
+        cout << endl;
         goto checkValidity;
 
     checkValidity:
@@ -52,7 +67,6 @@ void Rules::takeXTurn() {
             won = true;
         }
         else {
-            responses.printBoard(board);
         }
 
     leave:
@@ -72,9 +86,11 @@ void Rules::takeOTurn() {
         goto leave;
     }
     start:
+        responses.printBoard(board);
         prompts.askForOSpace();
         cin >> rowChar;
         cin >> colChar;
+        cout << endl;
         goto checkValidity;
 
     checkValidity:
@@ -97,20 +113,41 @@ void Rules::takeOTurn() {
             won = true;
         }
         else {
-            responses.printBoard(board);
         }
     leave:
 
 }
 
-bool Rules::followsRules() {
-    if (inputIsInRange()) {
-        changeToIndex();
-        if (spaceIsOpen()) {
-           return true;
+bool Rules::checkForTie() {
+    bool allFull = true;
+    for (int i = 1; i <= board.getLength(); i++) {
+        if (board.getSpaceStatus(i) == 0) {
+            allFull = false;
         }
     }
+    if (allFull && checkForWin(true) == "" && checkForWin(false) == "") {
+        responses.printBoard(board);
+        responses.gameWasTie();
+        return true;
+    }
     return false;
+}
+
+bool Rules::playAgain() {
+    char reply = 'N';
+    prompts.askToPlayAgain();
+    cin >> reply;
+    if (reply == 'Y' || reply == 'y') {
+        for (int i = 1; i <= board.getLength(); i++) {
+            board.setSpaceStatus(i, 0);
+        }
+        return true;
+    }
+    return false;
+}
+
+int Rules::getLastWinner() {
+    return winner;
 }
 
 bool Rules::inputIsInRange() {
@@ -180,7 +217,7 @@ string Rules::checkForWin(bool checkingX) {
     if (board.getSpaceStatus(4) == toCheck) {
         if (board.getSpaceStatus(5) == toCheck) {
             if (board.getSpaceStatus(6) == toCheck) {
-                reply = "The Winning combo was (2, A), (12, B), (2, C).";
+                reply = "The Winning combo was (2, A), (2, B), (2, C).";
             }
         }
     }
@@ -191,18 +228,10 @@ string Rules::checkForWin(bool checkingX) {
             }
         }
     }
-    return reply;
-}
-
-bool Rules::checkForTie() {
-    if (checkForWin(true) != "" || checkForWin(false) != "") {
-        return false;
+    if (reply != "") {
+        winner = toCheck;
     }
-    return true;
-}
-
-bool Rules::wasThereAWinner() {
-    return won;
+    return reply;
 }
 
 void Rules::changeToIndex() {

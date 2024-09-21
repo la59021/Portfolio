@@ -10,6 +10,7 @@ class Prompts {
         Prompts();
         void askForXSpace();
         void askForOSpace();
+        void askToPlayAgain();
 
     private:
 
@@ -22,6 +23,7 @@ class Responses {
         void isInvalidSpace();
         void winnerIsX();
         void winnerIsO();
+        void gameWasTie();
     private:
         string statusToMark(int index);
         Board board;
