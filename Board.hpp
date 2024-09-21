@@ -7,13 +7,10 @@
 class Board {
     public:
         Board();
-        int getSpaceStatus(int row, int col);
-        void setSpaceStatus(int row, int col, int newState);
+        int getSpaceStatus(int index);
+        void setSpaceStatus(int index, int newState);
 
     private:
-        Space currentBoard[3][3] = {{Space(),Space(),Space()},
-                                    {Space(),Space(),Space()},
-                                    {Space(),Space(),Space()}};
-
+        Space currentBoard[9] = {Space(), Space(), Space(), Space(), Space(), Space(), Space(), Space(), Space()};
 };
 #endif

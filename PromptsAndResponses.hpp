@@ -23,7 +23,7 @@ class Responses {
         void winnerIsX();
         void winnerIsO();
     private:
-        string statusToMark(int row, int col);
+        string statusToMark(int index);
         Board board;
 };
 #endif

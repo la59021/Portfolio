@@ -4,20 +4,20 @@
 
 1726519611 c:\users\legom\documents\code\repos\portfolio\space.hpp
 
-1726521502 source:c:\users\legom\documents\code\repos\portfolio\board.cpp
+1726941711 source:c:\users\legom\documents\code\repos\portfolio\board.cpp
 	<iostream>
 	<array>
 	"Board.hpp"
 
-1726519649 c:\users\legom\documents\code\repos\portfolio\board.hpp
+1726940031 c:\users\legom\documents\code\repos\portfolio\board.hpp
 	<array>
 	"Space.hpp"
 
-1726608680 source:c:\users\legom\documents\code\repos\portfolio\promptsandresponses.cpp
+1726941814 source:c:\users\legom\documents\code\repos\portfolio\promptsandresponses.cpp
 	<iostream>
 	"PromptsAndResponses.hpp"
 
-1726522056 c:\users\legom\documents\code\repos\portfolio\promptsandresponses.hpp
+1726940008 c:\users\legom\documents\code\repos\portfolio\promptsandresponses.hpp
 	"Board.hpp"
 	<string>
 
@@ -42,17 +42,19 @@
 
 1726519611 c:\users\legom\documents\code\repos\portfolio\\space.hpp
 
-1726693885 c:\users\legom\documents\code\repos\portfolio\rules.hpp
+1726942196 c:\users\legom\documents\code\repos\portfolio\rules.hpp
 	"PromptsAndResponses.hpp"
 	"Board.hpp"
 
-1726694088 source:c:\users\legom\documents\code\repos\portfolio\game.cpp
+1726694713 source:c:\users\legom\documents\code\repos\portfolio\game.cpp
 	<iostream>
 	"Game.hpp"
 
-1726694160 source:c:\users\legom\documents\code\repos\portfolio\rules.cpp
+1726941711 source:c:\users\legom\documents\code\repos\portfolio\rules.cpp
 	<iostream>
 	"PromptsAndResponses.hpp"
 	"Board.hpp"
 	"Rules.hpp"
+	<array>
+	<stdlib.h>
 

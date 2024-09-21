@@ -8,10 +8,10 @@ Board::Board() {
 
 }
 
-int Board::getSpaceStatus(int row, int col) {
-    return currentBoard[row][col].getStatus();
+int Board::getSpaceStatus(int index) {
+    return currentBoard[index-1].getStatus();
 }
 
-void Board::setSpaceStatus(int row, int col, int newState) {
-    currentBoard[row][col].setStatus(newState);
+void Board::setSpaceStatus(int index, int newState) {
+    currentBoard[index-1].setStatus(newState);
 }

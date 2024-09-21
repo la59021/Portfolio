@@ -4,19 +4,22 @@
 class Rules {
     public:
         Rules();
-        bool followsRules(int typeOfCheck, bool lookingAtX, int row, int col); // 0 is in range and occupancy, 1 is win, 2 is tie
+        bool followsRules();
         bool wasThereAWinner();
         void takeXTurn();
         void takeOTurn();
 
     private:
-        bool inputIsInRange(int row, int col);
-        bool spaceIsOpen(int row, int col);
-        bool checkForWin(bool checkingX);
+        bool inputIsInRange();
+        bool spaceIsOpen();
+        string checkForWin(bool checkingX);
         bool checkForTie();
+        void changeToIndex();
         Prompts prompts;
         Responses responses;
         Board board;
+        int index;
+        char rowChar, colChar;
         bool won = false;
 
 };
