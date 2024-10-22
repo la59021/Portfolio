@@ -33,4 +33,12 @@
 
 #Project files
 *.cbp
+<<<<<<< Updated upstream
 *.layout
+=======
+*.layout
+*.depend
+TicTacToe.depend
+.vscode/settings.json
+tests
+>>>>>>> Stashed changes
