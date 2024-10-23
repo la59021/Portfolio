@@ -34,7 +34,9 @@ void MainMenu::start_menu() {
         game.startGame();
     }
     if (validSelection && reply == "2") {
-        cout << "Start a Battle Game.";
+        cout << "Start a Battle Game.\n\n";
+        BattleGame game = BattleGame();
+        game.startGame();
     }
     if (validSelection && reply == "3") {
         cout << endl << endl << quitExpination << endl << endl << normalModeDesc << endl << endl << battleModeDesc << endl << endl;
