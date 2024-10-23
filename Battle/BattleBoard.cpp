@@ -1,4 +1,4 @@
-#include "Board.hpp"
+#include "BattleBoard.hpp"
 using namespace std;
 
 Board::Board() {

@@ -1,4 +1,6 @@
-#include "PromptsAndResponses.hpp"
+#include "BattlePrompts.hpp"
+#include "BattleResponses.hpp"
+using namespace std;
 
 class Rules {
     public:

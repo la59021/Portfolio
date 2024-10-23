@@ -24,7 +24,7 @@ void Menu::new_game() {
         cout << "That was not a valid option. Try again." << endl;
         goto prompt;
     }
-/*
+
     if (validSelection && reply == "1") {
         NormalLoop normalloop;
         normalloop.start();
@@ -33,7 +33,7 @@ void Menu::new_game() {
         BattleLoop battleloop;
         battleloop.start();
     }
-*/
+    
     if (validSelection && reply == "3") {
         gamemode_descriptions();
         goto prompt;

@@ -1,4 +1,4 @@
-#include "Rules.hpp"
+#include "BattleRules.hpp"
 using namespace std;
 
 Rules::Rules() {

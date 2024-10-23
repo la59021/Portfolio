@@ -1,5 +1,5 @@
+#include "BattleSpace.hpp"
 #include <array>
-#include "Space.hpp"
 
 class Board {
     public:

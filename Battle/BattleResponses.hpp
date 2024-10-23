@@ -1,18 +1,7 @@
-#include "Board.hpp"
+#include "BattleBoard.hpp"
 #include <iostream>
 #include <string>
 using namespace std;
-
-class Prompts {
-    public:
-        Prompts();
-        void askForXSpace();
-        void askForOSpace();
-        void askToPlayAgain();
-
-    private:
-
-};
 
 class Responses {
     public:

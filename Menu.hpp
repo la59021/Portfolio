@@ -1,6 +1,6 @@
 // local libraries
-//#include "BattleLoop.hpp"
-//#include "NormalLoop.hpp"
+#include "BattleLoop.hpp"
+#include "NormalLoop.hpp"
 
 // standard libraries
 #include <iostream>

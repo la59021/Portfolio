@@ -1,10 +1,25 @@
-#include "Game.hpp"
+#include "Battle/BattleBoard.hpp"
 using namespace std;
 
 class BattleLoop {
     public:
         void start() {
-            Game newGame;
-            newGame.startGame();
+            BattleBoard board();
+            Start:
+                while(board.unfilled_spaces()) {
+
+                }
+
+        
         }
+
+        void Game::takeTurn() {
+            if (isXsTurn) {
+                rules.takeXTurn();
+            }
+            else if (!isXsTurn) {
+                rules.takeOTurn();
+            }
+        }
+        
 };

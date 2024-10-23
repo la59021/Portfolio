@@ -1,10 +1,9 @@
-#include "Rules.hpp"
+#include "BattleRules.hpp"
 using namespace std;
 
 class Game {
     public:
-        Game();
-        void startGame();
+        void start();
 
     private:
         Rules rules;
