@@ -36,3 +36,5 @@
 *.layout
 *.depend
 TicTacToe.depend
+menu
+go.sh

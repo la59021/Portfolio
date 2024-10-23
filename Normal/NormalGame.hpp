@@ -1,9 +1,9 @@
 #include "Rules.hpp"
 using namespace std;
 
-class Game {
+class NormalGame {
     public:
-        Game();
+        NormalGame();
         void startGame();
 
     private:
