@@ -3,16 +3,16 @@
 #include <string>
 using namespace std;
 
-class Responses {
+class BattleResponses {
     public:
-        Responses();
-        void printBoard(Board newBoard);
-        void isInvalidSpace();
-        void winnerIsX();
-        void winnerIsO();
-        void gameWasTie();
+        BattleResponses(BattleBoard *board);
+        void print_board();
+        void is_invalid_space();
+        void winner_is_player_1();
+        void winner_is_player_2();
+        void game_was_tie();
 
     private:
-        Board board;
-        string statusToMark(int index);
+        BattleBoard *board;
+        string status_to_mark(int index);
 };

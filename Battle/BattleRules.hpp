@@ -13,9 +13,8 @@ class BattleRules {
         int get_last_winner();
     private:
         BattleBoard *board;
-        Prompts prompts;
-        Responses responses;
-        int winner;
+        Prompts prompts = Prompts();
+        BattleResponses responses;
         bool won = false;
-        string check_for_win(bool checkingX);
+        string check_for_win();
 };

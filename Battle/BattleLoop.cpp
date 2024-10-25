@@ -9,7 +9,7 @@ void BattleLoop::start() {
     this->board = new BattleBoard();
     create_players();
     int turncount = 0;
-    while(this->board->unfilled_spaces() == true && this->rules->wasThereAWinner() == false) {
+    while(this->board->unfilled_spaces() == true && this->rules->was_there_a_winner() == false) {
         if (turncount % 2 == 0) {
             take_player_1_turn();
         }
@@ -44,18 +44,12 @@ void BattleLoop::create_players() {
     }
 }
 
-void BattleLoop::takeP1Turn() {
+void BattleLoop::take_player_1_turn() {
     int index = 10;
     char rowChar = 'R';
     char colChar = 'C';
-    if (checkForWin(true) != "" || checkForWin(false) != "") {
-        won = true;
-    }
-    if (checkForWin(true) == "" && checkForWin(false) == "") {
+    if (check_for_win(true) == "" && check_for_win(false) == "") {
         goto start;
-    }
-    else {
-        goto leave;
     }
     start:
         responses.printBoard(board);
@@ -78,60 +72,5 @@ void BattleLoop::takeP1Turn() {
         }
 
     valid:
-        board.setSpaceStatus(index, 1);
-        if (!won && checkForWin(true) != "") {
-            responses.winnerIsX();
-            cout << checkForWin(true) << endl;
-            won = true;
-        }
-        else {
-        }
-
-    leave:
-}
-
-void BattleLoop::takeP2Turn() {
-    index = 10;
-    rowChar = 'R';
-    colChar = 'C';
-    if (checkForWin(true) != "" || checkForWin(false) != "") {
-        won = true;
-    }
-    if (checkForWin(true) == "" && checkForWin(false) == "") {
-        goto start;
-    }
-    else {
-        goto leave;
-    }
-    start:
-        responses.printBoard(board);
-        prompts.askForXSpace();
-        cin >> rowChar;
-        cin >> colChar;
-        cout << endl;
-        goto checkValidity;
-
-    checkValidity:
-        if ((followsRules())) {
-            changeToIndex();
-            goto valid;
-        }
-        else {
-            responses.isInvalidSpace();
-            responses.printBoard(board);
-            goto start;
-
-        }
-
-    valid:
-        board.setSpaceStatus(index, 1);
-        if (!won && checkForWin(true) != "") {
-            responses.winnerIsX();
-            cout << checkForWin(true) << endl;
-            won = true;
-        }
-        else {
-        }
-
-    leave:
+        board->set_space_status(index, 1);
 }
