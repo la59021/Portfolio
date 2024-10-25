@@ -1,133 +1,31 @@
 #include "BattleRules.hpp"
 using namespace std;
 
-Rules::Rules() {
-    index = 10;
+BattleRules::BattleRules(BattleBoard *board) {
+    this->board = board;
     winner = 0;
 }
 
-bool Rules::followsRules() {
-    if (inputIsInRange()) {
-        changeToIndex();
-        if (spaceIsOpen()) {
-           return true;
-        }
-    }
-    return false;
-}
-
-bool Rules::wasThereAWinner() {
+bool BattleRules::was_there_a_winner() {
     return won;
 }
 
-void Rules::takeXTurn() {
-    index = 10;
-    rowChar = 'R';
-    colChar = 'C';
-    if (checkForWin(true) != "" || checkForWin(false) != "") {
-        won = true;
-    }
-    if (checkForWin(true) == "" && checkForWin(false) == "") {
-        goto start;
-    }
-    else {
-        goto leave;
-    }
-    start:
-        responses.printBoard(board);
-        prompts.askForXSpace();
-        cin >> rowChar;
-        cin >> colChar;
-        cout << endl;
-        goto checkValidity;
-
-    checkValidity:
-        if ((followsRules())) {
-            changeToIndex();
-            goto valid;
-        }
-        else {
-            responses.isInvalidSpace();
-            responses.printBoard(board);
-            goto start;
-
-        }
-
-    valid:
-        board.setSpaceStatus(index, 1);
-        if (!won && checkForWin(true) != "") {
-            responses.winnerIsX();
-            cout << checkForWin(true) << endl;
-            won = true;
-        }
-        else {
-        }
-
-    leave:
-}
-
-void Rules::takeOTurn() {
-    index = 10;
-    rowChar = 'R';
-    colChar = 'C';
-    if (checkForWin(true) != "" || checkForWin(false) != "") {
-        won = true;
-    }
-    if (checkForWin(true) == "" && checkForWin(false) == "") {
-        goto start;
-    }
-    else {
-        goto leave;
-    }
-    start:
-        responses.printBoard(board);
-        prompts.askForOSpace();
-        cin >> rowChar;
-        cin >> colChar;
-        cout << endl;
-        goto checkValidity;
-
-    checkValidity:
-        if ((followsRules())) {
-            changeToIndex();
-            goto valid;
-        }
-        else {
-            responses.isInvalidSpace();
-            responses.printBoard(board);
-            goto start;
-
-        }
-
-    valid:
-        board.setSpaceStatus(index, 2);
-        if (!won && checkForWin(false) != "") {
-            responses.winnerIsO();
-            cout << checkForWin(false) << endl;
-            won = true;
-        }
-        else {
-        }
-    leave:
-
-}
-
-bool Rules::checkForTie() {
+bool BattleRules::check_for_tie() {
     bool allFull = true;
-    for (int i = 1; i <= board.getLength(); i++) {
-        if (board.getSpaceStatus(i) == 0) {
+    for (int i = 1; i <= board->get_length(); i++) {
+        if (board->get_space_status(i) == 0) {
             allFull = false;
         }
     }
-    if (allFull && checkForWin(true) == "" && checkForWin(false) == "") {
-        responses.printBoard(board);
-        responses.gameWasTie();
+    if (allFull && check_for_win(true) == "" && check_for_win(false) == "") {
+        responses.print_board(board);
+        responses.game_was_tie();
         return true;
     }
     return false;
 }
 
-bool Rules::playAgain() {
+bool BattleRules::play_again() {
     char reply = 'N';
     prompts.askToPlayAgain();
     cin >> reply;
@@ -140,33 +38,7 @@ bool Rules::playAgain() {
     return false;
 }
 
-int Rules::getLastWinner() {
-    return winner;
-}
-
-bool Rules::inputIsInRange() {
-    array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
-    array <char, 3> rowRange = {'1', '2', '3'};
-    for (int i = 0; i < rowRange.size() ; i++) {
-        if (rowChar == rowRange[i]) {
-            for (int x = 0; x < colRange.size(); x++) {
-                if (colChar == colRange[x]) {
-                    return true;
-                }
-            }
-        }
-    }
-    return false;
-}
-
-bool Rules::spaceIsOpen() {
-    if (board.getSpaceStatus(index) == 0) {
-        return true;
-    }
-    return false;
-}
-
-string Rules::checkForWin(bool checkingX) {
+string BattleRules::check_for_win(bool checkingX) {
     string reply = "";
     int toCheck = 2;
     if (checkingX) {
@@ -226,26 +98,4 @@ string Rules::checkForWin(bool checkingX) {
         winner = toCheck;
     }
     return reply;
-}
-
-void Rules::changeToIndex() {
-    if (rowChar == '1') {
-        index = 1;
-    }
-    else if (rowChar == '2') {
-        index = 4;
-    }
-    else {
-        index = 7;
-    }
-
-    if (colChar == 'A' || colChar == 'a') {
-        index += 0;
-    }
-    else if (colChar == 'B' || colChar == 'b') {
-        index += 1;
-    }
-    else if (colChar == 'C' || colChar == 'c') {
-        index += 2;
-    }
 }

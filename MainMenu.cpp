@@ -1,5 +1,5 @@
-#include "NormalLoop.hpp"
-#include "BattleLoop.hpp"
+#include "Normal/NormalLoop.hpp"
+#include "Battle/BattleLoop.hpp"
 #include <iostream>
 
 #include "MainMenu.hpp"

@@ -6,7 +6,6 @@ using namespace std;
 ClassMenu::ClassMenu() {
     ask_for_class(1);
     ask_for_class(2);
-
 }
 
 array<int, 2> ClassMenu::player_classes() {

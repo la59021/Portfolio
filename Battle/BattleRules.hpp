@@ -1,27 +1,21 @@
-#include "Battle/BattlePrompts.hpp"
-#include "Battle/BattleResponses.hpp"
+#include "BattlePrompts.hpp"
+#include "BattleResponses.hpp"
+#include "BattleBoard.hpp"
 using namespace std;
 
-class Rules {
+class BattleRules {
     public:
-        Rules();
-        bool followsRules();
-        bool wasThereAWinner();
-        void takeXTurn();
-        void takeOTurn();
-        bool checkForTie();
-        bool playAgain();
-        int getLastWinner();
-
+        BattleRules(BattleBoard *board);
+        bool follows_rules();
+        bool was_there_a_winner();
+        bool check_for_tie();
+        bool play_again();
+        int get_last_winner();
     private:
+        BattleBoard *board;
         Prompts prompts;
         Responses responses;
-        Board board;
-        int index, winner;
-        char rowChar, colChar;
+        int winner;
         bool won = false;
-        bool inputIsInRange();
-        bool spaceIsOpen();
-        string checkForWin(bool checkingX);
-        void changeToIndex();
+        string check_for_win(bool checkingX);
 };
