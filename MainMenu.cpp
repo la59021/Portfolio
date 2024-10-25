@@ -1,8 +1,13 @@
-#include "Menu.hpp"
-#include "Descriptions.hpp"
+#include "NormalLoop.hpp"
+#include "BattleLoop.hpp"
+#include <iostream>
+
+#include "MainMenu.hpp"
 using namespace std;
 
-void Menu::new_game() {
+void MainMenu::new_game() {
+    string NormalMode = "Normal TicTacToe\nThe game is a normal game of TicTacToe. To select specify the desired row followed by a space then the desired colum, for example 2 B";
+    string BattleMode = "Battle TicTacToe\nThe win conditions are the same as normal TicTacToe. The space selection is the same as with normal TicTacToe, but the skills have special space selection methods that are explained in the description for that class. Each player picks a class before the game, classes provide skills that consume a turn but in return are game breaking.";
     string validMenuOptions[] = {"1", "2", "3", "4"};
     string reply;
     bool validSelection;
@@ -24,7 +29,6 @@ void Menu::new_game() {
         cout << "That was not a valid option. Try again." << endl;
         goto prompt;
     }
-
     if (validSelection && reply == "1") {
         NormalLoop normalloop;
         normalloop.start();
@@ -35,19 +39,10 @@ void Menu::new_game() {
     }
     
     if (validSelection && reply == "3") {
-        gamemode_descriptions();
+        cout << endl << endl << NormalMode << endl << endl << BattleMode << endl << endl;
         goto prompt;
     }
     if (validSelection && reply == "4") {
         system("exit");
     }
-
-}
-
-int Menu::gamemode_select() {
-
-}
-
-int Menu::character_select() {
-
 }
