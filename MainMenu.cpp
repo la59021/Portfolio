@@ -6,8 +6,8 @@
 using namespace std;
 
 void MainMenu::new_game() {
-    string NormalMode = "Normal TicTacToe\nThe game is a normal game of TicTacToe. To select specify the desired row followed by a space then the desired colum, for example 2 B";
-    string BattleMode = "Battle TicTacToe\nThe win conditions are the same as normal TicTacToe. The space selection is the same as with normal TicTacToe, but the skills have special space selection methods that are explained in the description for that class. Each player picks a class before the game, classes provide skills that consume a turn but in return are game breaking.";
+    string normalModeDesc = "Normal TicTacToe\nThe game is a normal game of TicTacToe. To select specify the desired row followed by a space then the desired colum, for example 2 B";
+    string battleModeDesc = "Battle TicTacToe\nThe win conditions are the same as normal TicTacToe. The space selection is the same as with normal TicTacToe, but the skills have special space selection methods that are explained in the description for that class. Each player picks a class before the game, classes provide skills that consume a turn but in return are game breaking.";
     char validMenuOptions[] = {'1','2','3','4'};
     char reply;
     bool validSelection;
@@ -38,7 +38,7 @@ void MainMenu::new_game() {
         battleloop.start();
     }   
     if (validSelection && reply == '3') {
-        cout << endl << endl << NormalMode << endl << endl << BattleMode << endl << endl;
+        cout << endl << endl << normalModeDesc << endl << endl << battleModeDesc << endl << endl;
         goto prompt;
     }
     if (validSelection && reply == '4') {

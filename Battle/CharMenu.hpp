@@ -1,9 +1,10 @@
-#include "BattleGame.hpp"
+#include <array>
 using namespace std;
 
 class CharMenu {
     public:
         CharMenu();
+        array<char, 2> player_chars();
     private:
         char player1mark;
         char player2mark;

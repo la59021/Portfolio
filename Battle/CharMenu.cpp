@@ -1,9 +1,15 @@
+#include <iostream>
+
 #include "CharMenu.hpp"
 using namespace std;
 
 CharMenu::CharMenu() {
     ask_for_char(1);
     ask_for_char(2);
+}
+
+array<char, 2> CharMenu::player_chars() {
+    return {player1mark, player2mark};
 }
 
 void CharMenu::ask_for_char(int player) {
