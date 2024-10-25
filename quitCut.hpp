@@ -3,12 +3,12 @@ using namespace std;
 
 static void quitCut(string check) {
     if (check == "q") {
-        system("exit");
+        exit;
     }
 }
 
 static void quitCut(char c) {
     if (c == 'q') {
-        system("exit");
+        exit;
     }
 }

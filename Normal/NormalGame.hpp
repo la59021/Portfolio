@@ -1,4 +1,4 @@
-#include "Rules.hpp"
+#include "NormalRules.hpp"
 using namespace std;
 
 class NormalGame {
@@ -7,7 +7,7 @@ class NormalGame {
         void startGame();
 
     private:
-        Rules rules;
+        NormalRules rules;
         bool isXsTurn;
         void takeTurn();
 };

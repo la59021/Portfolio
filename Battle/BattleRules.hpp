@@ -1,4 +1,4 @@
-#include "PromptsAndResponses.hpp"
+#include "BattlePromptsAndResponses.hpp"
 
 class BattleRules {
     public:

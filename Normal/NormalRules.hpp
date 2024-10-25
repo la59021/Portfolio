@@ -1,8 +1,8 @@
-#include "PromptsAndResponses.hpp"
+#include "NormalPromptsAndResponses.hpp"
 
-class Rules {
+class NormalRules {
     public:
-        Rules();
+        NormalRules();
         bool followsRules();
         bool wasThereAWinner();
         void takeXTurn();
@@ -10,9 +10,9 @@ class Rules {
         bool checkForTie();
 
     private:
-        Prompts prompts;
-        Responses responses;
-        Board board;
+        NormalPrompts prompts;
+        NormalResponses responses;
+        NormalBoard board;
         int index;
         char rowChar, colChar;
         bool won = false;

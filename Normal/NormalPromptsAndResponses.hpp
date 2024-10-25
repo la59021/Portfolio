@@ -1,11 +1,11 @@
-#include "Board.hpp"
+#include "NormalBoard.hpp"
 #include <iostream>
 #include <string>
 using namespace std;
 
-class Prompts {
+class NormalPrompts {
     public:
-        Prompts();
+        NormalPrompts();
         void askForXSpace();
         void askForOSpace();
         void askToPlayAgain();
@@ -14,16 +14,16 @@ class Prompts {
 
 };
 
-class Responses {
+class NormalResponses {
     public:
-        Responses();
-        void printBoard(Board newBoard);
+        NormalResponses();
+        void printBoard(NormalBoard newBoard);
         void isInvalidSpace();
         void winnerIsX();
         void winnerIsO();
         void gameWasTie();
 
     private:
-        Board board;
+        NormalBoard board;
         string statusToMark(int index);
 };

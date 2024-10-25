@@ -21,7 +21,7 @@ BattleResponses::BattleResponses() {
 
 }
 
-void BattleResponses::printBoard(Board newBoard) {
+void BattleResponses::printBoard(BattleBoard newBoard) {
     board = newBoard;
     string row1 = "_| A | B | C |_";
     string row2 = "1| " + statusToMark(1) + " | " + statusToMark(2) + " | " +statusToMark(3) + " |_";

@@ -1,11 +1,11 @@
-#include "Rules.hpp"
+#include "NormalRules.hpp"
 using namespace std;
 
-Rules::Rules() {
+NormalRules::NormalRules() {
     index = 10;
 }
 
-bool Rules::followsRules() {
+bool NormalRules::followsRules() {
     if (inputIsInRange()) {
         changeToIndex();
         if (spaceIsOpen()) {
@@ -15,11 +15,11 @@ bool Rules::followsRules() {
     return false;
 }
 
-bool Rules::wasThereAWinner() {
+bool NormalRules::wasThereAWinner() {
     return won;
 }
 
-void Rules::takeXTurn() {
+void NormalRules::takeXTurn() {
     index = 10;
     rowChar = 'R';
     colChar = 'C';
@@ -65,7 +65,7 @@ void Rules::takeXTurn() {
     leave:
 }
 
-void Rules::takeOTurn() {
+void NormalRules::takeOTurn() {
     index = 10;
     rowChar = 'R';
     colChar = 'C';
@@ -111,7 +111,7 @@ void Rules::takeOTurn() {
 
 }
 
-bool Rules::checkForTie() {
+bool NormalRules::checkForTie() {
     bool allFull = true;
     for (int i = 1; i <= board.getLength(); i++) {
         if (board.getSpaceStatus(i) == 0) {
@@ -126,7 +126,7 @@ bool Rules::checkForTie() {
     return false;
 }
 
-bool Rules::inputIsInRange() {
+bool NormalRules::inputIsInRange() {
     array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
     array <char, 3> rowRange = {'1', '2', '3'};
     for (int i = 0; i < rowRange.size() ; i++) {
@@ -141,14 +141,14 @@ bool Rules::inputIsInRange() {
     return false;
 }
 
-bool Rules::spaceIsOpen() {
+bool NormalRules::spaceIsOpen() {
     if (board.getSpaceStatus(index) == 0) {
         return true;
     }
     return false;
 }
 
-string Rules::checkForWin(bool checkingX) {
+string NormalRules::checkForWin(bool checkingX) {
     string reply = "";
     int toCheck = 2;
     if (checkingX) {
@@ -207,7 +207,7 @@ string Rules::checkForWin(bool checkingX) {
     return reply;
 }
 
-void Rules::changeToIndex() {
+void NormalRules::changeToIndex() {
     if (rowChar == '1') {
         index = 1;
     }

@@ -11,13 +11,13 @@ bool validSelection;
 
 void MainMenu::start_menu() {
     prompt:
-        validSelection = false;
-        cout << "Which game mode would you like to play?" << endl;
-        cout << "[1] Normal TicTacToe" << endl;
-        cout << "[2] Battle TicTacToe" << endl;
-        cout << "[3] What is the diffrence?" << endl;
-        cout << "[4] Quit" << endl;
-        cout << "Your Choice: ";
+    validSelection = false;
+    cout << "Which game mode would you like to play?" << endl;
+    cout << "[1] Normal TicTacToe" << endl;
+    cout << "[2] Battle TicTacToe" << endl;
+    cout << "[3] What is the diffrence?" << endl;
+    cout << "[4] Quit" << endl;
+    cout << "Your Choice: ";
     cin >> reply;
     for(int i = 0; i < 4; i++) {
         if (reply == validMenuOptions[i]) {
@@ -35,8 +35,7 @@ void MainMenu::start_menu() {
     }
     if (validSelection && reply == "2") {
         cout << "Start a Battle Game.\n\n";
-        BattleGame game = BattleGame();
-        game.startGame();
+        ClassMenu classMenu = ClassMenu();
     }
     if (validSelection && reply == "3") {
         cout << endl << endl << quitExpination << endl << endl << normalModeDesc << endl << endl << battleModeDesc << endl << endl;

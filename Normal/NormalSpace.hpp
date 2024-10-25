@@ -1,6 +1,6 @@
-class Space {
+class NormalSpace {
     public:
-        Space();
+        NormalSpace();
         int getStatus();
         void setStatus(int newState);
 

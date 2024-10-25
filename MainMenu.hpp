@@ -1,5 +1,5 @@
 #include "Normal/NormalGame.hpp"
-#include "Battle/BattleGame.hpp"
+#include "Battle/ClassMenu.hpp"
 #include <iostream>
 using namespace std;
 
