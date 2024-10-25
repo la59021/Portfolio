@@ -2,8 +2,11 @@
 using namespace std;
 
 class CharMenu {
-    private:
-        char ask_for_char(int player);
     public:
-        CharMenu(); 
+        CharMenu();
+    private:
+        char player1mark;
+        char player2mark;
+        void ask_for_char(int player);
+        void input_char(int player);
 };
