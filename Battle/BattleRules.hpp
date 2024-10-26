@@ -1,20 +1,23 @@
+#ifndef BATTLERULES_HPP
+#define BATTLERULES_HPP
 #include "BattlePrompts.hpp"
 #include "BattleResponses.hpp"
 #include "BattleBoard.hpp"
 using namespace std;
 
-class BattleRules {
+class BattleRules{
     public:
         BattleRules(BattleBoard *board);
-        bool follows_rules();
+        bool follows_rules(char rowChar, char colChar);
         bool was_there_a_winner();
         bool check_for_tie();
         bool play_again();
         int get_last_winner();
     private:
         BattleBoard *board;
-        Prompts prompts = Prompts();
-        BattleResponses responses;
+        BattlePrompts prompts = BattlePrompts();
+        BattleResponses responses = BattleResponses(this->board);
         bool won = false;
         string check_for_win();
 };
+#endif

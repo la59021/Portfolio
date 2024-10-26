@@ -1,9 +1,11 @@
-class Space {
+#ifndef NORMALSPACE_HPP
+#define NORMALSPACE_HPP
+class NormalSpace {
     public:
-        Space();
+        NormalSpace();
         int getStatus();
         void setStatus(int newState);
-
     private:
         int state = 0;
 };
+#endif

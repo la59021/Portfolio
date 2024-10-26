@@ -1,3 +1,5 @@
+#ifndef BATTLESPACE_HPP
+#define BATTLESPACE_HPP
 class BattleSpace {
     public:
         BattleSpace();
@@ -7,3 +9,4 @@ class BattleSpace {
     private:
         int state = 0;
 };
+#endif

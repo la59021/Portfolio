@@ -1,15 +1,14 @@
-#include "BattleBoard.hpp"
+#ifndef NORMALPROMPTS_HPP
+#define NORMALPROMPTS_HPP
+#include "NormalBoard.hpp"
 #include <iostream>
 #include <string>
 using namespace std;
-
-class Prompts {
+class NormalPrompts {
     public:
-        Prompts();
+        NormalPrompts();
         void askForXSpace();
         void askForOSpace();
         void askToPlayAgain();
-
-    private:
-
 };
+#endif

@@ -7,6 +7,9 @@ using namespace std;
 
 void BattleLoop::start() {
     this->board = new BattleBoard();
+    this->rules = new BattleRules(board);
+    this->prompts = new BattlePrompts();
+    this->responses = new BattleResponses(board);
     create_players();
     int turncount = 0;
     while(this->board->unfilled_spaces() == true && this->rules->was_there_a_winner() == false) {
@@ -48,29 +51,52 @@ void BattleLoop::take_player_1_turn() {
     int index = 10;
     char rowChar = 'R';
     char colChar = 'C';
-    if (check_for_win(true) == "" && check_for_win(false) == "") {
-        goto start;
-    }
     start:
-        responses.printBoard(board);
-        prompts.askForXSpace();
-        cin >> rowChar;
-        cin >> colChar;
-        cout << endl;
-        goto checkValidity;
+    this->responses->print_board();
+    this->prompts->ask_for_player_1_space();
+    cin >> rowChar;
+    cin >> colChar;
+    cout << endl;
+    goto checkValidity;
 
     checkValidity:
-        if ((followsRules())) {
-            changeToIndex();
-            goto valid;
-        }
-        else {
-            responses.isInvalidSpace();
-            responses.printBoard(board);
-            goto start;
-
-        }
+    if (this->rules->follows_rules(rowChar, colChar)) {
+        int index = this->board->change_to_index(rowChar, colChar);
+        goto valid;
+    }
+    else {
+        this->responses->is_invalid_space();
+        this->responses->print_board();
+        goto start;
+    }
 
     valid:
-        board->set_space_status(index, 1);
+    this->board->set_space_status(index, 1);
+}
+
+void BattleLoop::take_player_2_turn() {
+    int index = 10;
+    char rowChar = 'R';
+    char colChar = 'C';
+    start:
+    this->responses->print_board();
+    this->prompts->ask_for_player_2_space();
+    cin >> rowChar;
+    cin >> colChar;
+    cout << endl;
+    goto checkValidity;
+
+    checkValidity:
+    if (this->rules->follows_rules(rowChar, colChar)) {
+        int index = this->board->change_to_index(rowChar, colChar);
+        goto valid;
+    }
+    else {
+        this->responses->is_invalid_space();
+        this->responses->print_board();
+        goto start;
+    }
+    
+    valid:
+    this->board->set_space_status(index, 2);
 }

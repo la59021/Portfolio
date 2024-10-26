@@ -39,5 +39,6 @@ string BattleResponses::status_to_mark(int index) {
     if (board->get_space_status(index) == 2) {
         return "O";
     }
+    return "-1";
 }
 

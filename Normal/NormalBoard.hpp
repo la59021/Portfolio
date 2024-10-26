@@ -1,13 +1,15 @@
-#include "BattleSpace.hpp"
+#ifndef NORMALBOARD_HPP
+#define NORMALBOARD_HPP
+#include "NormalSpace.hpp"
 #include <array>
-
-class Board {
+class NormalBoard {
     public:
-        Board();
+        NormalBoard();
         int getSpaceStatus(int index);
         void setSpaceStatus(int index, int newState);
         int getLength();
     private:
-        Space currentBoard[9] = {Space(), Space(), Space(), Space(), Space(), Space(), Space(), Space(), Space()};
+        NormalSpace currentBoard[9] = {NormalSpace(), NormalSpace(), NormalSpace(), NormalSpace(), NormalSpace(), NormalSpace(), NormalSpace(), NormalSpace(), NormalSpace()};
         int length;
 };
+#endif

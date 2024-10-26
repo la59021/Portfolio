@@ -1,10 +1,11 @@
-#include "BattlePrompts.hpp"
-#include "BattleResponses.hpp"
+#ifndef NORMALRULES_HPP
+#define NORMALRULES_HPP
+#include "NormalPrompts.hpp"
+#include "NormalResponses.hpp"
 using namespace std;
-
-class Rules {
+class NormalRules {
     public:
-        Rules();
+        NormalRules();
         bool followsRules();
         bool wasThereAWinner();
         void takeXTurn();
@@ -14,9 +15,9 @@ class Rules {
         int getLastWinner();
 
     private:
-        Prompts prompts;
-        Responses responses;
-        Board board;
+        NormalPrompts prompts;
+        NormalResponses responses;
+        NormalBoard board;
         int index, winner;
         char rowChar, colChar;
         bool won = false;
@@ -25,3 +26,4 @@ class Rules {
         string checkForWin(bool checkingX);
         void changeToIndex();
 };
+#endif

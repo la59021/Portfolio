@@ -1,10 +1,12 @@
-#include "Normal/NormalGame.hpp"
+#ifndef NORMALLOOP_HPP
+#define NORMALLOOP_HPP
+#include "NormalGame.hpp"
 using namespace std;
-
 class NormalLoop {
     public:
         void start() {
-            Game newGame;
+            NormalGame newGame;
             newGame.start();
         }
 };
+#endif

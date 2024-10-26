@@ -1,6 +1,7 @@
+#ifndef CHARMENU_HPP
+#define CHARMENU_HPP
 #include <array>
 using namespace std;
-
 class CharMenu {
     public:
         CharMenu();
@@ -11,3 +12,4 @@ class CharMenu {
         void ask_for_char(int player);
         void input_char(int player);
 };
+#endif

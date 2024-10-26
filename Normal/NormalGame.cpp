@@ -1,16 +1,12 @@
-#include "Game.hpp"
+#include "NormalGame.hpp"
 using namespace std;
 
-Game::Game() {
-    isXsTurn = true;
-}
-
-void Game::start() {
+void NormalGame::start() {
     Start:
         
 }
 
-void Game::takeTurn() {
+void NormalGame::takeTurn() {
     if (isXsTurn) {
         rules.takeXTurn();
     }

@@ -1,19 +1,19 @@
-#include "BattleBoard.hpp"
+#include "NormalBoard.hpp"
 using namespace std;
 
-Board::Board() {
+NormalBoard::NormalBoard() {
 
 }
 
-int Board::getSpaceStatus(int index) {
+int NormalBoard::getSpaceStatus(int index) {
     return currentBoard[index-1].getStatus();
 }
 
-void Board::setSpaceStatus(int index, int newState) {
+void NormalBoard::setSpaceStatus(int index, int newState) {
     currentBoard[index-1].setStatus(newState);
 }
 
-int Board::getLength() {
+int NormalBoard::getLength() {
     return sizeof(currentBoard) / sizeof(currentBoard[0]);
 }
 

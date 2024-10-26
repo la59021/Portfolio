@@ -1,18 +1,18 @@
-#include "BattlePrompts.hpp"
+#include "NormalPrompts.hpp"
 using namespace std;
 
-Prompts::Prompts() {
+NormalPrompts::NormalPrompts() {
     //ctor
 }
 
-void Prompts::askForXSpace() {
+void NormalPrompts::askForXSpace() {
     cout << "It is X's Turn. Please enter the Desired space. \nUse the format row col:" << endl;
 }
 
-void Prompts::askForOSpace() {
+void NormalPrompts::askForOSpace() {
     cout << "It is O's Turn. Please enter the Desired space. \nUse the format row col:" << endl;
 }
 
-void Prompts::askToPlayAgain() {
+void NormalPrompts::askToPlayAgain() {
     cout << "Would you like to play Again? Y/N:" << endl;
 }

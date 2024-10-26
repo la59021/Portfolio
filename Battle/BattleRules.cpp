@@ -3,7 +3,16 @@ using namespace std;
 
 BattleRules::BattleRules(BattleBoard *board) {
     this->board = board;
-    responses = BattleResponses(board);
+}
+
+bool BattleRules::follows_rules(char rowChar, char colChar) {
+    if (board->valid_inputs(rowChar, colChar)) {
+        int index = board->change_to_index(rowChar, colChar);
+        if (board->empty_space(index)) {
+            return true;
+        }
+    }
+    return false;
 }
 
 bool BattleRules::was_there_a_winner() {
@@ -12,12 +21,17 @@ bool BattleRules::was_there_a_winner() {
         winner = winner[sizeof(winner) - 2];
         string winningCombo = winner;
         winningCombo.resize(sizeof(winningCombo) - 2);
-        if (winner = "1") {
+        if (winner == "1") {
             responses.winner_is_player_1();
+        }
+        if (winner == "2") {
+            responses.winner_is_player_2();
         }
         cout << winningCombo << endl;
         won = true;
+        return true;
     }
+    return false;
 }
 
 bool BattleRules::check_for_tie() {
@@ -27,8 +41,8 @@ bool BattleRules::check_for_tie() {
             allFull = false;
         }
     }
-    if (allFull && check_for_win(true) == "" && check_for_win(false) == "") {
-        responses.print_board(board);
+    if (allFull && check_for_win() == "") {
+        responses.print_board();
         responses.game_was_tie();
         return true;
     }
@@ -37,7 +51,7 @@ bool BattleRules::check_for_tie() {
 
 bool BattleRules::play_again() {
     char reply = 'N';
-    prompts.askToPlayAgain();
+    prompts.ask_to_play_again();
     cin >> reply;
     if (reply == 'Y' || reply == 'y') {
         for (int i = 1; i <= board->get_length(); i++) {

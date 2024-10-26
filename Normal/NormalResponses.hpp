@@ -1,18 +1,19 @@
-#include "BattleBoard.hpp"
+#ifndef NORMALRESPONSES_HPP
+#define NORMALRESPONSES_HPP
+#include "NormalBoard.hpp"
 #include <iostream>
 #include <string>
 using namespace std;
-
-class Responses {
+class NormalResponses {
     public:
-        Responses();
-        void printBoard(Board newBoard);
+        NormalResponses();
+        void printBoard(NormalBoard newBoard);
         void isInvalidSpace();
         void winnerIsX();
         void winnerIsO();
         void gameWasTie();
-
     private:
-        Board board;
+        NormalBoard board;
         string statusToMark(int index);
 };
+#endif

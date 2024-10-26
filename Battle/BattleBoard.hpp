@@ -1,6 +1,7 @@
+#ifndef BATTLEBOARD_HPP
+#define BATTLEBOARD_HPP
 #include "BattleSpace.hpp"
 #include <array>
-
 class BattleBoard {
     public:
         BattleBoard();
@@ -15,3 +16,4 @@ class BattleBoard {
         BattleSpace currentBoard[9] = {BattleSpace(), BattleSpace(), BattleSpace(), BattleSpace(), BattleSpace(), BattleSpace(), BattleSpace(), BattleSpace(), BattleSpace()};
         int length;
 };
+#endif

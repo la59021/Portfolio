@@ -1,12 +1,13 @@
+#ifndef NORMALGAME_HPP
+#define NORMALGAME_HPP
 #include "NormalRules.hpp"
 using namespace std;
-
-class Game {
+class NormalGame {
     public:
         void start();
-
     private:
-        Rules rules;
-        bool isXsTurn;
+        NormalRules rules;
+        bool isXsTurn=true;
         void takeTurn();
 };
+#endif
