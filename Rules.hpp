@@ -1,8 +1,8 @@
-#include "BattlePromptsAndResponses.hpp"
+#include "PromptsAndResponses.hpp"
 
-class BattleRules {
+class Rules {
     public:
-        BattleRules();
+        Rules();
         bool followsRules();
         bool wasThereAWinner();
         void takeXTurn();
@@ -10,9 +10,9 @@ class BattleRules {
         bool checkForTie();
 
     private:
-        BattlePrompts prompts;
-        BattleResponses responses;
-        BattleBoard board;
+        Prompts prompts;
+        Responses responses;
+        Board board;
         int index;
         char rowChar, colChar;
         bool won = false;

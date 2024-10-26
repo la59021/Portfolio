@@ -1,11 +1,11 @@
-#include "BattleBoard.hpp"
+#include "Board.hpp"
 #include <iostream>
 #include <string>
 using namespace std;
 
-class BattlePrompts {
+class Prompts {
     public:
-        BattlePrompts();
+        Prompts();
         void askForXSpace();
         void askForOSpace();
         void askToPlayAgain();
@@ -14,16 +14,16 @@ class BattlePrompts {
 
 };
 
-class BattleResponses {
+class Responses {
     public:
-        BattleResponses();
-        void printBoard(BattleBoard newBoard);
+        Responses();
+        void printBoard(Board newBoard);
         void isInvalidSpace();
         void winnerIsX();
         void winnerIsO();
         void gameWasTie();
 
     private:
-        BattleBoard board;
+        Board board;
         string statusToMark(int index);
 };

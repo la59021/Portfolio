@@ -1,6 +1,6 @@
-class BattleSpace {
+class Space {
     public:
-        BattleSpace();
+        Space();
         int getStatus();
         void setStatus(int newState);
 

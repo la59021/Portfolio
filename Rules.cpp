@@ -1,11 +1,11 @@
-#include "BattleRules.hpp"
+#include "Rules.hpp"
 using namespace std;
 
-BattleRules::BattleRules() {
+Rules::Rules() {
     index = 10;
 }
 
-bool BattleRules::followsRules() {
+bool Rules::followsRules() {
     if (inputIsInRange()) {
         changeToIndex();
         if (spaceIsOpen()) {
@@ -15,11 +15,11 @@ bool BattleRules::followsRules() {
     return false;
 }
 
-bool BattleRules::wasThereAWinner() {
+bool Rules::wasThereAWinner() {
     return won;
 }
 
-void BattleRules::takeXTurn() {
+void Rules::takeXTurn() {
     index = 10;
     rowChar = 'R';
     colChar = 'C';
@@ -65,7 +65,7 @@ void BattleRules::takeXTurn() {
     leave:
 }
 
-void BattleRules::takeOTurn() {
+void Rules::takeOTurn() {
     index = 10;
     rowChar = 'R';
     colChar = 'C';
@@ -111,7 +111,7 @@ void BattleRules::takeOTurn() {
 
 }
 
-bool BattleRules::checkForTie() {
+bool Rules::checkForTie() {
     bool allFull = true;
     for (int i = 1; i <= board.getLength(); i++) {
         if (board.getSpaceStatus(i) == 0) {
@@ -126,7 +126,7 @@ bool BattleRules::checkForTie() {
     return false;
 }
 
-bool BattleRules::inputIsInRange() {
+bool Rules::inputIsInRange() {
     array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
     array <char, 3> rowRange = {'1', '2', '3'};
     for (int i = 0; i < rowRange.size() ; i++) {
@@ -141,14 +141,14 @@ bool BattleRules::inputIsInRange() {
     return false;
 }
 
-bool BattleRules::spaceIsOpen() {
+bool Rules::spaceIsOpen() {
     if (board.getSpaceStatus(index) == 0) {
         return true;
     }
     return false;
 }
 
-string BattleRules::checkForWin(bool checkingX) {
+string Rules::checkForWin(bool checkingX) {
     string reply = "";
     int toCheck = 2;
     if (checkingX) {
@@ -207,7 +207,7 @@ string BattleRules::checkForWin(bool checkingX) {
     return reply;
 }
 
-void BattleRules::changeToIndex() {
+void Rules::changeToIndex() {
     if (rowChar == '1') {
         index = 1;
     }
