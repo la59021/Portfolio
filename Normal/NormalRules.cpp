@@ -62,8 +62,9 @@ void NormalRules::takeXTurn() {
         }
         else {
         }
-
+        
     leave:
+    int x = 0;
 }
 
 void NormalRules::takeOTurn() {
@@ -109,7 +110,7 @@ void NormalRules::takeOTurn() {
         else {
         }
     leave:
-
+    int x = 0;
 }
 
 bool NormalRules::checkForTie() {

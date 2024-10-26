@@ -2,8 +2,19 @@
 using namespace std;
 
 void NormalGame::start() {
-    Start:
-        
+    for (int i = 0; i < 9; i++) {
+        if (!rules.wasThereAWinner()) {
+            if (isXsTurn) {
+                takeTurn();
+                isXsTurn = false;
+            }
+            else {
+                takeTurn();
+                isXsTurn = true;
+            }
+        }
+        rules.checkForTie();
+    }
 }
 
 void NormalGame::takeTurn() {

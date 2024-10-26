@@ -40,5 +40,6 @@ string NormalResponses::statusToMark(int index) {
     if (board.getSpaceStatus(index) == 2) {
         return "O";
     }
+    return "-1";
 }
 
