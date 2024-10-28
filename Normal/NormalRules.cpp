@@ -6,58 +6,58 @@ NormalRules::NormalRules() {
     winner = 0;
 }
 
-bool NormalRules::followsRules() {
-    if (inputIsInRange()) {
-        changeToIndex();
-        if (spaceIsOpen()) {
+bool NormalRules::follows_rules() {
+    if (input_is_in_range()) {
+        change_to_index();
+        if (space_is_open()) {
            return true;
         }
     }
     return false;
 }
 
-bool NormalRules::wasThereAWinner() {
+bool NormalRules::was_there_a_winner() {
     return won;
 }
 
-void NormalRules::takeXTurn() {
+void NormalRules::take_X_turn() {
     index = 10;
     rowChar = 'R';
     colChar = 'C';
-    if (checkForWin(true) != "" || checkForWin(false) != "") {
+    if (check_for_win(true) != "" || check_for_win(false) != "") {
         won = true;
     }
-    if (checkForWin(true) == "" && checkForWin(false) == "") {
+    if (check_for_win(true) == "" && check_for_win(false) == "") {
         goto start;
     }
     else {
         goto leave;
     }
     start:
-        responses.printBoard(board);
-        prompts.askForXSpace();
+        responses.print_board(board);
+        prompts.ask_for_X_space();
         cin >> rowChar;
         cin >> colChar;
         cout << endl;
         goto checkValidity;
 
     checkValidity:
-        if ((followsRules())) {
-            changeToIndex();
+        if ((follows_rules())) {
+            change_to_index();
             goto valid;
         }
         else {
-            responses.isInvalidSpace();
-            responses.printBoard(board);
+            responses.is_invalid_space();
+            responses.print_board(board);
             goto start;
 
         }
 
     valid:
         board.set_space_status(index, 1);
-        if (!won && checkForWin(true) != "") {
-            responses.winnerIsX();
-            cout << checkForWin(true) << endl;
+        if (!won && check_for_win(true) != "") {
+            responses.winner_is_X();
+            cout << check_for_win(true) << endl;
             won = true;
         }
         else {
@@ -67,44 +67,44 @@ void NormalRules::takeXTurn() {
     int x = 0;
 }
 
-void NormalRules::takeOTurn() {
+void NormalRules::take_O_turn() {
     index = 10;
     rowChar = 'R';
     colChar = 'C';
-    if (checkForWin(true) != "" || checkForWin(false) != "") {
+    if (check_for_win(true) != "" || check_for_win(false) != "") {
         won = true;
     }
-    if (checkForWin(true) == "" && checkForWin(false) == "") {
+    if (check_for_win(true) == "" && check_for_win(false) == "") {
         goto start;
     }
     else {
         goto leave;
     }
     start:
-        responses.printBoard(board);
-        prompts.askForOSpace();
+        responses.print_board(board);
+        prompts.ask_for_O_space();
         cin >> rowChar;
         cin >> colChar;
         cout << endl;
         goto checkValidity;
 
     checkValidity:
-        if ((followsRules())) {
-            changeToIndex();
+        if ((follows_rules())) {
+            change_to_index();
             goto valid;
         }
         else {
-            responses.isInvalidSpace();
-            responses.printBoard(board);
+            responses.is_invalid_space();
+            responses.print_board(board);
             goto start;
 
         }
 
     valid:
         board.set_space_status(index, 2);
-        if(!won && checkForWin(false) != "") {
-            responses.winnerIsO();
-            cout << checkForWin(false) << endl;
+        if(!won && check_for_win(false) != "") {
+            responses.winner_is_O();
+            cout << check_for_win(false) << endl;
             won = true;
         }
         else {
@@ -113,14 +113,14 @@ void NormalRules::takeOTurn() {
     int x = 0;
 }
 
-bool NormalRules::checkForTie() {
+bool NormalRules::check_for_tie() {
     bool allFull = true;
     for (int i = 1; i <= board.get_length(); i++) {
         if (board.get_space_status(i) == 0) {
             allFull = false;
         }
     }
-    if (allFull && checkForWin(true) == "" && checkForWin(false) == "") {
+    if (allFull && check_for_win(true) == "" && check_for_win(false) == "") {
         responses.printBoard(board);
         responses.gameWasTie();
         return true;
@@ -128,9 +128,9 @@ bool NormalRules::checkForTie() {
     return false;
 }
 
-bool NormalRules::playAgain() {
+bool NormalRules::play_again() {
     char reply = 'N';
-    prompts.askToPlayAgain();
+    prompts.ask_to_play_again();
     cin >> reply;
     if (reply == 'Y' || reply == 'y') {
         for (int i = 1; i <= board.get_length(); i++) {
@@ -141,11 +141,11 @@ bool NormalRules::playAgain() {
     return false;
 }
 
-int NormalRules::getLastWinner() {
+int NormalRules::get_last_winner() {
     return winner;
 }
 
-bool NormalRules::inputIsInRange() {
+bool NormalRules::input_is_in_range() {
     array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
     array <char, 3> rowRange = {'1', '2', '3'};
     for (int i = 0; i < rowRange.size() ; i++) {
@@ -160,14 +160,14 @@ bool NormalRules::inputIsInRange() {
     return false;
 }
 
-bool NormalRules::spaceIsOpen() {
+bool NormalRules::space_is_open() {
     if (board.get_space_status(index) == 0) {
         return true;
     }
     return false;
 }
 
-string NormalRules::checkForWin(bool checkingX) {
+string NormalRules::check_for_win(bool checkingX) {
     string reply = "";
     int toCheck = 2;
     if (checkingX) {
@@ -229,7 +229,7 @@ string NormalRules::checkForWin(bool checkingX) {
     return reply;
 }
 
-void NormalRules::changeToIndex() {
+void NormalRules::change_to_index() {
     if (rowChar == '1') {
         index = 1;
     }

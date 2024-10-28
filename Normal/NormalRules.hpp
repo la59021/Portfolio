@@ -5,13 +5,13 @@ using namespace std;
 class NormalRules {
     public:
         NormalRules();
-        bool followsRules();
-        bool wasThereAWinner();
-        void takeXTurn();
-        void takeOTurn();
-        bool checkForTie();
-        bool playAgain();
-        int getLastWinner();
+        bool follows_rules(char rowChar, char colChar);
+        bool was_there_a_winner();
+        void take_X_turn();
+        void take_O_turn();
+        bool check_for_tie();
+        bool play_again();
+        int get_last_winner();
     private:
         NormalPrompts prompts;
         NormalResponses responses;
@@ -19,8 +19,8 @@ class NormalRules {
         int index, winner;
         char rowChar, colChar;
         bool won = false;
-        bool inputIsInRange();
-        bool spaceIsOpen();
-        string checkForWin(bool checkingX);
-        void changeToIndex();
+        bool input_is_in_range();
+        bool space_is_open();
+        string check_for_win(bool checkingX);
+        void change_to_index();
 };

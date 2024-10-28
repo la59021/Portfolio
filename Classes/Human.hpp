@@ -14,6 +14,6 @@ class Human : public Player {
     private:
         char mark;
         Board *board;
-        BoardPrinter printer();
+        BoardPrinter *printer;
         NormalRules *rules;
 };
