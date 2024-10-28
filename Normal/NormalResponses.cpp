@@ -5,7 +5,7 @@ NormalResponses::NormalResponses() {
 
 }
 
-void NormalResponses::printBoard(NormalBoard newBoard) {
+void NormalResponses::printBoard(Board newBoard) {
     board = newBoard;
     string row1 = "_| A | B | C |_";
     string row2 = "1| " + statusToMark(1) + " | " + statusToMark(2) + " | " +statusToMark(3) + " |_";
@@ -31,13 +31,13 @@ void NormalResponses::gameWasTie() {
 }
 
 string NormalResponses::statusToMark(int index) {
-    if (board.getSpaceStatus(index) == 0) {
+    if (board.get_space_status(index) == 0) {
         return " ";
     }
-    if (board.getSpaceStatus(index) == 1) {
+    if (board.get_space_status(index) == 1) {
         return "X";
     }
-    if (board.getSpaceStatus(index) == 2) {
+    if (board.get_space_status(index) == 2) {
         return "O";
     }
     return "-1";

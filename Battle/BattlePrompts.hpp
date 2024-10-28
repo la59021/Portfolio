@@ -1,5 +1,5 @@
 #pragma once
-#include "BattleBoard.hpp"
+#include "../Common/Board.hpp"
 #include <iostream>
 #include <string>
 using namespace std;

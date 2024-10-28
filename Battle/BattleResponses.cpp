@@ -1,7 +1,7 @@
 #include "BattleResponses.hpp"
 using namespace std;
 
-BattleResponses::BattleResponses(BattleBoard *board) {
+BattleResponses::BattleResponses(Board *board) {
     this->board = board;
 }
 

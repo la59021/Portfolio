@@ -1,6 +1,6 @@
 #pragma once
 #include "BattleRules.hpp"
-#include "BattleBoard.hpp"
+#include "../Common/Board.hpp"
 #include "BattlePrompts.hpp"
 #include "BattleResponses.hpp"
 #include "Classes/Player.hpp"
@@ -14,7 +14,7 @@ class BattleLoop {
         void create_players();
         void take_player_1_turn();
         void take_player_2_turn();
-        BattleBoard *board;
+        Board *board;
         BattleRules *rules;
         BattlePrompts *prompts;
         BattleResponses *responses;

@@ -12,11 +12,10 @@ class NormalRules {
         bool checkForTie();
         bool playAgain();
         int getLastWinner();
-
     private:
         NormalPrompts prompts;
         NormalResponses responses;
-        NormalBoard board;
+        Board board;
         int index, winner;
         char rowChar, colChar;
         bool won = false;

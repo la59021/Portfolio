@@ -3,7 +3,7 @@
 #include "Paladin.hpp"
 using namespace std;
 
-Paladin::Paladin(BattleBoard *board, char m) {
+Paladin::Paladin(Board *board, BattleRules *rules, char m) {
     mark = m;
 }
 

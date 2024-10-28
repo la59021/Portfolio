@@ -6,7 +6,7 @@
 using namespace std;
 
 void BattleLoop::start() {
-    this->board = new BattleBoard();
+    this->board = new Board();
     this->rules = new BattleRules(board);
     this->prompts = new BattlePrompts();
     this->responses = new BattleResponses(board);
@@ -38,10 +38,10 @@ void BattleLoop::create_players() {
         }
         else if (x == 1) {
             if (classes[x] == 1) {
-                player2 = new Paladin(this->board, marks[x]);
+                player2 = new Paladin(this->board, this->rules, marks[x]);
             }
             if (classes[x] == 2) {
-                player2 = new Alchemist(this->board, marks[x]);
+                player2 = new Alchemist(this->board, this->rules, marks[x]);
             }
         }
     }

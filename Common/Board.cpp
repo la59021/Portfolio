@@ -1,23 +1,23 @@
-#include "BattleBoard.hpp"
+#include "Board.hpp"
 using namespace std;
 
-BattleBoard::BattleBoard() {
+Board::Board() {
 
 }
 
-int BattleBoard::get_space_status(int index) {
+int Board::get_space_status(int index) {
     return currentBoard[index-1].getStatus();
 }
 
-void BattleBoard::set_space_status(int index, int newState) {
+void Board::set_space_status(int index, int newState) {
     currentBoard[index-1].setStatus(newState);
 }
 
-int BattleBoard::get_length() {
+int Board::get_length() {
     return sizeof(currentBoard) / sizeof(currentBoard[0]);
 }
 
-bool BattleBoard::unfilled_spaces() {
+bool Board::unfilled_spaces() {
     for (int x = 0; x < 9; x++) {
         if (currentBoard[x].getStatus() != 0) {
             return false;
@@ -26,7 +26,7 @@ bool BattleBoard::unfilled_spaces() {
     return true;
 }
 
-int BattleBoard::change_to_index(char rowChar, char colChar) {
+int Board::change_to_index(char rowChar, char colChar) {
     int index;
     if (rowChar == '1') {
         index = 1;
@@ -50,7 +50,7 @@ int BattleBoard::change_to_index(char rowChar, char colChar) {
     return index;
 }
 
-bool BattleBoard::valid_inputs(char rowChar, char colChar) {
+bool Board::valid_inputs(char rowChar, char colChar) {
     array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
     array <char, 3> rowRange = {'1', '2', '3'};
     for (int i = 0; i < rowRange.size() ; i++) {
@@ -65,7 +65,7 @@ bool BattleBoard::valid_inputs(char rowChar, char colChar) {
     return false;
 }
 
-bool BattleBoard::empty_space(int index) {
+bool Board::empty_space(int index) {
     if (get_space_status(index) == 0) {
         return true;
     }

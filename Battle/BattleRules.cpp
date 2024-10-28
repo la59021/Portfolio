@@ -1,7 +1,11 @@
 #include "BattleRules.hpp"
 using namespace std;
 
-BattleRules::BattleRules(BattleBoard *board) {
+BattleRules::BattleRules() {
+    this->board = new Board();
+}
+
+BattleRules::BattleRules(Board *board) {
     this->board = board;
 }
 

@@ -1,17 +1,17 @@
 #pragma once
-#include "NormalBoard.hpp"
+#include "../Common/Board.hpp"
 #include <iostream>
 #include <string>
 using namespace std;
 class NormalResponses {
     public:
         NormalResponses();
-        void printBoard(NormalBoard newBoard);
+        void printBoard(Board newBoard);
         void isInvalidSpace();
         void winnerIsX();
         void winnerIsO();
         void gameWasTie();
     private:
-        NormalBoard board;
+        Board board;
         string statusToMark(int index);
 };
