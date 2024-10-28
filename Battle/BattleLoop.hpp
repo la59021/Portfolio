@@ -3,9 +3,9 @@
 #include "../Common/Board.hpp"
 #include "BattlePrompts.hpp"
 #include "BattleResponses.hpp"
-#include "Classes/Player.hpp"
-#include "Classes/Paladin.hpp"
-#include "Classes/Alchemist.hpp"
+#include "../Classes/Player.hpp"
+#include "../Classes/Paladin.hpp"
+#include "../Classes/Alchemist.hpp"
 using namespace std;
 class BattleLoop {
     public:

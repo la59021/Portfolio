@@ -1,26 +1,20 @@
 #pragma once
-#include "NormalPrompts.hpp"
 #include "NormalResponses.hpp"
 using namespace std;
 class NormalRules {
     public:
-        NormalRules();
+        NormalRules(Board *board);
         bool follows_rules(char rowChar, char colChar);
-        bool was_there_a_winner();
-        void take_X_turn();
-        void take_O_turn();
+        bool game_in_progress();
         bool check_for_tie();
-        bool play_again();
         int get_last_winner();
     private:
-        NormalPrompts prompts;
-        NormalResponses responses;
-        Board board;
-        int index, winner;
-        char rowChar, colChar;
+        NormalResponses responses = NULL;
+        Board *board;
+        int winner;
         bool won = false;
-        bool input_is_in_range();
-        bool space_is_open();
+        bool input_is_in_range(char rowChar, char colChar);
+        bool space_is_open(int index);
         string check_for_win(bool checkingX);
-        void change_to_index();
+        int change_to_index(char rowChar, char colChar);
 };

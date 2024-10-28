@@ -1,43 +1,42 @@
 #include "NormalResponses.hpp"
 using namespace std;
 
-NormalResponses::NormalResponses() {
-
+NormalResponses::NormalResponses(Board *board) {
+    this->board = board;
 }
 
-void NormalResponses::printBoard(Board newBoard) {
-    board = newBoard;
+void NormalResponses::print_board() {
     string row1 = "_| A | B | C |_";
-    string row2 = "1| " + statusToMark(1) + " | " + statusToMark(2) + " | " +statusToMark(3) + " |_";
-    string row3 = "2| " + statusToMark(4) + " | " + statusToMark(5) + " | " +statusToMark(6) + " |_";
-    string row4 = "3| " + statusToMark(7) + " | " + statusToMark(8) + " | " +statusToMark(9) + " |_";
+    string row2 = "1| " + status_to_mark(1) + " | " + status_to_mark(2) + " | " +status_to_mark(3) + " |_";
+    string row3 = "2| " + status_to_mark(4) + " | " + status_to_mark(5) + " | " +status_to_mark(6) + " |_";
+    string row4 = "3| " + status_to_mark(7) + " | " + status_to_mark(8) + " | " +status_to_mark(9) + " |_";
     cout << row1 << endl << row2 << endl << row3 << endl << row4 << endl << endl;
 }
 
-void NormalResponses::isInvalidSpace() {
+void NormalResponses::is_invalid_space() {
     cout << "The entered space was invalid" << endl;
 }
 
-void NormalResponses::winnerIsX() {
+void NormalResponses::winner_is_X() {
     cout << "X is the winner!" << endl;
 }
 
-void NormalResponses::winnerIsO() {
+void NormalResponses::winner_is_O() {
     cout << "O is the winner!" << endl;
 }
 
-void NormalResponses::gameWasTie() {
+void NormalResponses::game_was_tie() {
     cout << "The game was a tie!" << endl;
 }
 
-string NormalResponses::statusToMark(int index) {
-    if (board.get_space_status(index) == 0) {
+string NormalResponses::status_to_mark(int index) {
+    if (board->get_space_status(index) == 0) {
         return " ";
     }
-    if (board.get_space_status(index) == 1) {
+    if (board->get_space_status(index) == 1) {
         return "X";
     }
-    if (board.get_space_status(index) == 2) {
+    if (board->get_space_status(index) == 2) {
         return "O";
     }
     return "-1";

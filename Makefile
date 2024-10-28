@@ -3,8 +3,8 @@ fullGame:
 	./full
 
 NormalGame:
-	g++ $()
-
+	g++ Tests/NormalTTT.cpp $(NormalInclude) $(CommonInclude) Classes/Human.cpp -o NormalGame
+	./NormalGame
 
 BaseInclude := main.cpp MainMenu.cpp
 
@@ -12,8 +12,8 @@ MenuInclude := Battle/CharMenu.cpp Battle/ClassMenu.cpp
 
 CommonInclude := Common/Space.cpp Common/Board.cpp
 
-NormalInclude := Normal/NormalGame.cpp Normal/NormalRules.cpp Normal/NormalPrompts.cpp Normal/NormalResponses.cpp
+NormalInclude := Normal/NormalLoop.cpp Normal/NormalRules.cpp Normal/NormalResponses.cpp
 
 BattleInclude := Battle/BattleLoop.cpp Battle/BattleRules.cpp Battle/BattlePrompts.cpp Battle/BattleResponses.cpp
 
-ClassInclude := Battle/Classes/Alchemist.cpp Battle/Classes/Paladin.cpp
+ClassInclude := Classes/Alchemist.cpp Classes/Paladin.cpp

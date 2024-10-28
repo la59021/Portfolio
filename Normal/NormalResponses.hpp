@@ -5,13 +5,13 @@
 using namespace std;
 class NormalResponses {
     public:
-        NormalResponses();
-        void printBoard(Board newBoard);
-        void isInvalidSpace();
-        void winnerIsX();
-        void winnerIsO();
-        void gameWasTie();
+        NormalResponses(Board *board);
+        void print_board();
+        void is_invalid_space();
+        void winner_is_X();
+        void winner_is_O();
+        void game_was_tie();
     private:
-        Board board;
-        string statusToMark(int index);
+        Board *board;
+        string status_to_mark(int index);
 };

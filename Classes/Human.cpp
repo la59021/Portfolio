@@ -10,28 +10,12 @@ Human::Human(Board *board, NormalRules *rules,  char m) {
 }
 
 void Human::move() {
-    
 }
 
 void Human::prompt() {
-    char rowChar, colChar;
-    start:
-    cin >> rowChar;
-    cin >> colChar;
-    cout << endl;
-    goto checkValidity;
+    cout << "It is " << mark << "\'s Turn. Please enter the Desired space. \nUse the format row col:" << endl;
+}
 
-    checkValidity:
-    if (rules->follows_rules(rowChar, colChar)) {
-        int index = board->change_to_index(rowChar, colChar);
-        goto valid;
-    }
-    else {
-        cout << "The entered space was invalid" << endl;
-        print_board();
-        goto start;
-    }
-
-    valid:
-    this->board->set_space_status(index, 1);
+char Human::get_mark() {
+    return mark;
 }
