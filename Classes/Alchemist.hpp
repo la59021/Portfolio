@@ -1,18 +1,17 @@
-#include "../../Common/Board.hpp"
-#include "../BattleRules.hpp"
-
+#include "../Battle/BattleRules.hpp"
 #include "Player.hpp"
 using namespace std;
 
 class Alchemist : public Player {
-    private:
-        Board board;
-        BattleRules rules;
     public:
         Alchemist(Board *board, BattleRules *rules, char m);
         void move() override;
         void prompt() override;
+        char get_mark() override;
+    private:
         char mark;
+        Board *board;
+        BattleRules *rules;
 };
 
 /*

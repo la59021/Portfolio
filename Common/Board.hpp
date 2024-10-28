@@ -1,5 +1,6 @@
 #pragma once
 #include "Space.hpp"
+#include "BoardPrinter.hpp"
 #include <array>
 class Board {
     public:
