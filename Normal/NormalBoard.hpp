@@ -1,5 +1,4 @@
-#ifndef NORMALBOARD_HPP
-#define NORMALBOARD_HPP
+#pragma once
 #include "NormalSpace.hpp"
 #include <array>
 class NormalBoard {
@@ -12,4 +11,3 @@ class NormalBoard {
         NormalSpace currentBoard[9] = {NormalSpace(), NormalSpace(), NormalSpace(), NormalSpace(), NormalSpace(), NormalSpace(), NormalSpace(), NormalSpace(), NormalSpace()};
         int length;
 };
-#endif

@@ -12,5 +12,5 @@ void Paladin::move() {
 }
 
 void Paladin::prompt() {
-    string alchemistDesc = "Alchemist\n";
+    string paladinDesc = "Paladin\n";
 }

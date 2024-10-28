@@ -1,5 +1,4 @@
-#ifndef NORMALSPACE_HPP
-#define NORMALSPACE_HPP
+#pragma once
 class NormalSpace {
     public:
         NormalSpace();
@@ -8,4 +7,3 @@ class NormalSpace {
     private:
         int state = 0;
 };
-#endif

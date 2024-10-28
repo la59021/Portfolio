@@ -1,5 +1,4 @@
-#ifndef NORMALPROMPTS_HPP
-#define NORMALPROMPTS_HPP
+#pragma once
 #include "NormalBoard.hpp"
 #include <iostream>
 #include <string>
@@ -11,4 +10,3 @@ class NormalPrompts {
         void askForOSpace();
         void askToPlayAgain();
 };
-#endif

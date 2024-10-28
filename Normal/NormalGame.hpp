@@ -1,5 +1,4 @@
-#ifndef NORMALGAME_HPP
-#define NORMALGAME_HPP
+#pragma once
 #include "NormalRules.hpp"
 using namespace std;
 class NormalGame {
@@ -10,4 +9,3 @@ class NormalGame {
         bool isXsTurn=true;
         void takeTurn();
 };
-#endif

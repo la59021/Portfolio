@@ -1,5 +1,4 @@
-#ifndef NORMALRULES_HPP
-#define NORMALRULES_HPP
+#pragma once
 #include "NormalPrompts.hpp"
 #include "NormalResponses.hpp"
 using namespace std;
@@ -26,4 +25,3 @@ class NormalRules {
         string checkForWin(bool checkingX);
         void changeToIndex();
 };
-#endif

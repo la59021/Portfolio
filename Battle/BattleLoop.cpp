@@ -30,10 +30,10 @@ void BattleLoop::create_players() {
     for (int x = 0; x < 2; x++) {
         if (x == 0) {
             if (classes[x] == 1) {
-                player1 = new Paladin(this->board, marks[x]);
+                player1 = new Paladin(this->board, this->rules, marks[x]);
             }
             if (classes[x] == 2) {
-                player1 = new Alchemist(this->board, marks[x]);
+                player1 = new Alchemist(this->board, this->rules, marks[x]);
             }
         }
         else if (x == 1) {
@@ -53,25 +53,7 @@ void BattleLoop::take_player_1_turn() {
     char colChar = 'C';
     start:
     this->responses->print_board();
-    this->prompts->ask_for_player_1_space();
-    cin >> rowChar;
-    cin >> colChar;
-    cout << endl;
-    goto checkValidity;
-
-    checkValidity:
-    if (this->rules->follows_rules(rowChar, colChar)) {
-        int index = this->board->change_to_index(rowChar, colChar);
-        goto valid;
-    }
-    else {
-        this->responses->is_invalid_space();
-        this->responses->print_board();
-        goto start;
-    }
-
-    valid:
-    this->board->set_space_status(index, 1);
+    this->player1->prompt();
 }
 
 void BattleLoop::take_player_2_turn() {

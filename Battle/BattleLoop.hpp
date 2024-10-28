@@ -1,5 +1,4 @@
-#ifndef BATTLELOOP_HPP
-#define BATTLELOOP_HPP
+#pragma once
 #include "BattleRules.hpp"
 #include "BattleBoard.hpp"
 #include "BattlePrompts.hpp"
@@ -23,4 +22,3 @@ class BattleLoop {
         Player *player2;
         bool gameInProgress;
 };
-#endif

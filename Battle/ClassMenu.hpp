@@ -1,5 +1,4 @@
-#ifndef CLASSMENU_HPP
-#define CLASSMENU_HPP
+#pragma once
 #include <array>
 using namespace std;
 class ClassMenu {
@@ -12,4 +11,3 @@ class ClassMenu {
         void ask_for_class(int player);
         void ask_for_class();
 };
-#endif

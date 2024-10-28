@@ -1,5 +1,4 @@
-#ifndef NORMALRESPONSES_HPP
-#define NORMALRESPONSES_HPP
+#pragma once
 #include "NormalBoard.hpp"
 #include <iostream>
 #include <string>
@@ -16,4 +15,3 @@ class NormalResponses {
         NormalBoard board;
         string statusToMark(int index);
 };
-#endif

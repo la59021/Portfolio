@@ -1,5 +1,4 @@
-#ifndef BATTLERULES_HPP
-#define BATTLERULES_HPP
+#pragma once
 #include "BattlePrompts.hpp"
 #include "BattleResponses.hpp"
 #include "BattleBoard.hpp"
@@ -20,4 +19,3 @@ class BattleRules{
         bool won = false;
         string check_for_win();
 };
-#endif

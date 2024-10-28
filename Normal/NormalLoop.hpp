@@ -1,5 +1,4 @@
-#ifndef NORMALLOOP_HPP
-#define NORMALLOOP_HPP
+#pragma once
 #include "NormalGame.hpp"
 using namespace std;
 class NormalLoop {
@@ -9,4 +8,3 @@ class NormalLoop {
             newGame.start();
         }
 };
-#endif

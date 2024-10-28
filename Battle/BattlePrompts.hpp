@@ -1,5 +1,4 @@
-#ifndef BATTLEPROMPTS_HPP
-#define BATTLEPROMPTS_HPP
+#pragma once
 #include "BattleBoard.hpp"
 #include <iostream>
 #include <string>
@@ -11,4 +10,3 @@ class BattlePrompts {
         void ask_for_player_2_space();
         void ask_to_play_again();
 };
-#endif

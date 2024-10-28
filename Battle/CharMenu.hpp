@@ -1,5 +1,4 @@
-#ifndef CHARMENU_HPP
-#define CHARMENU_HPP
+#pragma once
 #include <array>
 using namespace std;
 class CharMenu {
@@ -12,4 +11,3 @@ class CharMenu {
         void ask_for_char(int player);
         void input_char(int player);
 };
-#endif

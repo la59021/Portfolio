@@ -1,5 +1,4 @@
-#ifndef BATTLEBOARD_HPP
-#define BATTLEBOARD_HPP
+#pragma once
 #include "BattleSpace.hpp"
 #include <array>
 class BattleBoard {
@@ -16,4 +15,3 @@ class BattleBoard {
         BattleSpace currentBoard[9] = {BattleSpace(), BattleSpace(), BattleSpace(), BattleSpace(), BattleSpace(), BattleSpace(), BattleSpace(), BattleSpace(), BattleSpace()};
         int length;
 };
-#endif

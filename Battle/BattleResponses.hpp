@@ -1,5 +1,4 @@
-#ifndef BATTLERESPONSES_HPP
-#define BATTLERESPONSES_HPP
+#pragma once
 #include "BattleBoard.hpp"
 #include <iostream>
 #include <string>
@@ -16,4 +15,3 @@ class BattleResponses {
         BattleBoard *board;
         string status_to_mark(int index);
 };
-#endif
