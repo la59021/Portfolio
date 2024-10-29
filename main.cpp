@@ -1,8 +1,8 @@
-#include "Game.hpp"
+#include "MainMenu.hpp"
 using namespace std;
 
 int main() {
-    Game newGame;
-    newGame.startGame();
+    MainMenu menu;
+    menu.new_game();
     return 0;
 }
