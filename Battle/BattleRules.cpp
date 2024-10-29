@@ -46,7 +46,6 @@ bool BattleRules::check_for_tie() {
         }
     }
     if (allFull && check_for_win() == "") {
-        responses.print_board();
         responses.game_was_tie();
         return true;
     }

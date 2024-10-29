@@ -1,3 +1,4 @@
+#pragma once
 #include "../Battle/BattleRules.hpp"
 
 #include "Player.hpp"

@@ -1,3 +1,4 @@
+#pragma once
 #include "../Common/Board.hpp"
 #include "../Common/BoardPrinter.hpp"
 #include "../Normal/NormalRules.hpp"

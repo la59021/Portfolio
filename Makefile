@@ -14,6 +14,10 @@ BoardTest:
 	g++ Tests/BoardTest.cpp $(CommonInclude) -o BoardTest
 	./BoardTest
 
+HumanTest:
+	g++ Tests/HumanTest.cpp $(CommonInclude) Classes/Human.cpp Normal/NormalRules.cpp -o BoardTest
+	./BoardTest
+
 BaseInclude := main.cpp MainMenu.cpp
 
 MenuInclude := Battle/CharMenu.cpp Battle/ClassMenu.cpp
