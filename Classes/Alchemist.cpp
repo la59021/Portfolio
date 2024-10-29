@@ -10,10 +10,18 @@ Alchemist::Alchemist(Board *board, BattleRules *rules, char m) {
 }
 
 void Alchemist::move() {
-    
+    char rowChar, colChar;
+}
+
+void Alchemist::skill() {
+
 }
 
 void Alchemist::prompt() {
-    string alchemistDesc = "Alchemist\n";
-    char rowChar, colChar;
+    cout << "It is " << mark << "\'s Turn. Please enter the Desired space. \nUse the format row col:" << endl;
+    
+}
+
+char Alchemist::get_mark() {
+    return mark;
 }

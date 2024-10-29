@@ -6,6 +6,10 @@ NormalGame:
 	g++ Tests/NormalTTT.cpp $(NormalInclude) $(CommonInclude) Classes/Human.cpp -o NormalGame
 	./NormalGame
 
+BattleGame:
+	g++ Tests/BattleTTT.cpp $(BattleInclude) $(CommonInclude) $(ClassInclude) -o BattleGame
+	./BattleGame
+
 BaseInclude := main.cpp MainMenu.cpp
 
 MenuInclude := Battle/CharMenu.cpp Battle/ClassMenu.cpp

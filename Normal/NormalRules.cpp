@@ -58,7 +58,7 @@ bool NormalRules::input_is_in_range(char rowChar, char colChar) {
 }
 
 bool NormalRules::space_is_open(int index) {
-    if (board->get_space_status(index) == 0) {
+    if (board->get_space_status(index) == ' ') {
         return true;
     }
     return false;

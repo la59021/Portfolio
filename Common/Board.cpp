@@ -2,14 +2,13 @@
 using namespace std;
 
 Board::Board() {
-
 }
 
 int Board::get_space_status(int index) {
     return currentBoard[index-1].getStatus();
 }
 
-void Board::set_space_status(int index, int newState) {
+void Board::set_space_status(int index, char newState) {
     currentBoard[index-1].setStatus(newState);
 }
 
@@ -71,3 +70,16 @@ bool Board::empty_space(int index) {
     }
     return false;
 }
+
+void Board::add_marks(char p1, char p2) {
+    player1mark = p1;
+    player2mark = p2;
+}
+
+void Board::print() {
+    cout << "_| A | B | C |_" << endl;
+    cout << "1| " << currentBoard[0].getStatus() << " | " << currentBoard[1].getStatus() << " | " << currentBoard[2].getStatus() << " |_" << endl;
+    cout << "2| " << currentBoard[3].getStatus() << " | " << currentBoard[4].getStatus() << " | " << currentBoard[5].getStatus() << " |_" << endl;
+    cout << "3| " << currentBoard[6].getStatus() << " | " << currentBoard[7].getStatus() << " | " << currentBoard[8].getStatus() << " |_" << endl << endl;
+}
+

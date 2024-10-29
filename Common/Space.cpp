@@ -6,13 +6,13 @@
 // state = 2 => marked by player 2
 
 Space::Space() {
-    state = 0;
+    state = ' ';
 }
 
-int Space::getStatus() {
+char Space::getStatus() {
     return state;
 }
 
-void Space::setStatus(int newState) {
+void Space::setStatus(char newState) {
     state = newState;
 }

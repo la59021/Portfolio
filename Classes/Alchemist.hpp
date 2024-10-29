@@ -5,7 +5,9 @@ using namespace std;
 class Alchemist : public Player {
     public:
         Alchemist(Board *board, BattleRules *rules, char m);
+        void turn() override;
         void move() override;
+        void skill();
         void prompt() override;
         char get_mark() override;
     private:

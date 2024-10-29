@@ -10,8 +10,6 @@ class NormalLoop {
         void start();
     private:
         void create_players();
-        void take_player_1_turn();
-        void take_player_2_turn();
         bool play_again();
         Board *board;
         NormalRules *rules;
