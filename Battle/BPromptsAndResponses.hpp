@@ -1,29 +1,27 @@
-#include "Board.hpp"
+#pragma once
+#include "BBoard.hpp"
 #include <iostream>
 #include <string>
 using namespace std;
 
-class Prompts {
+class BPrompts {
     public:
-        Prompts();
+        BPrompts();
         void askForXSpace();
         void askForOSpace();
         void askToPlayAgain();
-
-    private:
-
 };
 
-class Responses {
+class BResponses {
     public:
-        Responses();
-        void printBoard(Board newBoard);
+        BResponses(BBoard *board);
+        void printBoard();
         void isInvalidSpace();
         void winnerIsX();
         void winnerIsO();
         void gameWasTie();
 
     private:
-        Board board;
+        BBoard *board;
         string statusToMark(int index);
 };

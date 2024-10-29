@@ -1,8 +1,9 @@
-#include "PromptsAndResponses.hpp"
+#pragma once
+#include "BPromptsAndResponses.hpp"
 
-class Rules {
+class BRules {
     public:
-        Rules();
+        BRules();
         bool followsRules();
         bool wasThereAWinner();
         void takeXTurn();
@@ -10,9 +11,9 @@ class Rules {
         bool checkForTie();
 
     private:
-        Prompts prompts;
-        Responses responses;
-        Board board;
+        BPrompts prompts;
+        BResponses responses = Responses(&board);
+        BBoard board;
         int index;
         char rowChar, colChar;
         bool won = false;

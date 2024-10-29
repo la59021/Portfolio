@@ -1,4 +1,12 @@
-#include "Normal/Game.hpp"
+#include "Normal/NGame.hpp"
+#include "Battle/BGame.hpp"
+using namespace std;
+
+int main() {
+    Game game;
+    game.startGame();
+    return 0;
+}
 #include <iostream>
 
 #include "MainMenu.hpp"

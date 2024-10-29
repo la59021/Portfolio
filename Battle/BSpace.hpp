@@ -1,6 +1,7 @@
-class Space {
+#pragma once
+class BSpace {
     public:
-        Space();
+        BSpace();
         int getStatus();
         void setStatus(int newState);
 

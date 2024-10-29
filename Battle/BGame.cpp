@@ -1,11 +1,11 @@
-#include "Game.hpp"
+#include "BGame.hpp"
 using namespace std;
 
-Game::Game() {
+BGame::BGame() {
     isXsTurn = true;
 }
 
-void Game::startGame() {
+void BGame::startGame() {
         for (int i = 0; i < 9; i++) {
             if (!rules.wasThereAWinner()) {
                 if (isXsTurn) {
@@ -21,7 +21,7 @@ void Game::startGame() {
         }
 }
 
-void Game::takeTurn() {
+void BGame::takeTurn() {
     if (isXsTurn) {
         rules.takeXTurn();
     }

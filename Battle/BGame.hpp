@@ -1,13 +1,14 @@
-#include "Rules.hpp"
+#pragma once
+#include "BRules.hpp"
 using namespace std;
 
-class Game {
+class BGame {
     public:
-        Game();
+        BGame();
         void startGame();
 
     private:
-        Rules rules;
+        BRules rules;
         bool isXsTurn;
         void takeTurn();
 };

@@ -1,11 +1,11 @@
-#include "Rules.hpp"
+#include "BRules.hpp"
 using namespace std;
 
-Rules::Rules() {
+BRules::BRules() {
     index = 10;
 }
 
-bool Rules::followsRules() {
+bool BRules::followsRules() {
     if (inputIsInRange()) {
         changeToIndex();
         if (spaceIsOpen()) {
@@ -15,11 +15,11 @@ bool Rules::followsRules() {
     return false;
 }
 
-bool Rules::wasThereAWinner() {
+bool BRules::wasThereAWinner() {
     return won;
 }
 
-void Rules::takeXTurn() {
+void BRules::takeXTurn() {
     index = 10;
     rowChar = 'R';
     colChar = 'C';
@@ -33,7 +33,7 @@ void Rules::takeXTurn() {
         goto leave;
     }
     start:
-        responses.printBoard(board);
+        responses.printBoard();
         prompts.askForXSpace();
         cin >> rowChar;
         cin >> colChar;
@@ -46,8 +46,8 @@ void Rules::takeXTurn() {
             goto valid;
         }
         else {
-            responses.isInvalidSpace();
-            responses.printBoard(board);
+            cout << "The entered space was invalid" << endl;
+            cout << "Try Again" << endl;
             goto start;
 
         }
@@ -63,9 +63,10 @@ void Rules::takeXTurn() {
         }
 
     leave:
+    int x = 0; // just to get the compiler to shutup about the label at the end
 }
 
-void Rules::takeOTurn() {
+void BRules::takeOTurn() {
     index = 10;
     rowChar = 'R';
     colChar = 'C';
@@ -79,7 +80,7 @@ void Rules::takeOTurn() {
         goto leave;
     }
     start:
-        responses.printBoard(board);
+        responses.printBoard();
         prompts.askForOSpace();
         cin >> rowChar;
         cin >> colChar;
@@ -92,8 +93,8 @@ void Rules::takeOTurn() {
             goto valid;
         }
         else {
-            responses.isInvalidSpace();
-            responses.printBoard(board);
+            cout << "The entered space was invalid" << endl;
+            cout << "Try Again" << endl;
             goto start;
 
         }
@@ -108,10 +109,10 @@ void Rules::takeOTurn() {
         else {
         }
     leave:
-
+    int x = 0; // just to get the compiler to shutup about the label at the end
 }
 
-bool Rules::checkForTie() {
+bool BRules::checkForTie() {
     bool allFull = true;
     for (int i = 1; i <= board.getLength(); i++) {
         if (board.getSpaceStatus(i) == 0) {
@@ -119,14 +120,14 @@ bool Rules::checkForTie() {
         }
     }
     if (allFull && checkForWin(true) == "" && checkForWin(false) == "") {
-        responses.printBoard(board);
+        responses.printBoard();
         responses.gameWasTie();
         return true;
     }
     return false;
 }
 
-bool Rules::inputIsInRange() {
+bool BRules::inputIsInRange() {
     array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
     array <char, 3> rowRange = {'1', '2', '3'};
     for (int i = 0; i < rowRange.size() ; i++) {
@@ -141,14 +142,14 @@ bool Rules::inputIsInRange() {
     return false;
 }
 
-bool Rules::spaceIsOpen() {
+bool BRules::spaceIsOpen() {
     if (board.getSpaceStatus(index) == 0) {
         return true;
     }
     return false;
 }
 
-string Rules::checkForWin(bool checkingX) {
+string BRules::checkForWin(bool checkingX) {
     string reply = "";
     int toCheck = 2;
     if (checkingX) {
@@ -207,7 +208,7 @@ string Rules::checkForWin(bool checkingX) {
     return reply;
 }
 
-void Rules::changeToIndex() {
+void BRules::changeToIndex() {
     if (rowChar == '1') {
         index = 1;
     }
