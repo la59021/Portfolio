@@ -1,6 +1,6 @@
-fullGame:
-	g++ $(BaseInclude) $(MenuInclude) $(CommonInclude) $(NormalInclude) $(BattleInclude) $(ClassInclude) -o full
-	./full
+FullGame:
+	g++ $(BaseInclude) $(MenuInclude) $(CommonInclude) $(NormalInclude) $(BattleInclude) $(ClassInclude) -o FullGame
+	./FullGame
 
 NormalGame:
 	g++ Tests/NormalTTT.cpp $(NormalInclude) $(CommonInclude) Classes/Human.cpp -o NormalGame
@@ -11,8 +11,8 @@ BattleGame:
 	./BattleGame
 
 BoardTest:
-	g++ Tests/BoardTest.cpp $(CommonInclude) -o board_test
-	./board_test
+	g++ Tests/BoardTest.cpp $(CommonInclude) -o BoardTest
+	./BoardTest
 
 BaseInclude := main.cpp MainMenu.cpp
 
@@ -25,3 +25,9 @@ NormalInclude := Normal/NormalLoop.cpp Normal/NormalRules.cpp Normal/NormalRespo
 BattleInclude := Battle/BattleLoop.cpp Battle/BattleRules.cpp Battle/BattlePrompts.cpp Battle/BattleResponses.cpp
 
 ClassInclude := Classes/Alchemist.cpp Classes/Paladin.cpp
+
+clean:
+	rm -f FullGame
+	rm -f NormalGame
+	rm -f BattleGame
+	rm -f BoardTest
