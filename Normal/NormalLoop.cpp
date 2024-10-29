@@ -7,7 +7,6 @@ void NormalLoop::start() {
     this->rules = new NormalRules(this->board);
     this->responses = new NormalResponses(this->board);
     create_players();
-    board->add_marks(player1->get_mark(), player2->get_mark());
     int turncount = 0;
     while(this->rules->game_in_progress()) {
         if (turncount % 2 == 0) {
