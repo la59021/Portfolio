@@ -66,9 +66,9 @@ bool NormalRules::space_is_open(int index) {
 
 string NormalRules::check_for_win(bool checkingX) {
     string reply = "";
-    int toCheck = 2;
+    char toCheck = 'O';
     if (checkingX) {
-        toCheck = 1;
+        toCheck = 'X';
     }
     if (board->get_space_status(1) == toCheck) {
         if (board->get_space_status(2) == toCheck) {

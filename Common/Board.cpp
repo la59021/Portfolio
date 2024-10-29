@@ -4,7 +4,7 @@ using namespace std;
 Board::Board() {
 }
 
-int Board::get_space_status(int index) {
+char Board::get_space_status(int index) {
     return currentBoard[index-1].getStatus();
 }
 
@@ -71,15 +71,10 @@ bool Board::empty_space(int index) {
     return false;
 }
 
-void Board::add_marks(char p1, char p2) {
-    player1mark = p1;
-    player2mark = p2;
-}
-
 void Board::print() {
     cout << "_| A | B | C |_" << endl;
-    cout << "1| " << currentBoard[0].getStatus() << " | " << currentBoard[1].getStatus() << " | " << currentBoard[2].getStatus() << " |_" << endl;
-    cout << "2| " << currentBoard[3].getStatus() << " | " << currentBoard[4].getStatus() << " | " << currentBoard[5].getStatus() << " |_" << endl;
-    cout << "3| " << currentBoard[6].getStatus() << " | " << currentBoard[7].getStatus() << " | " << currentBoard[8].getStatus() << " |_" << endl << endl;
+    cout << "1| " << get_space_status(1) << " | " << get_space_status(2) << " | " << get_space_status(3) << " |_" << endl;
+    cout << "2| " << get_space_status(4) << " | " << get_space_status(5) << " | " << get_space_status(6) << " |_" << endl;
+    cout << "3| " << get_space_status(7) << " | " << get_space_status(8) << " | " << get_space_status(9) << " |_" << endl << endl;
 }
 

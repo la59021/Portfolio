@@ -10,6 +10,10 @@ BattleGame:
 	g++ Tests/BattleTTT.cpp $(BattleInclude) $(CommonInclude) $(ClassInclude) -o BattleGame
 	./BattleGame
 
+BoardTest:
+	g++ Tests/BoardTest.cpp $(CommonInclude) -o board_test
+	./board_test
+
 BaseInclude := main.cpp MainMenu.cpp
 
 MenuInclude := Battle/CharMenu.cpp Battle/ClassMenu.cpp
