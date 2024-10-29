@@ -12,7 +12,7 @@ class Rules {
 
     private:
         Prompts prompts;
-        Responses responses;
+        Responses responses = Responses(&board);
         Board board;
         int index;
         char rowChar, colChar;

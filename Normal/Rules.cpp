@@ -33,7 +33,7 @@ void Rules::takeXTurn() {
         goto leave;
     }
     start:
-        responses.printBoard(board);
+        responses.printBoard();
         prompts.askForXSpace();
         cin >> rowChar;
         cin >> colChar;
@@ -80,7 +80,7 @@ void Rules::takeOTurn() {
         goto leave;
     }
     start:
-        responses.printBoard(board);
+        responses.printBoard();
         prompts.askForOSpace();
         cin >> rowChar;
         cin >> colChar;
@@ -120,7 +120,7 @@ bool Rules::checkForTie() {
         }
     }
     if (allFull && checkForWin(true) == "" && checkForWin(false) == "") {
-        responses.printBoard(board);
+        responses.printBoard();
         responses.gameWasTie();
         return true;
     }

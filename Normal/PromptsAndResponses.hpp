@@ -17,14 +17,14 @@ class Prompts {
 
 class Responses {
     public:
-        Responses();
-        void printBoard(Board newBoard);
+        Responses(Board *board);
+        void printBoard();
         void isInvalidSpace();
         void winnerIsX();
         void winnerIsO();
         void gameWasTie();
 
     private:
-        Board board;
+        Board *board;
         string statusToMark(int index);
 };

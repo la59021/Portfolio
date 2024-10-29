@@ -17,12 +17,11 @@ void Prompts::askToPlayAgain() {
     cout << "Would you like to play Again? Y/N:" << endl;
 }
 
-Responses::Responses() {
-
+Responses::Responses(Board *board) {
+    this->board = board;
 }
 
-void Responses::printBoard(Board newBoard) {
-    board = newBoard;
+void Responses::printBoard() {
     cout << "  |  A  |  B  |  C  |  " << endl;
     cout << "--|-----|-----|-----|--" << endl;
     cout << "1 |  " << statusToMark(1) << "  |  " + statusToMark(2) << "  |  " +statusToMark(3) << "  |  " << endl;
@@ -37,10 +36,12 @@ void Responses::isInvalidSpace() {
 }
 
 void Responses::winnerIsX() {
+    printBoard();
     cout << "X is the winner!" << endl;
 }
 
 void Responses::winnerIsO() {
+    printBoard();
     cout << "O is the winner!" << endl;
 }
 
@@ -49,13 +50,13 @@ void Responses::gameWasTie() {
 }
 
 string Responses::statusToMark(int index) {
-    if (board.getSpaceStatus(index) == 0) {
+    if (board->getSpaceStatus(index) == 0) {
         return " ";
     }
-    if (board.getSpaceStatus(index) == 1) {
+    if (board->getSpaceStatus(index) == 1) {
         return "X";
     }
-    if (board.getSpaceStatus(index) == 2) {
+    if (board->getSpaceStatus(index) == 2) {
         return "O";
     }
     return "-1";
