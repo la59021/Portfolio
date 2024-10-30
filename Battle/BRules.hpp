@@ -21,10 +21,11 @@ class BRules {
         BBoardPrinter printer = BBoardPrinter(&board);
         Player *player1;
         Player *player2;
-        char rowChar, colChar;
         bool won = false;
         bool inputIsInRange(const char rowChar, const char colChar);
         bool spaceIsOpen(const int index);
         string checkForWin();
         int changeToIndex(const char rowChar, const char colChar);
+        void makeXMove();
+        void makeOMove();
 };

@@ -5,11 +5,10 @@ using namespace std;
 class Paladin : public Player {
     public:
         Paladin(char m);
-        void turn() override;
         void move() override;
-        void skill();
+        string desc() override;
+        array<int, 2> skill(BBoard *board) override;
         void prompt() override;
-        int prompt_selection();
         char get_mark() const override;
     private:
         char mark;

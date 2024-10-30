@@ -1,3 +1,4 @@
+#include "../Terminate.cpp"
 #include "BRules.hpp"
 using namespace std;
 
@@ -25,6 +26,43 @@ int BRules::gameInProgress() {
 }
 
 void BRules::takeXTurn() {
+    char validMenuOptions[] = {'1','2','3'};
+    char reply;
+    bool validSelection;
+    prompt:
+    validSelection = false;
+    printer.printBoard();
+    player1->prompt();
+    cin >> reply;
+    for(unsigned i = 0; i < sizeof(validMenuOptions); i++) {
+        if (reply == validMenuOptions[i]) {
+            validSelection = true;
+        }
+    }
+    if (!validSelection) {
+        cout << "That was not a valid option. Try again." << endl;
+        goto prompt;
+    }
+    if (validSelection && reply == '1') {
+        makeXMove();
+    }
+    if (validSelection && reply == '2') {
+        player1->skill(&board);
+    }   
+    if (validSelection && reply == '3') {
+        cout << player1->desc();
+        goto prompt;
+    }
+    if (validSelection && reply == '4') {
+        throw stop_now_t();
+    }
+}
+
+void BRules::takeOTurn() {
+    makeOMove();
+}
+
+void BRules::makeXMove() {
     int index = 10;
     char rowChar, colChar;
     if (checkForWin() != "") {
@@ -68,13 +106,12 @@ void BRules::takeXTurn() {
         }
 
     leave:
-    int x = 0; // just to get the compiler to shutup about the label at the end
+    index = 0; // just to get the compiler to shutup about the label at the end
 }
 
-void BRules::takeOTurn() {
+void BRules::makeOMove() {
     int index = 10;
-    rowChar = 'R';
-    colChar = 'C';
+    char rowChar, colChar;
     if (checkForWin() != "") {
         won = true;
     }
@@ -86,7 +123,7 @@ void BRules::takeOTurn() {
     }
     start:
         printer.printBoard();
-        prompts.askForOSpace();
+        player2->prompt();
         cin >> rowChar;
         cin >> colChar;
         cout << endl;
@@ -115,7 +152,7 @@ void BRules::takeOTurn() {
         else {
         }
     leave:
-    int x = 0; // just to get the compiler to shutup about the label at the end
+    index = 0; // just to get the compiler to shutup about the label at the end
 }
 
 bool BRules::checkForTie() {
