@@ -9,7 +9,7 @@ class BRules {
     public:
         BRules();
         void addPlayers(Player *player1, Player *player2);
-        bool followsRules(char rowChar, char colChar);
+        bool followsRules(const char rowChar, const char colChar);
         int gameInProgress();
         void takeXTurn();
         void takeOTurn();
@@ -23,8 +23,8 @@ class BRules {
         Player *player2;
         char rowChar, colChar;
         bool won = false;
-        bool inputIsInRange(char rowChar, char colChar);
-        bool spaceIsOpen(int index);
+        bool inputIsInRange(const char rowChar, const char colChar);
+        bool spaceIsOpen(const int index);
         string checkForWin();
-        int changeToIndex(char rowChar, char colChar);
+        int changeToIndex(const char rowChar, const char colChar);
 };

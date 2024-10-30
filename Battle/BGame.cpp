@@ -7,7 +7,7 @@ void BGame::startGame() {
     int i = 0;
     createPlayers();
     rules.addPlayers(player1, player2);
-    while (!rules.wasThereAWinner()) {
+    while (rules.gameInProgress()) {
         if (i % 2 == 0) {
             rules.takeXTurn();
         }

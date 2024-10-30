@@ -9,7 +9,7 @@ class Alchemist : public Player {
         void move() override;
         void skill();
         void prompt() override;
-        char get_mark() override;
+        char get_mark() const override;
     private:
         char mark;
 };

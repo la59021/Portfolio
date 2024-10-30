@@ -24,6 +24,6 @@ void Alchemist::prompt() {
     
 }
 
-char Alchemist::get_mark() {
+char Alchemist::get_mark() const {
     return mark;
 }

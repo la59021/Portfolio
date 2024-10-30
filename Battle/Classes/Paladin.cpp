@@ -59,6 +59,6 @@ int Paladin::prompt_selection() {
     return 1;
 }
 
-char Paladin::get_mark() {
+char Paladin::get_mark() const {
     return mark;
 }

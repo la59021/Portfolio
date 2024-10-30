@@ -7,5 +7,5 @@ class Player {
         virtual void turn() = 0;
         virtual void move() = 0;
         virtual void prompt() = 0;
-        virtual char get_mark() = 0;
+        virtual char get_mark() const = 0;
 };

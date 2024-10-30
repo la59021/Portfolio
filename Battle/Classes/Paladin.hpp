@@ -10,7 +10,7 @@ class Paladin : public Player {
         void skill();
         void prompt() override;
         int prompt_selection();
-        char get_mark() override;
+        char get_mark() const override;
     private:
         char mark;
 };

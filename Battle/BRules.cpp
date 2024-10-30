@@ -9,8 +9,8 @@ void BRules::addPlayers(Player *player1, Player *player2) {
     this->player2 = player2;
     printer.setMarks(player1->get_mark(), player2->get_mark());
 }
-
-bool BRules::followsRules(char rowChar, char colChar) {
+ 
+bool BRules::followsRules(const char rowChar, const char colChar) {
     if (inputIsInRange(rowChar, colChar)) {
         int index = changeToIndex(rowChar, colChar);
         if (spaceIsOpen(index)) {
@@ -21,7 +21,7 @@ bool BRules::followsRules(char rowChar, char colChar) {
 }
 
 int BRules::gameInProgress() {
-    return won;
+    return !won;
 }
 
 void BRules::takeXTurn() {
@@ -133,9 +133,9 @@ bool BRules::checkForTie() {
     return false;
 }
 
-bool BRules::inputIsInRange(char rowChar, char colChar) {
-    array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
-    array <char, 3> rowRange = {'1', '2', '3'};
+bool BRules::inputIsInRange(const char rowChar, const char colChar) {
+    const array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
+    const array <char, 3> rowRange = {'1', '2', '3'};
     for (unsigned i = 0; i < rowRange.size() ; i++) {
         if (rowChar == rowRange[i]) {
             for (unsigned x = 0; x < colRange.size(); x++) {
@@ -148,7 +148,7 @@ bool BRules::inputIsInRange(char rowChar, char colChar) {
     return false;
 }
 
-bool BRules::spaceIsOpen(int index) {
+bool BRules::spaceIsOpen(const int index) {
     if (board.getSpaceStatus(index) == 0) {
         return true;
     }
@@ -264,7 +264,7 @@ string BRules::checkForWin() {
     return reply;
 }
 
-int BRules::changeToIndex(char rowChar, char colChar) {
+int BRules::changeToIndex(const char rowChar, const char colChar) {
     int index;
     if (rowChar == '1') {
         index = 1;
