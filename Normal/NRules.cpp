@@ -63,7 +63,7 @@ void NRules::takeXTurn() {
         }
 
     leave:
-    int x = 0; // just to get the compiler to shutup about the label at the end
+    index = 10; // just to get the compiler to shutup about the label at the end
 }
 
 void NRules::takeOTurn() {
@@ -109,7 +109,7 @@ void NRules::takeOTurn() {
         else {
         }
     leave:
-    int x = 0; // just to get the compiler to shutup about the label at the end
+    index = 10; // just to get the compiler to shutup about the label at the end
 }
 
 bool NRules::checkForTie() {
@@ -130,9 +130,9 @@ bool NRules::checkForTie() {
 bool NRules::inputIsInRange() {
     array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
     array <char, 3> rowRange = {'1', '2', '3'};
-    for (int i = 0; i < rowRange.size() ; i++) {
+    for (int i = 0; i < sizeof(rowRange); i++) {
         if (rowChar == rowRange[i]) {
-            for (int x = 0; x < colRange.size(); x++) {
+            for (int x = 0; x < sizeof(colRange); x++) {
                 if (colChar == colRange[x]) {
                     return true;
                 }

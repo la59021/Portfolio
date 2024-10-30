@@ -1,12 +1,14 @@
 #include <string>
-
+#include "../BRules.hpp"
 #include "Alchemist.hpp"
 using namespace std;
 
-Alchemist::Alchemist(BBoard *board, BRules *rules, char m) {
-    this->mark = m;
-    this->board = board;
-    this->rules = rules;
+Alchemist::Alchemist (char m) {
+    mark = m;
+}
+
+void Alchemist::turn() {
+    prompt();
 }
 
 void Alchemist::move() {

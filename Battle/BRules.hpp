@@ -14,7 +14,6 @@ class BRules {
         void takeXTurn();
         void takeOTurn();
         bool checkForTie();
-
     private:
         BBoard board;
         BPrompts prompts;

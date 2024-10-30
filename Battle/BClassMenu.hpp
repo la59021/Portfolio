@@ -1,9 +1,9 @@
 #pragma once
 #include <array>
 using namespace std;
-class ClassMenu {
+class BClassMenu {
     public:
-        ClassMenu();
+        BClassMenu();
         array<int, 2> player_classes();
     private:
         int player1class;

@@ -1,18 +1,18 @@
 #include <iostream>
 
-#include "CharMenu.hpp"
+#include "BCharMenu.hpp"
 using namespace std;
 
-CharMenu::CharMenu() {
+BCharMenu::BCharMenu() {
     ask_for_char(1);
     ask_for_char(2);
 }
 
-array<char, 2> CharMenu::player_chars() {
+array<char, 2> BCharMenu::player_chars() {
     return {player1mark, player2mark};
 }
 
-void CharMenu::ask_for_char(int player) {
+void BCharMenu::ask_for_char(int player) {
     string charRulesExpl = "Valid Characters\nThe valid characters are from A to Z, a to z. Also allowed are \"?\", \"!\", \"*\", \"~\", \"$\", \"%\", and \"#\".";
     char validMenuOptions[] = {'1','2','3'};
     char reply;
@@ -46,7 +46,7 @@ void CharMenu::ask_for_char(int player) {
     }
 }
 
-void CharMenu::input_char(int player) {
+void BCharMenu::input_char(int player) {
     char allowedChars[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','?','!','*','~','$','%','#'};
     char reply;
     bool validSelection;

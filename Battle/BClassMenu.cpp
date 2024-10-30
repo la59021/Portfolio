@@ -1,18 +1,18 @@
 #include <iostream>
 
-#include "ClassMenu.hpp"
+#include "BClassMenu.hpp"
 using namespace std;
 
-ClassMenu::ClassMenu() {
+BClassMenu::BClassMenu() {
     ask_for_class(1);
     ask_for_class(2);
 }
 
-array<int, 2> ClassMenu::player_classes() {
+array<int, 2> BClassMenu::player_classes() {
     return {player1class, player2class};
 }
 
-void ClassMenu::ask_for_class(int player) {
+void BClassMenu::ask_for_class(int player) {
     string paladinDesc = "Paladin\n";
     string alchemistDec = "Alchemist\n";
     char validMenuOptions[] = {'1','2','3','4'};

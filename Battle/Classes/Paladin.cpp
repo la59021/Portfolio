@@ -3,9 +3,8 @@
 #include "Paladin.hpp"
 using namespace std;
 
-Paladin::Paladin(BRules *rules, char m) {
-    this->mark = m;
-    this->rules = rules;
+Paladin::Paladin(char m) {
+    mark = m;
 }
 
 void Paladin::turn() {
@@ -57,6 +56,7 @@ int Paladin::prompt_selection() {
     cin >> reply;
     return reply;
 */
+    return 1;
 }
 
 char Paladin::get_mark() {
