@@ -3,7 +3,7 @@
 #include "Alchemist.hpp"
 using namespace std;
 
-Alchemist::Alchemist(Board *board, BattleRules *rules, char m) {
+Alchemist::Alchemist(BBoard *board, BRules *rules, char m) {
     this->mark = m;
     this->board = board;
     this->rules = rules;

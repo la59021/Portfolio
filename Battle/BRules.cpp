@@ -5,6 +5,12 @@ BRules::BRules() {
     index = 10;
 }
 
+void BRules::addPlayers(Player *player1, Player *player2) {
+    this->player1 = player1;
+    this->player2 = player2;
+    printer.setMarks(player1->get_mark(), player2->get_mark());
+}
+
 bool BRules::followsRules() {
     if (inputIsInRange()) {
         changeToIndex();
@@ -33,7 +39,7 @@ void BRules::takeXTurn() {
         goto leave;
     }
     start:
-        responses.printBoard();
+        printer.printBoard();
         prompts.askForXSpace();
         cin >> rowChar;
         cin >> colChar;
@@ -55,6 +61,7 @@ void BRules::takeXTurn() {
     valid:
         board.setSpaceStatus(index, 1);
         if (!won && checkForWin(true) != "") {
+            printer.printBoard();
             responses.winnerIsX();
             cout << checkForWin(true) << endl;
             won = true;
@@ -80,7 +87,7 @@ void BRules::takeOTurn() {
         goto leave;
     }
     start:
-        responses.printBoard();
+        printer.printBoard();
         prompts.askForOSpace();
         cin >> rowChar;
         cin >> colChar;
@@ -102,6 +109,7 @@ void BRules::takeOTurn() {
     valid:
         board.setSpaceStatus(index, 2);
         if (!won && checkForWin(false) != "") {
+            printer.printBoard();
             responses.winnerIsO();
             cout << checkForWin(false) << endl;
             won = true;
@@ -120,7 +128,7 @@ bool BRules::checkForTie() {
         }
     }
     if (allFull && checkForWin(true) == "" && checkForWin(false) == "") {
-        responses.printBoard();
+        printer.printBoard();
         responses.gameWasTie();
         return true;
     }

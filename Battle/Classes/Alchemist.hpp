@@ -1,11 +1,12 @@
 #pragma once
-#include "../Battle/BattleRules.hpp"
+#include "../BRules.hpp"
+#include "../BBoard.hpp"
 #include "Player.hpp"
 using namespace std;
 
 class Alchemist : public Player {
     public:
-        Alchemist(Board *board, BattleRules *rules, char m);
+        Alchemist(BRules *rules, char m);
         void turn() override;
         void move() override;
         void skill();
@@ -13,8 +14,7 @@ class Alchemist : public Player {
         char get_mark() override;
     private:
         char mark;
-        Board *board;
-        BattleRules *rules;
+        BRules *rules;
 };
 
 /*

@@ -15,7 +15,6 @@ class BPrompts {
 class BResponses {
     public:
         BResponses(BBoard *board);
-        void printBoard();
         void isInvalidSpace();
         void winnerIsX();
         void winnerIsO();
@@ -23,5 +22,4 @@ class BResponses {
 
     private:
         BBoard *board;
-        string statusToMark(int index);
 };
