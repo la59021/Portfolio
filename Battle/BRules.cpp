@@ -2,7 +2,6 @@
 using namespace std;
 
 BRules::BRules() {
-    index = 10;
 }
 
 void BRules::addPlayers(Player *player1, Player *player2) {
@@ -11,28 +10,27 @@ void BRules::addPlayers(Player *player1, Player *player2) {
     printer.setMarks(player1->get_mark(), player2->get_mark());
 }
 
-bool BRules::followsRules() {
-    if (inputIsInRange()) {
-        changeToIndex();
-        if (spaceIsOpen()) {
+bool BRules::followsRules(char rowChar, char colChar) {
+    if (inputIsInRange(rowChar, colChar)) {
+        int index = changeToIndex(rowChar, colChar);
+        if (spaceIsOpen(index)) {
            return true;
         }
     }
     return false;
 }
 
-bool BRules::wasThereAWinner() {
+int BRules::gameInProgress() {
     return won;
 }
 
 void BRules::takeXTurn() {
-    index = 10;
-    rowChar = 'R';
-    colChar = 'C';
-    if (checkForWin(true) != "" || checkForWin(false) != "") {
+    int index = 10;
+    char rowChar, colChar;
+    if (checkForWin() != "") {
         won = true;
     }
-    if (checkForWin(true) == "" && checkForWin(false) == "") {
+    if (checkForWin() == "") {
         goto start;
     }
     else {
@@ -47,8 +45,8 @@ void BRules::takeXTurn() {
         goto checkValidity;
 
     checkValidity:
-        if ((followsRules())) {
-            changeToIndex();
+        if ((followsRules(rowChar, colChar))) {
+            changeToIndex(rowChar, colChar);
             goto valid;
         }
         else {
@@ -60,10 +58,10 @@ void BRules::takeXTurn() {
 
     valid:
         board.setSpaceStatus(index, 1);
-        if (!won && checkForWin(true) != "") {
+        if (!won && checkForWin() != "") {
             printer.printBoard();
             responses.winnerIsX();
-            cout << checkForWin(true) << endl;
+            cout << checkForWin() << endl;
             won = true;
         }
         else {
@@ -74,13 +72,13 @@ void BRules::takeXTurn() {
 }
 
 void BRules::takeOTurn() {
-    index = 10;
+    int index = 10;
     rowChar = 'R';
     colChar = 'C';
-    if (checkForWin(true) != "" || checkForWin(false) != "") {
+    if (checkForWin() != "") {
         won = true;
     }
-    if (checkForWin(true) == "" && checkForWin(false) == "") {
+    if (checkForWin() == "") {
         goto start;
     }
     else {
@@ -95,8 +93,8 @@ void BRules::takeOTurn() {
         goto checkValidity;
 
     checkValidity:
-        if ((followsRules())) {
-            changeToIndex();
+        if ((followsRules(rowChar, colChar))) {
+            changeToIndex(rowChar, colChar);
             goto valid;
         }
         else {
@@ -108,10 +106,10 @@ void BRules::takeOTurn() {
 
     valid:
         board.setSpaceStatus(index, 2);
-        if (!won && checkForWin(false) != "") {
+        if (!won && checkForWin() != "") {
             printer.printBoard();
             responses.winnerIsO();
-            cout << checkForWin(false) << endl;
+            cout << checkForWin() << endl;
             won = true;
         }
         else {
@@ -127,7 +125,7 @@ bool BRules::checkForTie() {
             allFull = false;
         }
     }
-    if (allFull && checkForWin(true) == "" && checkForWin(false) == "") {
+    if (allFull && checkForWin() == "") {
         printer.printBoard();
         responses.gameWasTie();
         return true;
@@ -135,7 +133,7 @@ bool BRules::checkForTie() {
     return false;
 }
 
-bool BRules::inputIsInRange() {
+bool BRules::inputIsInRange(char rowChar, char colChar) {
     array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
     array <char, 3> rowRange = {'1', '2', '3'};
     for (unsigned i = 0; i < rowRange.size() ; i++) {
@@ -150,65 +148,115 @@ bool BRules::inputIsInRange() {
     return false;
 }
 
-bool BRules::spaceIsOpen() {
+bool BRules::spaceIsOpen(int index) {
     if (board.getSpaceStatus(index) == 0) {
         return true;
     }
     return false;
 }
 
-string BRules::checkForWin(bool checkingX) {
+string BRules::checkForWin() {
     string reply = "";
-    int toCheck = 2;
-    if (checkingX) {
-        toCheck = 1;
-    }
+    int toCheck;
+    toCheck = board.getSpaceStatus(1);
     if (board.getSpaceStatus(1) == toCheck) {
         if (board.getSpaceStatus(2) == toCheck) {
             if (board.getSpaceStatus(3) == toCheck) {
-                reply = "The Winning combo was (1, A), (1, B), (1, C).";
+                if (toCheck == 1) {
+                    reply += "The winner was Player1.\n"; 
+                }
+                if (toCheck == 2) {
+                    reply += "The winner was Player2.\n"; 
+                }
+                reply += "The Winning combo was (1, A), (1, B), (1, C).";
             }
         }
         if (board.getSpaceStatus(4) == toCheck) {
             if (board.getSpaceStatus(7) == toCheck) {
+                if (toCheck == 1) {
+                    reply += "The winner was Player1.\n"; 
+                }
+                if (toCheck == 2) {
+                    reply += "The winner was Player2.\n"; 
+                }
                 reply = "The Winning combo was (1, A), (2, A), (3, A).";
             }
         }
         if (board.getSpaceStatus(5) == toCheck) {
             if (board.getSpaceStatus(9) == toCheck) {
+                if (toCheck == 1) {
+                    reply += "The winner was Player1.\n"; 
+                }
+                if (toCheck == 2) {
+                    reply += "The winner was Player2.\n"; 
+                }
                 reply = "The Winning combo was (1, A), (2, B), (3, C).";
             }
         }
     }
+    toCheck = board.getSpaceStatus(2);
     if (board.getSpaceStatus(2) == toCheck) {
         if (board.getSpaceStatus(5) == toCheck) {
             if (board.getSpaceStatus(8) == toCheck) {
+                if (toCheck == 1) {
+                    reply += "The winner was Player1.\n"; 
+                }
+                if (toCheck == 2) {
+                    reply += "The winner was Player2.\n"; 
+                }
                 reply = "The Winning combo was (1, B), (2, B), (3, B).";
             }
         }
     }
+    toCheck = board.getSpaceStatus(3);
     if (board.getSpaceStatus(3) == toCheck) {
         if (board.getSpaceStatus(5) == toCheck) {
             if (board.getSpaceStatus(7) == toCheck) {
+                if (toCheck == 1) {
+                    reply += "The winner was Player1.\n"; 
+                }
+                if (toCheck == 2) {
+                    reply += "The winner was Player2.\n"; 
+                }
                 reply = "The Winning combo was (1, C), (2, B), (3, A).";
             }
         }
         if (board.getSpaceStatus(6) == toCheck) {
             if (board.getSpaceStatus(9) == toCheck) {
+                if (toCheck == 1) {
+                    reply += "The winner was Player1.\n"; 
+                }
+                if (toCheck == 2) {
+                    reply += "The winner was Player2.\n"; 
+                }
                 reply = "The Winning combo was (1, C), (2, C), (3, C).";
             }
         }
     }
+    toCheck = board.getSpaceStatus(4);
     if (board.getSpaceStatus(4) == toCheck) {
         if (board.getSpaceStatus(5) == toCheck) {
             if (board.getSpaceStatus(6) == toCheck) {
+                if (toCheck == 1) {
+                    reply += "The winner was Player1.\n"; 
+                }
+                if (toCheck == 2) {
+                    reply += "The winner was Player2.\n"; 
+                }
                 reply = "The Winning combo was (2, A), (2, B), (2, C).";
             }
         }
     }
+    toCheck = board.getSpaceStatus(7);
     if (board.getSpaceStatus(7) == toCheck) {
         if (board.getSpaceStatus(8) == toCheck) {
             if (board.getSpaceStatus(9) == toCheck) {
+                if (toCheck == 1) {
+                    reply += "The winner was Player1.\n"; 
+                }
+                if (toCheck == 2) {
+                    reply += "The winner was Player2.\n"; 
+                }
                 reply = "The Winning combo was (3, A), (3, B), (3, C).";
             }
         }
@@ -216,7 +264,8 @@ string BRules::checkForWin(bool checkingX) {
     return reply;
 }
 
-void BRules::changeToIndex() {
+int BRules::changeToIndex(char rowChar, char colChar) {
+    int index;
     if (rowChar == '1') {
         index = 1;
     }
@@ -236,4 +285,5 @@ void BRules::changeToIndex() {
     else if (colChar == 'C' || colChar == 'c') {
         index += 2;
     }
+    return index;
 }

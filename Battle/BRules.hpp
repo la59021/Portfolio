@@ -9,8 +9,8 @@ class BRules {
     public:
         BRules();
         void addPlayers(Player *player1, Player *player2);
-        bool followsRules();
-        bool wasThereAWinner();
+        bool followsRules(char rowChar, char colChar);
+        int gameInProgress();
         void takeXTurn();
         void takeOTurn();
         bool checkForTie();
@@ -21,11 +21,10 @@ class BRules {
         BBoardPrinter printer = BBoardPrinter(&board);
         Player *player1;
         Player *player2;
-        int index;
         char rowChar, colChar;
         bool won = false;
-        bool inputIsInRange();
-        bool spaceIsOpen();
-        string checkForWin(bool checkingX);
-        void changeToIndex();
+        bool inputIsInRange(char rowChar, char colChar);
+        bool spaceIsOpen(int index);
+        string checkForWin();
+        int changeToIndex(char rowChar, char colChar);
 };
