@@ -1,17 +1,17 @@
-#include "Space.hpp"
+#include "NSpace.hpp"
 
 // state 0 = empty
 // state 1 = marked X
 // state 2 = marked O
 
-Space::Space() {
+NSpace::NSpace() {
 
 }
 
-int Space::getStatus() {
+int NSpace::getStatus() {
     return state;
 }
 
-void Space::setStatus(int newState) {
+void NSpace::setStatus(int newState) {
     state = newState;
 }

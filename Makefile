@@ -1,5 +1,5 @@
 FullGame: clean
-	g++ main.cpp MainMenu.cpp $(NormalInclude) $(BattleInclude) $(MenuInclude) -o FullGame
+	g++ main.cpp MainMenu.cpp $(NormalInclude) $(BattleInclude) -o FullGame
 	./FullGame
 
 NormalGame: clean
@@ -9,11 +9,11 @@ NormalGame: clean
 BattleGame: clean
 	g++ Tests/BattleMain.cpp $(BattleInclude) $(MenuInclude) -o BattleGame
 
-NormalInclude := Normal/Game.cpp Normal/Rules.cpp Normal/PromptsAndResponses.cpp Normal/Board.cpp Normal/Space.cpp
+NormalInclude := Normal/NGame.cpp Normal/NRules.cpp Normal/NPromptsAndResponses.cpp Normal/NBoard.cpp Normal/NSpace.cpp
 
-BattleInclude := Battle/Game.cpp Battle/Rules.cpp Battle/PromptsAndResponses.cpp Battle/Board.cpp Battle/Space.cpp
+BattleInclude := Battle/BGame.cpp Battle/BRules.cpp Battle/BPromptsAndResponses.cpp Battle/BBoard.cpp Battle/BSpace.cpp
 
-MenuInclude := Battle/CharMenu.cpp Battle/ClassMenu.cpp
+MenuInclude := Battle/BCharMenu.cpp Battle/BClassMenu.cpp
 
 clean:
 	@rm -f FullGame

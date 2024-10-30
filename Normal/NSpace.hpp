@@ -1,7 +1,7 @@
 #pragma once
-class Space {
+class NSpace {
     public:
-        Space();
+        NSpace();
         int getStatus();
         void setStatus(int newState);
 

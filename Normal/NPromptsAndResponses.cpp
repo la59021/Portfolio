@@ -1,27 +1,27 @@
-#include "PromptsAndResponses.hpp"
+#include "NPromptsAndResponses.hpp"
 using namespace std;
 
-Prompts::Prompts() {
+NPrompts::NPrompts() {
     //ctor
 }
 
-void Prompts::askForXSpace() {
+void NPrompts::askForXSpace() {
     cout << "It is X's Turn. Please enter the Desired space. \nUse the format row col:" << endl;
 }
 
-void Prompts::askForOSpace() {
+void NPrompts::askForOSpace() {
     cout << "It is O's Turn. Please enter the Desired space. \nUse the format row col:" << endl;
 }
 
-void Prompts::askToPlayAgain() {
+void NPrompts::askToPlayAgain() {
     cout << "Would you like to play Again? Y/N:" << endl;
 }
 
-Responses::Responses(Board *board) {
+NResponses::NResponses(NBoard *board) {
     this->board = board;
 }
 
-void Responses::printBoard() {
+void NResponses::printBoard() {
     cout << "  |  A  |  B  |  C  |  " << endl;
     cout << "--|-----|-----|-----|--" << endl;
     cout << "1 |  " << statusToMark(1) << "  |  " + statusToMark(2) << "  |  " +statusToMark(3) << "  |  " << endl;
@@ -31,25 +31,25 @@ void Responses::printBoard() {
     cout << "3 |  " << statusToMark(7) << "  |  " + statusToMark(8) << "  |  " +statusToMark(9) << "  |  " << endl;
 }
 
-void Responses::isInvalidSpace() {
+void NResponses::isInvalidSpace() {
     cout << "The entered space was invalid" << endl;
 }
 
-void Responses::winnerIsX() {
+void NResponses::winnerIsX() {
     printBoard();
     cout << "X is the winner!" << endl;
 }
 
-void Responses::winnerIsO() {
+void NResponses::winnerIsO() {
     printBoard();
     cout << "O is the winner!" << endl;
 }
 
-void Responses::gameWasTie() {
+void NResponses::gameWasTie() {
     cout << "The game was a tie!" << endl;
 }
 
-string Responses::statusToMark(int index) {
+string NResponses::statusToMark(int index) {
     if (board->getSpaceStatus(index) == 0) {
         return " ";
     }

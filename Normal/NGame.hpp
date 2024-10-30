@@ -1,14 +1,14 @@
 #pragma once
-#include "Rules.hpp"
+#include "NRules.hpp"
 using namespace std;
 
-class Game {
+class NGame {
     public:
-        Game();
+        NGame();
         void startGame();
 
     private:
-        Rules rules;
+        NRules rules;
         bool isXsTurn;
         void takeTurn();
 };

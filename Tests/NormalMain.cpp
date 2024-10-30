@@ -1,8 +1,8 @@
-#include "../Normal/Game.hpp"
+#include "../Normal/NGame.hpp"
 using namespace std;
 
 int main() {
-    Game game;
+    NGame game;
     game.startGame();
     return 0;
 }

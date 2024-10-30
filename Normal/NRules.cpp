@@ -1,11 +1,11 @@
-#include "Rules.hpp"
+#include "NRules.hpp"
 using namespace std;
 
-Rules::Rules() {
+NRules::NRules() {
     index = 10;
 }
 
-bool Rules::followsRules() {
+bool NRules::followsRules() {
     if (inputIsInRange()) {
         changeToIndex();
         if (spaceIsOpen()) {
@@ -15,11 +15,11 @@ bool Rules::followsRules() {
     return false;
 }
 
-bool Rules::wasThereAWinner() {
+bool NRules::wasThereAWinner() {
     return won;
 }
 
-void Rules::takeXTurn() {
+void NRules::takeXTurn() {
     index = 10;
     rowChar = 'R';
     colChar = 'C';
@@ -66,7 +66,7 @@ void Rules::takeXTurn() {
     int x = 0; // just to get the compiler to shutup about the label at the end
 }
 
-void Rules::takeOTurn() {
+void NRules::takeOTurn() {
     index = 10;
     rowChar = 'R';
     colChar = 'C';
@@ -112,7 +112,7 @@ void Rules::takeOTurn() {
     int x = 0; // just to get the compiler to shutup about the label at the end
 }
 
-bool Rules::checkForTie() {
+bool NRules::checkForTie() {
     bool allFull = true;
     for (int i = 1; i <= board.getLength(); i++) {
         if (board.getSpaceStatus(i) == 0) {
@@ -127,7 +127,7 @@ bool Rules::checkForTie() {
     return false;
 }
 
-bool Rules::inputIsInRange() {
+bool NRules::inputIsInRange() {
     array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
     array <char, 3> rowRange = {'1', '2', '3'};
     for (int i = 0; i < rowRange.size() ; i++) {
@@ -142,14 +142,14 @@ bool Rules::inputIsInRange() {
     return false;
 }
 
-bool Rules::spaceIsOpen() {
+bool NRules::spaceIsOpen() {
     if (board.getSpaceStatus(index) == 0) {
         return true;
     }
     return false;
 }
 
-string Rules::checkForWin(bool checkingX) {
+string NRules::checkForWin(bool checkingX) {
     string reply = "";
     int toCheck = 2;
     if (checkingX) {
@@ -208,7 +208,7 @@ string Rules::checkForWin(bool checkingX) {
     return reply;
 }
 
-void Rules::changeToIndex() {
+void NRules::changeToIndex() {
     if (rowChar == '1') {
         index = 1;
     }

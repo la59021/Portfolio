@@ -1,8 +1,8 @@
-#include "../Battle/Game.hpp"
+#include "../Battle/BGame.hpp"
 using namespace std;
 
 int main() {
-    Game game;
+    BGame game;
     game.startGame();
     return 0;
 }

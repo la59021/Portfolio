@@ -12,7 +12,7 @@ class BRules {
 
     private:
         BPrompts prompts;
-        BResponses responses = Responses(&board);
+        BResponses responses = BResponses(&board);
         BBoard board;
         int index;
         char rowChar, colChar;

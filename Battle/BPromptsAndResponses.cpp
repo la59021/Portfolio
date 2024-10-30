@@ -17,7 +17,7 @@ void BPrompts::askToPlayAgain() {
     cout << "Would you like to play Again? Y/N:" << endl;
 }
 
-BResponses::BResponses(Board *board) {
+BResponses::BResponses(BBoard *board) {
     this->board = board;
 }
 

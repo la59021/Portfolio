@@ -1,18 +1,18 @@
-#include "Board.hpp"
+#include "NBoard.hpp"
 using namespace std;
 
-Board::Board() {
+NBoard::NBoard() {
 
 }
 
-int Board::getSpaceStatus(int index) {
+int NBoard::getSpaceStatus(int index) {
     return currentBoard[index-1].getStatus();
 }
 
-void Board::setSpaceStatus(int index, int newState) {
+void NBoard::setSpaceStatus(int index, int newState) {
     currentBoard[index-1].setStatus(newState);
 }
 
-int Board::getLength() {
+int NBoard::getLength() {
     return sizeof(currentBoard) / sizeof(currentBoard[0]);
 }

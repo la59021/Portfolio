@@ -1,14 +1,6 @@
 #include "Normal/NGame.hpp"
 #include "Battle/BGame.hpp"
-using namespace std;
-
-int main() {
-    Game game;
-    game.startGame();
-    return 0;
-}
 #include <iostream>
-
 #include "MainMenu.hpp"
 using namespace std;
 
@@ -37,10 +29,12 @@ void MainMenu::new_game() {
         goto prompt;
     }
     if (validSelection && reply == '1') {
-        Game newGame;
-        newGame.startGame();
+        NGame nGame;
+        nGame.startGame();
     }
     if (validSelection && reply == '2') {
+        BGame bGame;
+        bGame.startGame();
     }   
     if (validSelection && reply == '3') {
         cout << endl << endl << normalModeDesc << endl << endl << battleModeDesc << endl << endl;

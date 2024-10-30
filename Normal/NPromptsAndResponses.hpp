@@ -1,12 +1,12 @@
 #pragma once
-#include "Board.hpp"
+#include "NBoard.hpp"
 #include <iostream>
 #include <string>
 using namespace std;
 
-class Prompts {
+class NPrompts {
     public:
-        Prompts();
+        NPrompts();
         void askForXSpace();
         void askForOSpace();
         void askToPlayAgain();
@@ -15,9 +15,9 @@ class Prompts {
 
 };
 
-class Responses {
+class NResponses {
     public:
-        Responses(Board *board);
+        NResponses(NBoard *board);
         void printBoard();
         void isInvalidSpace();
         void winnerIsX();
@@ -25,6 +25,6 @@ class Responses {
         void gameWasTie();
 
     private:
-        Board *board;
+        NBoard *board;
         string statusToMark(int index);
 };
