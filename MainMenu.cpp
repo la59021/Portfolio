@@ -1,7 +1,8 @@
+#include "Terminate.cpp"
 #include "Normal/NGame.hpp"
 #include "Battle/BGame.hpp"
-#include <iostream>
 #include "MainMenu.hpp"
+#include <iostream>
 using namespace std;
 
 void MainMenu::new_game() {
@@ -41,6 +42,6 @@ void MainMenu::new_game() {
         goto prompt;
     }
     if (validSelection && reply == '4') {
-        system("exit");
+        throw stop_now_t();
     }
 }

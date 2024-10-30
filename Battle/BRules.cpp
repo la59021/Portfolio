@@ -138,9 +138,9 @@ bool BRules::checkForTie() {
 bool BRules::inputIsInRange() {
     array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
     array <char, 3> rowRange = {'1', '2', '3'};
-    for (int i = 0; i < rowRange.size() ; i++) {
+    for (unsigned i = 0; i < rowRange.size() ; i++) {
         if (rowChar == rowRange[i]) {
-            for (int x = 0; x < colRange.size(); x++) {
+            for (unsigned x = 0; x < colRange.size(); x++) {
                 if (colChar == colRange[x]) {
                     return true;
                 }

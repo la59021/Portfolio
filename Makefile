@@ -32,7 +32,7 @@ BattleInclude := Battle/BGame.cpp Battle/BRules.cpp Battle/BPromptsAndResponses.
 
 ClassInclude := Battle/Classes/Alchemist.cpp Battle/Classes/Paladin.cpp
 
-MenuInclude := Battle/BCharMenu.cpp Battle/BClassMenu.cpp
+MenuInclude := Battle/BCharMenu.cpp Battle/BClassMenu.cpp Terminate.cpp
 
 clean:
 	@rm -f 1_Full_Game

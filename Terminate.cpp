@@ -1,0 +1,1 @@
+struct stop_now_t { };
