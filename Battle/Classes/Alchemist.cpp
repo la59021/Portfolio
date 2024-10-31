@@ -1,5 +1,6 @@
 #include <string>
 #include "../BRules.hpp"
+#include "../BBoard.hpp"
 #include "Alchemist.hpp"
 using namespace std;
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "Player.hpp"
+#include "../BBoard.hpp"
 using namespace std;
 
 class Alchemist : public Player {
@@ -11,5 +12,6 @@ class Alchemist : public Player {
         void prompt() override;
         char get_mark() const override;
     private:
+        BBoard *board;
         char mark;
 };

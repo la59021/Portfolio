@@ -3,7 +3,8 @@
 #include "Paladin.hpp"
 using namespace std;
 
-Paladin::Paladin(char m) {
+Paladin::Paladin(BBoard *board, char m) {
+    this -> board = board;
     mark = m;
 }
 
