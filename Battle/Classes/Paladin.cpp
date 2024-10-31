@@ -16,27 +16,27 @@ string Paladin::desc() {
     return "Paladin\n";
 }
 
-array<int, 2> Paladin::skill(BBoard *board) {
+array<int, 2> Paladin::skill() {
     int index1, index2;
     char rowChar1, colChar1, rowChar2, colChar2;
     prompt1:
     cout << "Select the First space" << endl;
     cin >> rowChar1;
     cin >> colChar1;
-    index1 = Player::changeToIndex(rowChar1, colChar1);
-    if (index1 < 0 || index1 > 8) {
+    if (!checkValidity(rowChar1, colChar1)) {
         cout << "not valid" << endl;
         goto prompt1;
     }
+    index1 = changeToIndex(colChar1, colChar2);
     prompt2:
     cout << "Select the Second space" << endl;
     cin >> rowChar2;
     cin >> colChar2;
-    index2 = changeToIndex(rowChar2, colChar2);
-    if (index2 < 0 || index2 > 8) {
+    if (!checkValidity(rowChar2, colChar2)) {
         cout << "not valid" << endl;
         goto prompt2;
     }
+    index2 = changeToIndex(rowChar2, colChar2);
     return {index1, index2}; 
 }
 

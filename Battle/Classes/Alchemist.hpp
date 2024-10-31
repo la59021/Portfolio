@@ -5,10 +5,10 @@ using namespace std;
 
 class Alchemist : public Player {
     public:
-        Alchemist(char m);
+        Alchemist(BBoard *board, char m);
         void move() override;
         string desc() override;
-        array<int, 2> skill(BBoard *board) override;
+        array<int, 2> skill() override;
         void prompt() override;
         char get_mark() const override;
     private:

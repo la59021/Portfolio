@@ -4,7 +4,7 @@
 #include "Alchemist.hpp"
 using namespace std;
 
-Alchemist::Alchemist (char m) {
+Alchemist::Alchemist(BBoard *board, char m) {
     mark = m;
 }
 
@@ -16,7 +16,7 @@ string Alchemist::desc() {
     return "Alchemist\n";
 }
 
-array<int, 2> Alchemist::skill(BBoard *board) {
+array<int, 2> Alchemist::skill() {
     int index1, index2;
     char rowChar1, colChar1, rowChar2, colChar2;
     prompt1:
