@@ -45,6 +45,9 @@ void BRules::player1Turn() {
     printer.printBoard();
     player1->prompt();
     cin >> reply;
+    if (reply == 'q' || reply == 'Q') {
+        throw stop_now_t();
+    }
     for(unsigned i = 0; i < sizeof(validMenuOptions); i++) {
         if (reply == validMenuOptions[i]) {
             validSelection = true;
@@ -79,6 +82,9 @@ void BRules::player2Turn() {
     printer.printBoard();
     player1->prompt();
     cin >> reply;
+    if (reply == 'q' || reply == 'Q') {
+        throw stop_now_t();
+    }
     for(unsigned i = 0; i < sizeof(validMenuOptions); i++) {
         if (reply == validMenuOptions[i]) {
             validSelection = true;

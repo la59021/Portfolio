@@ -20,6 +20,9 @@ void MainMenu::new_game() {
     cout << "[4] Quit" << endl;
     cout << "Your Choice: ";
     cin >> reply;
+    if (reply == 'q' || reply == 'Q') {
+        throw stop_now_t();
+    }
     for(int i = 0; i < sizeof(validMenuOptions); i++) {
         if (reply == validMenuOptions[i]) {
             validSelection = true;

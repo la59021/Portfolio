@@ -5,14 +5,6 @@ BPrompts::BPrompts() {
     //ctor
 }
 
-void BPrompts::askForXSpace() {
-    
-}
-
-void BPrompts::askForOSpace() {
-    cout << "It is O's Turn. Please enter the Desired space. \nUse the format row col:" << endl;
-}
-
 void BPrompts::askToPlayAgain() {
     cout << "Would you like to play Again? Y/N:" << endl;
 }

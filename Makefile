@@ -11,11 +11,11 @@
 	./3_Battle_Game
 
 4: clean # Test the Normal Board functinality.
-	g++ -Wall -std=c++11 Tests/NormalBoardTest.cpp $(NormalInclude) -o 4_Normal_Board_Test
+	g++ -Wall -std=c++11 Tests/NBoardTest.cpp Normal/NPromptsAndResponses.cpp Normal/NBoard.cpp Normal/NSpace.cpp -o 4_Normal_Board_Test
 	./4_Normal_Board_Test
 
 5: clean # Test the Battle Board functinality.
-	g++ -Wall -std=c++11 Tests/BattleBoardTest.cpp -o 5_Battle_Board_Test
+	g++ -Wall -std=c++11 Tests/BBoardTest.cpp Battle/BBoard.cpp Battle/BSpace.cpp -o 5_Battle_Board_Test
 	./5_Battle_Board_Test
 
 6: clean # Test the Paladin class functinality.

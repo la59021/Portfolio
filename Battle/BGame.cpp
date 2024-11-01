@@ -1,3 +1,4 @@
+#include <iostream>
 #include "BBoard.hpp"
 #include "BRules.hpp"
 #include "BCharMenu.hpp"
@@ -14,6 +15,7 @@ BGame::BGame() {
 }
 
 void BGame::startGame() {
+    cout << "At any point when asked for an input use \"q\" or \"Q\" to quit.\n";
     int i = 0;
     createPlayers();
     rules->addPlayers(player1, player2);

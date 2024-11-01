@@ -7,8 +7,6 @@ using namespace std;
 class BPrompts {
     public:
         BPrompts();
-        void askForXSpace();
-        void askForOSpace();
         void askToPlayAgain();
 };
 
