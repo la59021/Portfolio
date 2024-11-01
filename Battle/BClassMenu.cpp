@@ -1,5 +1,5 @@
-#include <iostream>
 #include "../Terminate.cpp"
+#include <iostream>
 #include "BClassMenu.hpp"
 using namespace std;
 

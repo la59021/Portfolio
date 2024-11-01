@@ -1,0 +1,20 @@
+The format for header(.hpp) inclusions is:
+    Local libraries
+    Standard libraries
+    Friend header
+
+The format for source(.cpp) inclusions is:
+    Local libraries
+    Standard libraries
+    Friend header
+    Class's header
+    
+The format for classes headers is:
+    public:
+        methods
+        vars
+    private:
+        methods
+        vars
+
+The class method definitions are done in the same order they are declared in the header. 

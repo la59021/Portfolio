@@ -1,11 +1,11 @@
 #include <iostream>
 #include "BBoard.hpp"
-#include "BRules.hpp"
 #include "BCharMenu.hpp"
 #include "BClassMenu.hpp"
-#include "Classes/Player.hpp"
+#include "BRules.hpp"
 #include "Classes/Alchemist.hpp"
 #include "Classes/Paladin.hpp"
+#include "Classes/Player.hpp"
 #include "BGame.hpp"
 using namespace std;
 

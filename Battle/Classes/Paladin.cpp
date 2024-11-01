@@ -1,5 +1,5 @@
-#include <string>
-#include "../BRules.hpp"
+#include "../BBoard.hpp"
+#include <iostream>
 #include "Paladin.hpp"
 using namespace std;
 

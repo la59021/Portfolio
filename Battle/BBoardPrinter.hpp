@@ -8,10 +8,6 @@ class BBoardPrinter {
         BBoardPrinter(BBoard *board) {
             this->board = board;
         }
-        void setMarks(char mark1, char mark2) {
-            player1mark += mark1;
-            player2mark += mark2;
-        }
         void printBoard() {
             cout << "  |  A  |  B  |  C  |  " << "\n";
             cout << "--|-----|-----|-----|--" << "\n";
@@ -20,6 +16,10 @@ class BBoardPrinter {
             cout << "2 |  " << statusToMark(4) << "  |  " + statusToMark(5) << "  |  " +statusToMark(6) << "  |  " << "\n";
             cout << "--|-----|-----|-----|--" << "\n";
             cout << "3 |  " << statusToMark(7) << "  |  " + statusToMark(8) << "  |  " +statusToMark(9) << "  |  " << "\n";
+        }
+        void setMarks(char mark1, char mark2) {
+            player1mark = mark1;
+            player2mark = mark2;
         }
         string statusToMark(int index) {
             if (board->getSpaceStatus(index) == 0) {

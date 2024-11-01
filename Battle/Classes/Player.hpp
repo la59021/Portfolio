@@ -1,6 +1,6 @@
 #pragma once
-#include <string>
 #include "../BBoard.hpp"
+#include <string>
 using namespace std;
 
 class Player {

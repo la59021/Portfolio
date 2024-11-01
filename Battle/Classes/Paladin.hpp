@@ -1,5 +1,6 @@
 #pragma once
 #include "../BBoard.hpp"
+#include <string>
 #include "Player.hpp"
 using namespace std;
 

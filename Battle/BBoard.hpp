@@ -1,14 +1,13 @@
 #pragma once
-#include <array>
 #include "BSpace.hpp"
+using namespace std;
 
 class BBoard {
     public:
         BBoard();
+        int getLength();
         int getSpaceStatus(int index);
         void setSpaceStatus(int index, int newState);
-        int getLength();
     private:
-        BSpace currentBoard[9] = {BSpace(), BSpace(), BSpace(), BSpace(), BSpace(), BSpace(), BSpace(), BSpace(), BSpace()};
-        int length;
+        BSpace currentBoard[9];
 };

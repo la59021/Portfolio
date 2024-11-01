@@ -1,5 +1,6 @@
-#include <iostream>
 #include "../Terminate.cpp"
+#include <array>
+#include <iostream>
 #include "BCharMenu.hpp"
 using namespace std;
 

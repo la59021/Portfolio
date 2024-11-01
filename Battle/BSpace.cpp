@@ -5,10 +5,10 @@
 // state 2 = marked O
 
 BSpace::BSpace() {
-
+    state = 0;
 }
 
-int BSpace::getStatus() {
+int BSpace::getStatus() const {
     return state;
 }
 

@@ -1,10 +1,10 @@
 #include "../Terminate.cpp"
+#include <array>
 #include "BRules.hpp"
 using namespace std;
 
 BRules::BRules(BBoard *board) {
     this->board = board;
-    responses = BResponses(board);
     printer = BBoardPrinter(board);
 }
 
@@ -13,7 +13,22 @@ void BRules::addPlayers(Player *player1, Player *player2) {
     this->player2 = player2;
     printer.setMarks(player1->get_mark(), player2->get_mark());
 }
- 
+
+bool BRules::checkForTie() {
+    bool allFull = true;
+    for (int i = 1; i <= board->getLength(); i++) {
+        if (board->getSpaceStatus(i) == 0) {
+            allFull = false;
+        }
+    }
+    if (allFull && !checkForWin()) {
+        printer.printBoard();
+        cout << "The game was a tie!" << endl;
+        return true;
+    }
+    return false;
+}
+
 bool BRules::followsRules(const char rowChar, const char colChar) {
     array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
     array <char, 3> rowRange = {'1', '2', '3'};
@@ -110,6 +125,58 @@ void BRules::player2Turn() {
     }
 }
 
+int BRules::changeToIndex(const char rowChar, const char colChar) {
+    int index;
+    if (rowChar == '1') {
+        index = 1;
+    }
+    else if (rowChar == '2') {
+        index = 4;
+    }
+    else {
+        index = 7;
+    }
+
+    if (colChar == 'A' || colChar == 'a') {
+        index += 0;
+    }
+    else if (colChar == 'B' || colChar == 'b') {
+        index += 1;
+    }
+    else if (colChar == 'C' || colChar == 'c') {
+        index += 2;
+    }
+    return index;
+}
+
+bool BRules::checkForWin() {
+    if (board->getSpaceStatus(1) == board->getSpaceStatus(2) && board->getSpaceStatus(1) == board->getSpaceStatus(3) && board->getSpaceStatus(1) != 0) {
+        return true;
+    }
+    if (board->getSpaceStatus(1) == board->getSpaceStatus(4) && board->getSpaceStatus(1) == board->getSpaceStatus(7) && board->getSpaceStatus(1) != 0) {
+        return true;
+    }
+    if (board->getSpaceStatus(1) == board->getSpaceStatus(5) && board->getSpaceStatus(1) == board->getSpaceStatus(9) && board->getSpaceStatus(1) != 0) {
+        return true;
+    }
+    if (board->getSpaceStatus(2) == board->getSpaceStatus(5) && board->getSpaceStatus(2) == board->getSpaceStatus(8) && board->getSpaceStatus(2) != 0) {
+        return true;
+    }
+    if (board->getSpaceStatus(3) == board->getSpaceStatus(5) && board->getSpaceStatus(3) == board->getSpaceStatus(7) && board->getSpaceStatus(3) != 0) {
+        return true;
+    }
+    if (board->getSpaceStatus(3) == board->getSpaceStatus(6) && board->getSpaceStatus(3) == board->getSpaceStatus(9) && board->getSpaceStatus(3) != 0) {
+        return true;
+    }
+    if (board->getSpaceStatus(4) == board->getSpaceStatus(5) && board->getSpaceStatus(4) == board->getSpaceStatus(6) && board->getSpaceStatus(4) != 0) {
+        return true;
+    }
+    if (board->getSpaceStatus(7) == board->getSpaceStatus(8) && board->getSpaceStatus(7) == board->getSpaceStatus(9) && board->getSpaceStatus(7) != 0) {
+        return true;
+    }
+    return false;
+}
+
 void BRules::player1Move() {
     int index = 10;
     char rowChar, colChar;
@@ -144,7 +211,7 @@ void BRules::player1Move() {
         board->setSpaceStatus(index, 1);
         if (!won && checkForWin()) {
             printer.printBoard();
-            responses.winnerIsX();
+            cout << player1->get_mark() << " is the winner!" << endl;
             cout << winningCombo() << endl;
             won = true;
         }
@@ -189,7 +256,7 @@ void BRules::player2Move() {
         board->setSpaceStatus(index, 2);
         if (!won && checkForWin()) {
             printer.printBoard();
-            responses.winnerIsX();
+            cout << player2->get_mark() << " is the winner!" << endl;
             cout << winningCombo() << endl;
             won = true;
         }
@@ -198,49 +265,6 @@ void BRules::player2Move() {
 
     leave:
     index = 0; // just to get the compiler to shutup about the label at the end
-}
-
-bool BRules::checkForTie() {
-    bool allFull = true;
-    for (int i = 1; i <= board->getLength(); i++) {
-        if (board->getSpaceStatus(i) == 0) {
-            allFull = false;
-        }
-    }
-    if (allFull && !checkForWin()) {
-        printer.printBoard();
-        responses.gameWasTie();
-        return true;
-    }
-    return false;
-}
-
-bool BRules::checkForWin() {
-    if (board->getSpaceStatus(1) == board->getSpaceStatus(2) && board->getSpaceStatus(1) == board->getSpaceStatus(3) && board->getSpaceStatus(1) != 0) {
-        return true;
-    }
-    if (board->getSpaceStatus(1) == board->getSpaceStatus(4) && board->getSpaceStatus(1) == board->getSpaceStatus(7) && board->getSpaceStatus(1) != 0) {
-        return true;
-    }
-    if (board->getSpaceStatus(1) == board->getSpaceStatus(5) && board->getSpaceStatus(1) == board->getSpaceStatus(9) && board->getSpaceStatus(1) != 0) {
-        return true;
-    }
-    if (board->getSpaceStatus(2) == board->getSpaceStatus(5) && board->getSpaceStatus(2) == board->getSpaceStatus(8) && board->getSpaceStatus(2) != 0) {
-        return true;
-    }
-    if (board->getSpaceStatus(3) == board->getSpaceStatus(5) && board->getSpaceStatus(3) == board->getSpaceStatus(7) && board->getSpaceStatus(3) != 0) {
-        return true;
-    }
-    if (board->getSpaceStatus(3) == board->getSpaceStatus(6) && board->getSpaceStatus(3) == board->getSpaceStatus(9) && board->getSpaceStatus(3) != 0) {
-        return true;
-    }
-    if (board->getSpaceStatus(4) == board->getSpaceStatus(5) && board->getSpaceStatus(4) == board->getSpaceStatus(6) && board->getSpaceStatus(4) != 0) {
-        return true;
-    }
-    if (board->getSpaceStatus(7) == board->getSpaceStatus(8) && board->getSpaceStatus(7) == board->getSpaceStatus(9) && board->getSpaceStatus(7) != 0) {
-        return true;
-    }
-    return false;
 }
 
 string BRules::winningCombo() {
@@ -318,28 +342,4 @@ string BRules::winningCombo() {
         reply += "The Winning combo was (3, A), (3, B), (3, C).";
     }
     return reply;
-}
-
-int BRules::changeToIndex(const char rowChar, const char colChar) {
-    int index;
-    if (rowChar == '1') {
-        index = 1;
-    }
-    else if (rowChar == '2') {
-        index = 4;
-    }
-    else {
-        index = 7;
-    }
-
-    if (colChar == 'A' || colChar == 'a') {
-        index += 0;
-    }
-    else if (colChar == 'B' || colChar == 'b') {
-        index += 1;
-    }
-    else if (colChar == 'C' || colChar == 'c') {
-        index += 2;
-    }
-    return index;
 }

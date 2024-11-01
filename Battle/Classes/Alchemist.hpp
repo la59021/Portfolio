@@ -1,6 +1,7 @@
 #pragma once
-#include "Player.hpp"
 #include "../BBoard.hpp"
+#include <string>
+#include "Player.hpp"
 using namespace std;
 
 class Alchemist : public Player {
