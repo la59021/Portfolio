@@ -24,6 +24,7 @@ class BRules {
         Player *player2;
         bool won = false;
         bool checkForWin();
+        string winningCombo();
         int changeToIndex(const char rowChar, const char colChar);
         void player1Move();
         void player2Move();

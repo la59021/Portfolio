@@ -8,7 +8,7 @@ class Alchemist : public Player {
         Alchemist(BBoard *board, char m);
         void move() override;
         string desc() override;
-        array<int, 2> skill() override;
+        void skill() override;
         void prompt() override;
         char get_mark() const override;
     private:

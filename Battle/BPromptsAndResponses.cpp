@@ -6,7 +6,7 @@ BPrompts::BPrompts() {
 }
 
 void BPrompts::askForXSpace() {
-    cout << "It is X's Turn. Please enter the Desired space. \nUse the format row col:" << endl;
+    
 }
 
 void BPrompts::askForOSpace() {

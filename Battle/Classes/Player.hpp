@@ -6,7 +6,7 @@ using namespace std;
 class Player {
     public:
         virtual string desc() = 0;
-        virtual array<int, 2> skill() = 0; 
+        virtual void skill() = 0; 
         virtual void move() = 0;
         virtual void prompt() = 0;
         virtual char get_mark() const = 0;
@@ -17,13 +17,17 @@ class Player {
                 if (rowChar == rowRange[i]) {
                     for (int x = 0; x < sizeof(colRange); x++) {
                         if (colChar == colRange[x]) {
-                            int index = changeToIndex(rowChar, colChar);
-                            if (this->board->getSpaceStatus(index) == 0) {
-                                return true;
-                            }
+                            return true;
                         }
                     }
                 }
+            }
+            return false;
+        }
+        bool checkEmpty(const char rowChar, const char colChar) {
+            int index = changeToIndex(rowChar, colChar);
+            if (this->board->getSpaceStatus(index) == 0) {
+                return true;
             }
             return false;
         }

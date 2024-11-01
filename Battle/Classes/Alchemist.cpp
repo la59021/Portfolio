@@ -16,7 +16,7 @@ string Alchemist::desc() {
     return "Alchemist\n";
 }
 
-array<int, 2> Alchemist::skill() {
+void Alchemist::skill() {
     int index1, index2;
     char rowChar1, colChar1, rowChar2, colChar2;
     prompt1:
@@ -37,7 +37,6 @@ array<int, 2> Alchemist::skill() {
         cout << "not valid" << endl;
         goto prompt2;
     }
-    return {index1, index2}; 
 }
 
 void Alchemist::prompt() {
