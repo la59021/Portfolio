@@ -8,6 +8,53 @@ Paladin::Paladin(BBoard *board, char m) {
     mark = m;
 }
 
+bool Paladin::allowedSpace(int index1, int index2) {
+    if (index1 == 1) {
+        if (index2 == 2 || index2 ==4 || index2 == 5) {
+            return true;
+        }
+    }
+    else if (index1 == 2) {
+        if (index2 == 1 || index2 == 3 || index2 == 4 || index2 == 5 || index2 == 6) {
+            return true;
+        }
+    }
+    else if (index1 == 3) { 
+        if (index2 == 2 || index2 == 5 || index2 == 6) {
+            return true;
+        }
+    }
+    else if (index1 == 4) {
+        if (index2 == 1 || index2 == 2 || index2 == 5 || index2 == 7 || index2 == 8) {
+            return true;
+        }
+    }
+    else if (index1 == 5 && index2 != 5) {
+        return true;
+    }
+    else if (index1 == 6) {
+        if (index2 == 2 || index2 == 3 || index2 == 5 || index2 == 8 || index2 == 9) {
+            return true;
+        }
+    }
+    else if (index1 == 7) {
+        if (index2 == 4 || index2 == 5 || index2 == 8) {
+            return true;
+        }
+    }
+    else if (index1 == 8) {
+        if (index2 == 4 || index2 == 5 || index2 == 6 || index2 == 7 || index2 == 9) {
+            return true;
+        }
+    }
+    else if (index1 == 9) {
+        if (index2 == 5 || index2 == 6 || index2 == 8) {
+            return true;
+        }
+    }
+    return false;
+}
+
 void Paladin::move() {
 
 }
@@ -23,7 +70,7 @@ void Paladin::skill() {
     cout << "Select the mark to move. (use the standard format row col)" << endl;
     cin >> rowChar1;
     cin >> colChar1;
-    if (!checkValidity(rowChar1, colChar1)) {
+    if (!isValid(rowChar1, colChar1) || isEmpty(rowChar1, colChar1)) {
         cout << "not valid" << endl;
         goto prompt1;
     }
@@ -33,7 +80,8 @@ void Paladin::skill() {
     cout << "Select where to move it to. (use the standard format row col)" << endl;
     cin >> rowChar2;
     cin >> colChar2;
-    if (!checkValidity(rowChar2, colChar2) || !checkEmpty(rowChar2, colChar2)) {
+    index2 = changeToIndex(rowChar2, colChar2);
+    if (!isValid(rowChar2, colChar2) || !isEmpty(rowChar2, colChar2) || !allowedSpace(index1, index2)) {
         cout << "not valid" << endl;
         goto prompt2;
     }

@@ -1,5 +1,6 @@
 #pragma once
 #include "../BBoard.hpp"
+#include <array>
 #include <string>
 using namespace std;
 
@@ -10,7 +11,7 @@ class Player {
         virtual void move() = 0;
         virtual void prompt() = 0;
         virtual char get_mark() const = 0;
-        bool checkValidity(const char rowChar, const char colChar) {
+        bool isValid(const char rowChar, const char colChar) {
             array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
             array <char, 3> rowRange = {'1', '2', '3'};
             for (unsigned i = 0; i < rowRange.size(); i++) {
@@ -24,7 +25,7 @@ class Player {
             }
             return false;
         }
-        bool checkEmpty(const char rowChar, const char colChar) {
+        bool isEmpty(const char rowChar, const char colChar) {
             int index = changeToIndex(rowChar, colChar);
             if (this->board->getSpaceStatus(index) == 0) {
                 return true;
