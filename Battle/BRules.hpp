@@ -8,7 +8,7 @@ using namespace std;
 
 class BRules {
     public:
-        BRules(BBoard *board);
+        BRules(BBoard *newboard);
         void addPlayers(Player *player1, Player *player2);
         bool checkForTie();
         bool followsRules(const char rowChar, const char colChar);
@@ -21,7 +21,7 @@ class BRules {
         void player1Move();
         void player2Move();
         string winningCombo();
-        BBoard *board;
+        BBoard *board = nullptr;
         Player *player1;
         Player *player2;
         BBoardPrinter printer = BBoardPrinter(board);

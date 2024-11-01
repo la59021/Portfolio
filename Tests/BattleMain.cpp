@@ -3,9 +3,9 @@
 using namespace std;
 
 int main() {
-    BGame game;
     try {
-        game.startGame();
+        BGame bGame;
+        bGame.startGame();
     } catch (stop_now_t& stop) {
         return 0;
     }

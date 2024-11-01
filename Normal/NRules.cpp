@@ -1,4 +1,5 @@
 #include "../Terminate.cpp"
+#include <array>
 #include <iostream>
 #include "NRules.hpp"
 using namespace std;
@@ -142,8 +143,8 @@ void NRules::takeOTurn() {
 }
 
 bool NRules::inputIsInRange() {
-    array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
-    array <char, 3> rowRange = {'1', '2', '3'};
+    array<char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
+    array<char, 3> rowRange = {'1', '2', '3'};
     for (unsigned i = 0; i < rowRange.size(); i++) {
         if (rowChar == rowRange[i]) {
             for (unsigned x = 0; x < colRange.size(); x++) {

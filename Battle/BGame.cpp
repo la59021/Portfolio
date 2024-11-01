@@ -11,7 +11,7 @@ using namespace std;
 
 BGame::BGame() {
     board = BBoard();
-    rules = new BRules(&board);
+    this->rules = new BRules(&board);
 }
 
 void BGame::startGame() {

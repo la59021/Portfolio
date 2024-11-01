@@ -23,7 +23,7 @@ void MainMenu::new_game() {
     if (reply == 'q' || reply == 'Q') {
         throw stop_now_t();
     }
-    for(int i = 0; i < sizeof(validMenuOptions); i++) {
+    for(unsigned i = 0; i < sizeof(validMenuOptions); i++) {
         if (reply == validMenuOptions[i]) {
             validSelection = true;
         }

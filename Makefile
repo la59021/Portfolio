@@ -28,7 +28,7 @@
 
 NormalInclude := Normal/NGame.cpp Normal/NRules.cpp Normal/NPromptsAndResponses.cpp Normal/NBoard.cpp Normal/NSpace.cpp
 
-BattleInclude := Battle/BGame.cpp Battle/BRules.cpp Battle/BPromptsAndResponses.cpp Battle/BBoard.cpp Battle/BSpace.cpp
+BattleInclude := Battle/BGame.cpp Battle/BRules.cpp Battle/BBoard.cpp Battle/BSpace.cpp
 
 ClassInclude := Battle/Classes/Alchemist.cpp Battle/Classes/Paladin.cpp
 

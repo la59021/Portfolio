@@ -1,11 +1,12 @@
+#include "BBoard.hpp"
 #include "../Terminate.cpp"
 #include <array>
 #include "BRules.hpp"
 using namespace std;
 
-BRules::BRules(BBoard *board) {
-    this->board = board;
-    printer = BBoardPrinter(board);
+BRules::BRules(BBoard *newboard) {
+    this->board = newboard;
+    printer = BBoardPrinter(this->board);
 }
 
 void BRules::addPlayers(Player *player1, Player *player2) {
