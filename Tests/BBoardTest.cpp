@@ -1,9 +1,9 @@
 #include "../Battle/BBoard.hpp"
 #include "../Battle/BBoardPrinter.hpp"
-#include <string>
+#include <cassert>
 #include <iostream>
 #include <sstream>
-#include <cassert>
+#include <string>
 using namespace std;
 
 int main() {

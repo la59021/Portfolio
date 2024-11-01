@@ -5,7 +5,7 @@
 // state 2 = marked O
 
 NSpace::NSpace() {
-
+    state = 0;
 }
 
 int NSpace::getStatus() {

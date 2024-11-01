@@ -1,5 +1,6 @@
-#include "NGame.hpp"
+#include "NRules.hpp"
 #include <iostream>
+#include "NGame.hpp"
 using namespace std;
 
 NGame::NGame() {

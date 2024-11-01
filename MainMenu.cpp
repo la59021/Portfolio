@@ -1,8 +1,8 @@
 #include "Terminate.cpp"
-#include "Normal/NGame.hpp"
 #include "Battle/BGame.hpp"
-#include "MainMenu.hpp"
+#include "Normal/NGame.hpp"
 #include <iostream>
+#include "MainMenu.hpp"
 using namespace std;
 
 void MainMenu::new_game() {

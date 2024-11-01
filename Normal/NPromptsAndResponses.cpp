@@ -1,3 +1,5 @@
+#include "NBoard.hpp"
+#include <iostream>
 #include "NPromptsAndResponses.hpp"
 using namespace std;
 
@@ -17,8 +19,17 @@ void NPrompts::askToPlayAgain() {
     cout << "Would you like to play Again? Y/N:" << endl;
 }
 
+
 NResponses::NResponses(NBoard *board) {
     this->board = board;
+}
+
+void NResponses::gameWasTie() {
+    cout << "The game was a tie!" << endl;
+}
+
+void NResponses::isInvalidSpace() {
+    cout << "The entered space was invalid" << endl;
 }
 
 void NResponses::printBoard() {
@@ -31,10 +42,6 @@ void NResponses::printBoard() {
     cout << "3 |  " << statusToMark(7) << "  |  " + statusToMark(8) << "  |  " +statusToMark(9) << "  |  " << "\n";
 }
 
-void NResponses::isInvalidSpace() {
-    cout << "The entered space was invalid" << endl;
-}
-
 void NResponses::winnerIsX() {
     printBoard();
     cout << "X is the winner!" << endl;
@@ -43,10 +50,6 @@ void NResponses::winnerIsX() {
 void NResponses::winnerIsO() {
     printBoard();
     cout << "O is the winner!" << endl;
-}
-
-void NResponses::gameWasTie() {
-    cout << "The game was a tie!" << endl;
 }
 
 string NResponses::statusToMark(int index) {

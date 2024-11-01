@@ -1,9 +1,9 @@
 #include "../Normal/NBoard.hpp"
 #include "../Normal/NPromptsAndResponses.hpp"
-#include <string>
+#include <cassert>
 #include <iostream>
 #include <sstream>
-#include <cassert>
+#include <string>
 using namespace std;
 
 int main() {

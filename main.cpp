@@ -1,5 +1,5 @@
-#include "Terminate.cpp"
 #include "MainMenu.hpp"
+#include "Terminate.cpp"
 using namespace std;
 
 

@@ -1,9 +1,25 @@
 #include "../Terminate.cpp"
+#include <iostream>
 #include "NRules.hpp"
 using namespace std;
 
 NRules::NRules() {
     index = 10;
+}
+
+bool NRules::checkForTie() {
+    bool allFull = true;
+    for (int i = 1; i <= board.getLength(); i++) {
+        if (board.getSpaceStatus(i) == 0) {
+            allFull = false;
+        }
+    }
+    if (allFull && checkForWin(true) == "" && checkForWin(false) == "") {
+        responses.printBoard();
+        responses.gameWasTie();
+        return true;
+    }
+    return false;
 }
 
 bool NRules::followsRules() {
@@ -123,21 +139,6 @@ void NRules::takeOTurn() {
         }
     leave:
     index = 10; // just to get the compiler to shutup about the label at the end
-}
-
-bool NRules::checkForTie() {
-    bool allFull = true;
-    for (int i = 1; i <= board.getLength(); i++) {
-        if (board.getSpaceStatus(i) == 0) {
-            allFull = false;
-        }
-    }
-    if (allFull && checkForWin(true) == "" && checkForWin(false) == "") {
-        responses.printBoard();
-        responses.gameWasTie();
-        return true;
-    }
-    return false;
 }
 
 bool NRules::inputIsInRange() {
