@@ -19,7 +19,7 @@ void Alchemist::move() {
 }
 
 string Alchemist::desc() {
-    return "Alchemist\n";
+    return "Alchemist\nYou are able to use you alchemy to transmute one mark into another.\n Beware the law of equviant exchange as you will have to change one of the oposite marks aswell.";
 }
 
 void Alchemist::skill() {

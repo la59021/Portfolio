@@ -60,7 +60,7 @@ void Paladin::move() {
 }
 
 string Paladin::desc() {
-    return "Paladin\n";
+    return "Paladin\n You are able to use your sheild to protect yourself while moving one of the marks.\nBut be aware that you can't move more than 1 piece";
 }
 
 void Paladin::skill() {

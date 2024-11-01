@@ -13,8 +13,8 @@ array<int, 2> BClassMenu::player_classes() {
 }
 
 void BClassMenu::ask_for_class(int player) {
-    string paladinDesc = "Paladin\n";
-    string alchemistDec = "Alchemist\n";
+    string paladinDesc = "Paladin\n You are able to use your sheild to protect yourself while moving one of the marks.\nBut be aware that you can't move more than 1 piece";
+    string alchemistDec = "Alchemist\nYou are able to use you alchemy to transmute one mark into another.\n Beware the law of equviant exchange as you will have to change one of the oposite marks aswell.";
     char validMenuOptions[] = {'1','2','3','4'};
     char reply;
     bool validSelection;
