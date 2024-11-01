@@ -7,6 +7,7 @@ using namespace std;
 class Alchemist : public Player {
     public:
         Alchemist(BBoard *board, char m);
+        bool allowedSpace(int index1, int index2);
         void move() override;
         string desc() override;
         void skill() override;

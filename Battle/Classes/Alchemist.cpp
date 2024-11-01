@@ -7,6 +7,13 @@ Alchemist::Alchemist(BBoard *board, char m) {
     mark = m;
 }
 
+bool Alchemist::allowedSpace(int index1, int index2) {
+    if (board->getSpaceStatus(index1) == board->getSpaceStatus(index2) || index1 == index2 ) {
+        return false;
+    }
+    return true;
+}
+
 void Alchemist::move() {
     
 }
@@ -19,23 +26,27 @@ void Alchemist::skill() {
     int index1, index2;
     char rowChar1, colChar1, rowChar2, colChar2;
     prompt1:
-    cout << "Select the First space" << endl;
+    cout << "Select the first mark to swap. (use the standard format row col)" << endl;
     cin >> rowChar1;
     cin >> colChar1;
-    index1 = Player::changeToIndex(rowChar1, colChar1);
-    if (index1 < 0 || index1 > 8) {
+    if (!isValid(rowChar1, colChar1) || !isEmpty(rowChar2, colChar2)) {
         cout << "not valid" << endl;
         goto prompt1;
     }
+    index1 = changeToIndex(colChar1, colChar2);
+
     prompt2:
-    cout << "Select the Second space" << endl;
+    cout << "Select the mark to swap it with. (use the standard format row col)" << endl;
     cin >> rowChar2;
     cin >> colChar2;
     index2 = changeToIndex(rowChar2, colChar2);
-    if (index2 < 0 || index2 > 8) {
+    if (!isValid(rowChar2, colChar2) || isEmpty(rowChar2, colChar2) || !allowedSpace(index1, index2)) {
         cout << "not valid" << endl;
         goto prompt2;
     }
+    int index1OldMark = board->getSpaceStatus(index1);
+    board->setSpaceStatus(index1, board->getSpaceStatus(index2));
+    board->setSpaceStatus(index2, index1OldMark);
 }
 
 void Alchemist::prompt() {
