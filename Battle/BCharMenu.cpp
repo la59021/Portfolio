@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "../Terminate.cpp"
 #include "BCharMenu.hpp"
 using namespace std;
 
@@ -25,7 +25,7 @@ void BCharMenu::ask_for_char(int player) {
     cout << "[3] Quit" << endl;
     cout << "Your Choice: ";
     cin >> reply;
-    for(int i = 0; i < sizeof(validMenuOptions); i++) {
+    for(unsigned i = 0; i < sizeof(validMenuOptions); i++) {
         if (reply == validMenuOptions[i]) {
             validSelection = true;
         }
@@ -42,7 +42,7 @@ void BCharMenu::ask_for_char(int player) {
         goto prompt;
     }
     if (validSelection && reply == '3') {
-        system("exit");
+        throw stop_now_t();
     }
 }
 
@@ -54,7 +54,7 @@ void BCharMenu::input_char(int player) {
     validSelection = false;
     cout << endl << endl <<"Player " << player << " pick a character: ";
     cin >> reply;
-    for(int i = 0; i < sizeof(allowedChars); i++) {
+    for(unsigned i = 0; i < sizeof(allowedChars); i++) {
         if (reply == allowedChars[i]) {
             validSelection = true;
         }

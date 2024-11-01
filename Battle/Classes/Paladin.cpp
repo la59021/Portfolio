@@ -3,62 +3,55 @@
 #include "Paladin.hpp"
 using namespace std;
 
-Paladin::Paladin(char m) {
+Paladin::Paladin(BBoard *board, char m) {
+    this -> board = board;
     mark = m;
 }
 
-void Paladin::turn() {
-    prompt();
-    prompt_selection() == 1 ? move() : skill();
+void Paladin::move() {
+
 }
 
-void Paladin::move() {
-/*
-    int index;
-    char rowChar, colChar;
-    start:
-    cout << "Enter the Desired space. \nUse the format row col: "; 
-    cin >> rowChar;
-    cin >> colChar;
-    cout << endl;
-
-    checkValidity:
-    if (this->rules->follows_rules(rowChar, colChar)) {
-        int index = this->board->change_to_index(rowChar, colChar);
-        goto valid;
-    }
-    else {
-        cout << "The entered space was invalid" << endl;
-        goto start;
-    }
-
-    valid:
-    this->board->set_space_status(index, mark);
-*/
+string Paladin::desc() {
+    return "Paladin\n";
 }
 
 void Paladin::skill() {
+    int index1, index2;
+    char rowChar1, colChar1, rowChar2, colChar2;
+    prompt1:
+    cout << "Select the mark to move. (use the standard format row col)" << endl;
+    cin >> rowChar1;
+    cin >> colChar1;
+    if (!checkValidity(rowChar1, colChar1)) {
+        cout << "not valid" << endl;
+        goto prompt1;
+    }
+    index1 = changeToIndex(colChar1, colChar2);
 
+    prompt2:
+    cout << "Select where to move it to. (use the standard format row col)" << endl;
+    cin >> rowChar2;
+    cin >> colChar2;
+    if (!checkValidity(rowChar2, colChar2) || !checkEmpty(rowChar2, colChar2)) {
+        cout << "not valid" << endl;
+        goto prompt2;
+    }
+    index2 = changeToIndex(rowChar2, colChar2);
+    int status = board->getSpaceStatus(index1);
+    board->setSpaceStatus(index2, status);
+    board->setSpaceStatus(index1, 0);
 }
 
 void Paladin::prompt() {
-/*
     cout << "It is " << mark << "\'s Turn." << endl;
     cout << "Do you want to..." << endl;
     cout << "[1] Make a move" << endl;
-    cout << "[2] Use your skill to move a mark";
-*/
+    cout << "[2] Use your skill to move a mark" << endl;
+    cout << "[3] See an Explination of your skill" << endl;
+    cout << "[4] Quit" << endl;
 }
 
-int Paladin::prompt_selection() {
-/*
-    int reply;
-    cin >> reply;
-    return reply;
-*/
-    return 1;
-}
-
-char Paladin::get_mark() {
+char Paladin::get_mark() const {
     return mark;
 }

@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "../Terminate.cpp"
 #include "BClassMenu.hpp"
 using namespace std;
 
@@ -27,7 +27,7 @@ void BClassMenu::ask_for_class(int player) {
     cout << "[4] Quit" << endl;
     cout << "Your Choice: ";
     cin >> reply;
-    for(int i = 0; i < sizeof(validMenuOptions); i++) {
+    for(unsigned i = 0; i < sizeof(validMenuOptions); i++) {
         if (reply == validMenuOptions[i]) {
             validSelection = true;
         }
@@ -57,6 +57,6 @@ void BClassMenu::ask_for_class(int player) {
         goto prompt;
     }
     if (validSelection && reply == '4') {
-        system("exit");
+        throw stop_now_t();
     }
 }

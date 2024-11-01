@@ -1,18 +1,28 @@
-#include "BGame.hpp"
+#include "BBoard.hpp"
+#include "BRules.hpp"
 #include "BCharMenu.hpp"
 #include "BClassMenu.hpp"
+#include "Classes/Player.hpp"
+#include "Classes/Alchemist.hpp"
+#include "Classes/Paladin.hpp"
+#include "BGame.hpp"
 using namespace std;
+
+BGame::BGame() {
+    board = BBoard();
+    rules = new BRules(&board);
+}
 
 void BGame::startGame() {
     int i = 0;
     createPlayers();
-    rules.addPlayers(player1, player2);
-    while (!rules.wasThereAWinner()) {
+    rules->addPlayers(player1, player2);
+    while (rules->gameInProgress()) {
         if (i % 2 == 0) {
-            rules.takeXTurn();
+            rules->player1Turn();
         }
         else {
-            rules.takeOTurn();
+            rules->player2Turn();
         }
         i++;
     }
@@ -26,18 +36,18 @@ void BGame::createPlayers() {
     for (int x = 0; x < 2; x++) {
         if (x == 0) {
             if (classes[x] == 1) {
-                player1 = new Paladin(marks[x]);
+                player1 = new Paladin(&board, marks[x]);
             }
             if (classes[x] == 2) {
-                player1 = new Alchemist(marks[x]);
+                player1 = new Alchemist(&board, marks[x]);
             }
         }
         else if (x == 1) {
             if (classes[x] == 1) {
-                player2 = new Paladin(marks[x]);
+                player2 = new Paladin(&board, marks[x]);
             }
             if (classes[x] == 2) {
-                player2 = new Alchemist(marks[x]);
+                player2 = new Alchemist(&board, marks[x]);
             }
         }
     }

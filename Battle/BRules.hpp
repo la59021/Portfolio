@@ -1,4 +1,5 @@
 #pragma once
+#include "BBoard.hpp"
 #include "BPromptsAndResponses.hpp"
 #include "BBoardPrinter.hpp"
 #include "Classes/Player.hpp"
@@ -7,25 +8,24 @@
 
 class BRules {
     public:
-        BRules();
+        BRules(BBoard *board);
         void addPlayers(Player *player1, Player *player2);
-        bool followsRules();
-        bool wasThereAWinner();
-        void takeXTurn();
-        void takeOTurn();
+        bool followsRules(const char rowChar, const char colChar);
+        int gameInProgress();
+        void player1Turn();
+        void player2Turn();
         bool checkForTie();
     private:
-        BBoard board;
+        BBoard *board;
         BPrompts prompts;
-        BResponses responses = BResponses(&board);
-        BBoardPrinter printer = BBoardPrinter(&board);
+        BResponses responses = BResponses(board);
+        BBoardPrinter printer = BBoardPrinter(board);
         Player *player1;
         Player *player2;
-        int index;
-        char rowChar, colChar;
         bool won = false;
-        bool inputIsInRange();
-        bool spaceIsOpen();
-        string checkForWin(bool checkingX);
-        void changeToIndex();
+        bool checkForWin();
+        string winningCombo();
+        int changeToIndex(const char rowChar, const char colChar);
+        void player1Move();
+        void player2Move();
 };

@@ -1,37 +1,17 @@
 #pragma once
 #include "Player.hpp"
+#include "../BBoard.hpp"
 using namespace std;
 
 class Alchemist : public Player {
     public:
-        Alchemist(char m);
-        void turn() override;
+        Alchemist(BBoard *board, char m);
         void move() override;
-        void skill();
+        string desc() override;
+        void skill() override;
         void prompt() override;
-        char get_mark() override;
+        char get_mark() const override;
     private:
+        BBoard *board;
         char mark;
 };
-
-/*
-start:
-    cin >> rowChar;
-    cin >> colChar;
-    cout << endl;
-    goto checkValidity;
-
-    checkValidity:
-    if (this->*rules->follows_rules(rowChar, colChar)) {
-        int index = this->board->change_to_index(rowChar, colChar);
-        goto valid;
-    }
-    else {
-        this->responses->is_invalid_space();
-        this->responses->print_board();
-        goto start;
-    }
-
-    valid:
-    this->board->set_space_status(index, 1);
-*/

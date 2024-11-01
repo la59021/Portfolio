@@ -1,8 +1,14 @@
+#include "Terminate.cpp"
 #include "MainMenu.hpp"
 using namespace std;
 
+
 int main() {
     MainMenu menu;
-    menu.new_game();
+    try {
+        menu.new_game();
+    } catch (stop_now_t& stop) {
+        return 0;
+    }
     return 0;
 }

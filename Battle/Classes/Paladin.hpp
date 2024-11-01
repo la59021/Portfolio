@@ -1,16 +1,17 @@
 #pragma once
+#include "../BBoard.hpp"
 #include "Player.hpp"
 using namespace std;
 
 class Paladin : public Player {
     public:
-        Paladin(char m);
-        void turn() override;
+        Paladin(BBoard *board, char m);
         void move() override;
-        void skill();
+        string desc() override;
+        void skill() override;
         void prompt() override;
-        int prompt_selection();
-        char get_mark() override;
+        char get_mark() const override;
     private:
+        BBoard *board;
         char mark;
 };
