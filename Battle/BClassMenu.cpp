@@ -5,7 +5,9 @@ using namespace std;
 
 BClassMenu::BClassMenu() {
     ask_for_class(1);
+    cout << endl;
     ask_for_class(2);
+    cout << endl;
 }
 
 array<int, 2> BClassMenu::player_classes() {

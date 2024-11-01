@@ -3,9 +3,7 @@
 #include "Alchemist.hpp"
 using namespace std;
 
-Alchemist::Alchemist(BBoard *board, char m) {
-    mark = m;
-}
+Alchemist::Alchemist(BBoard *board, char m) : board(board), mark(m) {}
 
 bool Alchemist::allowedSpace(int index1, int index2) {
     if (board->getSpaceStatus(index1) == board->getSpaceStatus(index2) || index1 == index2 ) {

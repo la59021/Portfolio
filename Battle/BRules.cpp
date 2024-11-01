@@ -78,8 +78,9 @@ void BRules::player1Turn() {
     }
     if (validSelection && reply == '2') {
         bool boardIsEmpty = true;
-        for (int i = 0; i < board->getLength(); i++) {
+        for (int i = 1; i < 10; i++) {
             if (board->getSpaceStatus(i) != 0) {
+                cout << board->getSpaceStatus(i);
                 boardIsEmpty = false;
             }
         }  
@@ -209,7 +210,7 @@ void BRules::player1Move() {
     }
     start:
         printer->printBoard();
-        cout << "It is" << player1->get_mark() << "'s Turn. Please enter the Desired space. \nUse the format row col:" << endl;
+        cout << "It is " << player1->get_mark() << "'s Turn. Please enter the Desired space. \nUse the format row col:" << endl;
         cin >> rowChar;
         cin >> colChar;
         cout << endl;
@@ -254,7 +255,7 @@ void BRules::player2Move() {
     }
     start:
         printer->printBoard();
-        cout << "It is" << player2->get_mark() << "'s Turn. Please enter the Desired space. \nUse the format row col:" << endl;
+        cout << "It is " << player2->get_mark() << "'s Turn. Please enter the Desired space. \nUse the format row col:" << endl;
         cin >> rowChar;
         cin >> colChar;
         cout << endl;
