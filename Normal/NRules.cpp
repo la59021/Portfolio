@@ -1,3 +1,4 @@
+#include "../Terminate.cpp"
 #include "NRules.hpp"
 using namespace std;
 
@@ -36,7 +37,13 @@ void NRules::takeXTurn() {
         responses.printBoard();
         prompts.askForXSpace();
         cin >> rowChar;
+        if (rowChar == 'q' || rowChar == 'Q') {
+            throw stop_now_t();
+        }
         cin >> colChar;
+        if (colChar == 'q' || colChar == 'Q') {
+            throw stop_now_t();
+        }
         cout << endl;
         goto checkValidity;
 
@@ -83,7 +90,13 @@ void NRules::takeOTurn() {
         responses.printBoard();
         prompts.askForOSpace();
         cin >> rowChar;
+        if (rowChar == 'q' || rowChar == 'Q') {
+            throw stop_now_t();
+        }
         cin >> colChar;
+        if (colChar == 'q' || colChar == 'Q') {
+            throw stop_now_t();
+        }
         cout << endl;
         goto checkValidity;
 
