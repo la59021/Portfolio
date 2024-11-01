@@ -74,11 +74,20 @@ void BRules::player1Turn() {
         goto prompt;
     }
     if (validSelection && reply == '1') {
-        cout << winningCombo();
         player1Move();
     }
     if (validSelection && reply == '2') {
-        player1->skill();
+        bool boardIsEmpty = true;
+        for (int i = 0; i < board->getLength(); i++) {
+            if (board->getSpaceStatus(i) != 0) {
+                boardIsEmpty = false;
+            }
+        }  
+        if (boardIsEmpty) {
+            cout << "The board is empty you can't use your skill now" << endl;
+            player1Move();
+        }
+        else player1->skill();
     }   
     if (validSelection && reply == '3') {
         cout << player1->desc();
@@ -115,7 +124,17 @@ void BRules::player2Turn() {
         player2Move();
     }
     if (validSelection && reply == '2') {
-        player2->skill();
+        bool boardIsEmpty = true;
+        for (int i = 0; i < board->getLength(); i++) {
+            if (board->getSpaceStatus(i) != 0) {
+                boardIsEmpty = false;
+            }
+        }  
+        if (boardIsEmpty) {
+            cout << "The board is empty you can't use your skill now" << endl;
+            player2Move();
+        }
+        else player2->skill();
     }   
     if (validSelection && reply == '3') {
         cout << player2->desc();

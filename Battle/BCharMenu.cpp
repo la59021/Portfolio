@@ -42,7 +42,7 @@ void BCharMenu::ask_for_char(int player) {
         input_char(player); 
     }
     if (validSelection && reply == '2') {
-        cout << endl << endl << charRulesExpl << endl << endl;
+        cout << endl << charRulesExpl << endl << endl;
         goto prompt;
     }
     if (validSelection && reply == '3') {
@@ -56,7 +56,7 @@ void BCharMenu::input_char(int player) {
     bool validSelection;
     prompt:
     validSelection = false;
-    cout << endl << endl <<"Player " << player << " pick a character: ";
+    cout << endl << "Player " << player << " pick a character: ";
     cin >> reply;
     for(unsigned i = 0; i < sizeof(allowedChars); i++) {
         if (reply == allowedChars[i]) {
