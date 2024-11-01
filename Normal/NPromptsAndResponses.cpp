@@ -22,13 +22,13 @@ NResponses::NResponses(NBoard *board) {
 }
 
 void NResponses::printBoard() {
-    cout << "  |  A  |  B  |  C  |  " << endl;
-    cout << "--|-----|-----|-----|--" << endl;
-    cout << "1 |  " << statusToMark(1) << "  |  " + statusToMark(2) << "  |  " +statusToMark(3) << "  |  " << endl;
-    cout << "--|-----|-----|-----|--" << endl;
-    cout << "2 |  " << statusToMark(4) << "  |  " + statusToMark(5) << "  |  " +statusToMark(6) << "  |  " << endl;
-    cout << "--|-----|-----|-----|--" << endl;
-    cout << "3 |  " << statusToMark(7) << "  |  " + statusToMark(8) << "  |  " +statusToMark(9) << "  |  " << endl;
+    cout << "  |  A  |  B  |  C  |  " << "\n";
+    cout << "--|-----|-----|-----|--" << "\n";
+    cout << "1 |  " << statusToMark(1) << "  |  " + statusToMark(2) << "  |  " +statusToMark(3) << "  |  " << "\n";
+    cout << "--|-----|-----|-----|--" << "\n";
+    cout << "2 |  " << statusToMark(4) << "  |  " + statusToMark(5) << "  |  " +statusToMark(6) << "  |  " << "\n";
+    cout << "--|-----|-----|-----|--" << "\n";
+    cout << "3 |  " << statusToMark(7) << "  |  " + statusToMark(8) << "  |  " +statusToMark(9) << "  |  " << "\n";
 }
 
 void NResponses::isInvalidSpace() {
