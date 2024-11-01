@@ -6,13 +6,13 @@ using namespace std;
 
 BRules::BRules(BBoard *newboard) {
     this->board = newboard;
-    printer = BBoardPrinter(this->board);
+    printer = new BBoardPrinter(this->board);
 }
 
 void BRules::addPlayers(Player *player1, Player *player2) {
     this->player1 = player1;
     this->player2 = player2;
-    printer.setMarks(player1->get_mark(), player2->get_mark());
+    printer->setMarks(player1->get_mark(), player2->get_mark());
 }
 
 bool BRules::checkForTie() {
@@ -23,7 +23,7 @@ bool BRules::checkForTie() {
         }
     }
     if (allFull && !checkForWin()) {
-        printer.printBoard();
+        printer->printBoard();
         cout << "The game was a tie!" << endl;
         return true;
     }
@@ -58,7 +58,7 @@ void BRules::player1Turn() {
     bool validSelection;
     prompt:
     validSelection = false;
-    printer.printBoard();
+    printer->printBoard();
     player1->prompt();
     cin >> reply;
     if (reply == 'q' || reply == 'Q') {
@@ -95,7 +95,7 @@ void BRules::player2Turn() {
     bool validSelection;
     prompt:
     validSelection = false;
-    printer.printBoard();
+    printer->printBoard();
     player1->prompt();
     cin >> reply;
     if (reply == 'q' || reply == 'Q') {
@@ -189,7 +189,7 @@ void BRules::player1Move() {
         goto start;
     }
     start:
-        printer.printBoard();
+        printer->printBoard();
         cout << "It is" << player1->get_mark() << "'s Turn. Please enter the Desired space. \nUse the format row col:" << endl;
         cin >> rowChar;
         cin >> colChar;
@@ -211,7 +211,7 @@ void BRules::player1Move() {
     valid:
         board->setSpaceStatus(index, 1);
         if (!won && checkForWin()) {
-            printer.printBoard();
+            printer->printBoard();
             cout << player1->get_mark() << " is the winner!" << endl;
             cout << winningCombo() << endl;
             won = true;
@@ -234,7 +234,7 @@ void BRules::player2Move() {
         goto start;
     }
     start:
-        printer.printBoard();
+        printer->printBoard();
         cout << "It is" << player2->get_mark() << "'s Turn. Please enter the Desired space. \nUse the format row col:" << endl;
         cin >> rowChar;
         cin >> colChar;
@@ -256,7 +256,7 @@ void BRules::player2Move() {
     valid:
         board->setSpaceStatus(index, 2);
         if (!won && checkForWin()) {
-            printer.printBoard();
+            printer->printBoard();
             cout << player2->get_mark() << " is the winner!" << endl;
             cout << winningCombo() << endl;
             won = true;

@@ -10,8 +10,10 @@
 using namespace std;
 
 BGame::BGame() {
-    board = BBoard();
     this->rules = new BRules(&board);
+    rules = new BRules(&board);
+    player1 = nullptr; 
+    player2 = nullptr;
 }
 
 void BGame::startGame() {

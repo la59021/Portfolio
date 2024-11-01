@@ -21,9 +21,9 @@ class BRules {
         void player1Move();
         void player2Move();
         string winningCombo();
-        BBoard *board = nullptr;
+        BBoard *board;
         Player *player1;
         Player *player2;
-        BBoardPrinter printer = BBoardPrinter(board);
+        BBoardPrinter *printer;
         bool won = false;
 };
