@@ -17,9 +17,9 @@ void BRules::addPlayers(Player *player1, Player *player2) {
 bool BRules::followsRules(const char rowChar, const char colChar) {
     array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
     array <char, 3> rowRange = {'1', '2', '3'};
-    for (int i = 0; i < sizeof(rowRange); i++) {
+    for (unsigned i = 0; i < rowRange.size(); i++) {
         if (rowChar == rowRange[i]) {
-            for (int x = 0; x < sizeof(colRange); x++) {
+            for (unsigned x = 0; x < colRange.size(); x++) {
                 if (colChar == colRange[x]) {
                     int index = changeToIndex(rowChar, colChar);
                     if (this->board->getSpaceStatus(index) == 0) {
@@ -210,7 +210,6 @@ bool BRules::checkForTie() {
 }
 
 bool BRules::checkForWin() {
-    int toCheck;
     if (board->getSpaceStatus(1) == board->getSpaceStatus(2) && board->getSpaceStatus(1) == board->getSpaceStatus(3) && board->getSpaceStatus(1) != 0) {
         return true;
     }
