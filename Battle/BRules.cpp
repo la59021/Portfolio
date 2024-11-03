@@ -80,7 +80,6 @@ void BRules::player1Turn() {
         bool boardIsEmpty = true;
         for (int i = 1; i < 10; i++) {
             if (board->getSpaceStatus(i) != 0) {
-                cout << board->getSpaceStatus(i);
                 boardIsEmpty = false;
             }
         }  
@@ -121,7 +120,6 @@ void BRules::player2Turn() {
         goto prompt;
     }
     if (validSelection && reply == '1') {
-        cout << winningCombo();
         player2Move();
     }
     if (validSelection && reply == '2') {

@@ -9,54 +9,50 @@ Paladin::Paladin(BBoard *board, char m) {
 }
 
 bool Paladin::allowedSpace(int index1, int index2) {
-    if (index1 == 1) {
-        if (index2 == 2 || index2 ==4 || index2 == 5) {
+    if (index1 == 0) {
+        if (index2 == 1 || index2 == 3 || index2 == 4) {
             return true;
         }
     }
-    else if (index1 == 2) {
-        if (index2 == 1 || index2 == 3 || index2 == 4 || index2 == 5 || index2 == 6) {
+    else if (index1 == 1) {
+        if (index2 == 0 || index2 == 2 || index2 == 3 || index2 == 4 || index2 == 5) {
             return true;
         }
     }
     else if (index1 == 3) { 
-        if (index2 == 2 || index2 == 5 || index2 == 6) {
+        if (index2 == 2 || index2 == 4 || index2 == 5) {
             return true;
         }
     }
-    else if (index1 == 4) {
-        if (index2 == 1 || index2 == 2 || index2 == 5 || index2 == 7 || index2 == 8) {
+    else if (index1 == 3) {
+        if (index2 == 0 || index2 == 1 || index2 == 4 || index2 == 6 || index2 == 7) {
             return true;
         }
     }
-    else if (index1 == 5 && index2 != 5) {
+    else if (index1 == 4 && index2 != 4) {
         return true;
     }
+    else if (index1 == 5) {
+        if (index2 == 1 || index2 == 2 || index2 == 4 || index2 == 7 || index2 == 8) {
+            return true;
+        }
+    }
     else if (index1 == 6) {
-        if (index2 == 2 || index2 == 3 || index2 == 5 || index2 == 8 || index2 == 9) {
+        if (index2 == 3 || index2 == 4 || index2 == 7) {
             return true;
         }
     }
     else if (index1 == 7) {
-        if (index2 == 4 || index2 == 5 || index2 == 8) {
+        if (index2 == 3 || index2 == 4 || index2 == 5 || index2 == 6 || index2 == 8) {
             return true;
         }
     }
     else if (index1 == 8) {
-        if (index2 == 4 || index2 == 5 || index2 == 6 || index2 == 7 || index2 == 9) {
-            return true;
-        }
-    }
-    else if (index1 == 9) {
-        if (index2 == 5 || index2 == 6 || index2 == 8) {
+        if (index2 == 4 || index2 == 5 || index2 == 7) {
             return true;
         }
     }
     return false;
-}
-
-void Paladin::move() {
-
 }
 
 string Paladin::desc() {
@@ -65,7 +61,7 @@ string Paladin::desc() {
 
 void Paladin::skill() {
     int index1, index2;
-    char rowChar1, colChar1, rowChar2, colChar2;
+    char rowChar1 = '1', colChar1 = 'a', rowChar2 = '1', colChar2 = 'a';
     prompt1:
     cout << "Select the mark to move. (use the standard format row col)" << endl;
     cin >> rowChar1;
@@ -74,7 +70,7 @@ void Paladin::skill() {
         cout << "not valid" << endl;
         goto prompt1;
     }
-    index1 = changeToIndex(colChar1, colChar2);
+    index1 = changeToIndex(rowChar1, colChar1);
 
     prompt2:
     cout << "Select where to move it to. (use the standard format row col)" << endl;
@@ -85,10 +81,17 @@ void Paladin::skill() {
         cout << "not valid" << endl;
         goto prompt2;
     }
-    index2 = changeToIndex(rowChar2, colChar2);
-    int status = board->getSpaceStatus(index1);
-    board->setSpaceStatus(index2, status);
-    board->setSpaceStatus(index1, 0);
+    if (isValid(rowChar2, colChar2) && isEmpty(rowChar2, colChar2) && allowedSpace(index1, index2)) {
+        if (this->board->getSpaceStatus(index1) == 1) {
+            this->board->setSpaceStatus(index1, 0);
+            this->board->setSpaceStatus(index2, 1);
+        }
+        else if (this->board->getSpaceStatus(index1) == 2) {
+            this->board->setSpaceStatus(index1, 0);
+            this->board->setSpaceStatus(index2, 2);
+        }
+    }
+    
 }
 
 void Paladin::prompt() {
@@ -103,7 +106,6 @@ void Paladin::prompt() {
 char Paladin::get_mark() {
     return mark;
 }
-
 
 bool Paladin::isValid(char rowChar, char colChar) {
     array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};

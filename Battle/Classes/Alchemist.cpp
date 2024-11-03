@@ -13,10 +13,6 @@ bool Alchemist::allowedSpace(int index1, int index2) {
     return true;
 }
 
-void Alchemist::move() {
-    
-}
-
 string Alchemist::desc() {
     return "Alchemist\nYou are able to use you alchemy to transmute one mark into another.\n Beware the law of equviant exchange as you will have to change one of the oposite marks aswell.";
 }
@@ -51,7 +47,6 @@ void Alchemist::skill() {
         this->board->setSpaceStatus(index1, 1);
         this->board->setSpaceStatus(index2, 2);
     }
-    
 }
 
 void Alchemist::prompt() {
