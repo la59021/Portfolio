@@ -18,14 +18,6 @@
 	g++ -Wall -std=c++11 Tests/BBoardTest.cpp Battle/BBoard.cpp Battle/BSpace.cpp -o 5_Battle_Board_Test
 	./5_Battle_Board_Test
 
-6: clean # Test the Paladin class functinality.
-	g++ -Wall -std=c++11 Tests/PaladinTest.cpp -o 6_Paladin_Test
-	./6_Paladin_Test
-
-7: clean # Test the Alchemist class functinality.
-	g++ -Wall -std=c++11 Tests/AlchemistTest.cpp -o 7_Alchemist_Test
-	./7_Alchemist_Test
-
 NormalInclude := Normal/NGame.cpp Normal/NRules.cpp Normal/NPromptsAndResponses.cpp Normal/NBoard.cpp Normal/NSpace.cpp
 
 BattleInclude := Battle/BGame.cpp Battle/BRules.cpp Battle/BBoard.cpp Battle/BSpace.cpp
@@ -40,5 +32,3 @@ clean:
 	@rm -f 3_Battle_Game
 	@rm -f 4_Normal_Board_Test
 	@rm -f 5_Battle_Board_Test
-	@rm -f 6_Paladin_Test
-	@rm -f 7_Alchemist_Test
