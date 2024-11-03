@@ -21,6 +21,7 @@ void BGame::startGame() {
     createPlayers();
     rules->addPlayers(player1, player2);
     while (rules->gameInProgress()) {
+        cout << "Turn: " << turn << ", Current Player: " << (turn % 2 == 0 ? "Player 1" : "Player 2") << endl;
         if (turn % 2 == 0) {
             rules->player1Turn();
         }

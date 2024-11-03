@@ -106,7 +106,7 @@ void BRules::player2Turn() {
     prompt:
     validSelection = false;
     printer->printBoard();
-    player1->prompt();
+    player2->prompt();
     cin >> reply;
     if (reply == 'q' || reply == 'Q') {
         throw stop_now_t();
