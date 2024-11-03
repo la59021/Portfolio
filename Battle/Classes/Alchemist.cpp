@@ -1,4 +1,5 @@
 #include "../BBoard.hpp"
+#include <array>
 #include <iostream>
 #include "Alchemist.hpp"
 using namespace std;
@@ -22,16 +23,16 @@ string Alchemist::desc() {
 
 void Alchemist::skill() {
     int index1, index2;
-    char rowChar1, colChar1, rowChar2, colChar2;
+    char rowChar1 = '1', colChar1 = 'a', rowChar2 = '1', colChar2 = 'a';
     prompt1:
     cout << "Select the first mark to swap. (use the standard format row col)" << endl;
     cin >> rowChar1;
     cin >> colChar1;
-    if (!isValid(rowChar1, colChar1) || !isEmpty(rowChar2, colChar2)) {
+    if (!isValid(rowChar1, colChar1) || isEmpty(rowChar1, colChar1)) {
         cout << "not valid" << endl;
         goto prompt1;
     }
-    index1 = changeToIndex(colChar1, colChar2);
+    index1 = changeToIndex(rowChar1, colChar1);
 
     prompt2:
     cout << "Select the mark to swap it with. (use the standard format row col)" << endl;
@@ -42,9 +43,15 @@ void Alchemist::skill() {
         cout << "not valid" << endl;
         goto prompt2;
     }
-    int index1OldMark = board->getSpaceStatus(index1);
-    board->setSpaceStatus(index1, board->getSpaceStatus(index2));
-    board->setSpaceStatus(index2, index1OldMark);
+    if (this->board->getSpaceStatus(index1) == 1) {
+        this->board->setSpaceStatus(index1, 2);
+        this->board->setSpaceStatus(index2, 1);
+    }
+    else if (this->board->getSpaceStatus(index1) == 2) {
+        this->board->setSpaceStatus(index1, 1);
+        this->board->setSpaceStatus(index2, 2);
+    }
+    
 }
 
 void Alchemist::prompt() {
@@ -56,6 +63,65 @@ void Alchemist::prompt() {
     cout << "[4] Quit" << endl;
 }
 
-char Alchemist::get_mark() const {
+char Alchemist::get_mark() {
     return mark;
+}
+
+bool Alchemist::isValid(char rowChar, char colChar) {
+    cout << "rowChar: " << rowChar << "\ncolChar: " << colChar << endl;
+    array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
+    array <char, 3> rowRange = {'1', '2', '3'};
+    for (unsigned i = 0; i < rowRange.size(); i++) {
+        if (rowChar == rowRange[i]) {
+            for (unsigned x = 0; x < colRange.size(); x++) {
+                if (colChar == colRange[x]) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+int Alchemist::changeToIndex(char rowChar, char colChar) {
+    bool validRow = false;
+    int index;
+    if (rowChar == '1') {
+        validRow = true;
+        index = 0;
+    }
+    else if (rowChar == '2') {
+        validRow = true;
+        index = 3;
+    }
+    else if (rowChar == '3') {
+        validRow = true;
+        index = 6;
+    }
+    else {
+        index = 9;
+    }
+
+    if (validRow) {
+        if (colChar == 'A' || colChar == 'a') {
+            index += 0;
+        }
+        else if (colChar == 'B' || colChar == 'b') {
+            index += 1;
+        }
+        else if (colChar == 'C' || colChar == 'c') {
+            index += 2;
+        }
+    }
+    return index;
+}
+
+bool Alchemist::isEmpty(char rowChar, char colChar) {
+    int index = changeToIndex(rowChar, colChar);
+    if (this->board->getSpaceStatus(index) == 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }

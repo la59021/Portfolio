@@ -3,9 +3,6 @@
 using namespace std;
 
 BBoard::BBoard() {
-    for (unsigned i = 0; i < sizeof(currentBoard); i++) {
-        currentBoard[i] = BSpace();
-    }
 }
 
 int BBoard::getLength() {
@@ -13,9 +10,9 @@ int BBoard::getLength() {
 }
 
 int BBoard::getSpaceStatus(int index) {
-    return currentBoard[index-1].getStatus();
+    return currentBoard[index].getStatus();
 }
 
 void BBoard::setSpaceStatus(int index, int newState) {
-    currentBoard[index-1].setStatus(newState);
+    currentBoard[index].setStatus(newState);
 }

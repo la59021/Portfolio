@@ -9,5 +9,5 @@ class BBoard {
         int getSpaceStatus(int index);
         void setSpaceStatus(int index, int newState);
     private:
-        BSpace currentBoard[9];
+        BSpace currentBoard[9] = {BSpace(), BSpace(), BSpace(), BSpace(), BSpace(), BSpace(), BSpace(), BSpace(), BSpace()};;
 };

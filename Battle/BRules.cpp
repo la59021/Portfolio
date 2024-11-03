@@ -149,13 +149,13 @@ void BRules::player2Turn() {
 int BRules::changeToIndex(const char rowChar, const char colChar) {
     int index;
     if (rowChar == '1') {
-        index = 1;
+        index = 0;
     }
     else if (rowChar == '2') {
-        index = 4;
+        index = 3;
     }
     else {
-        index = 7;
+        index = 6;
     }
 
     if (colChar == 'A' || colChar == 'a') {
@@ -171,28 +171,28 @@ int BRules::changeToIndex(const char rowChar, const char colChar) {
 }
 
 bool BRules::checkForWin() {
-    if (board->getSpaceStatus(1) == board->getSpaceStatus(2) && board->getSpaceStatus(1) == board->getSpaceStatus(3) && board->getSpaceStatus(1) != 0) {
+    if (board->getSpaceStatus(0) == board->getSpaceStatus(1) && board->getSpaceStatus(0) == board->getSpaceStatus(2) && board->getSpaceStatus(0) != 0) {
+        return true;
+    }
+    if (board->getSpaceStatus(0) == board->getSpaceStatus(3) && board->getSpaceStatus(0) == board->getSpaceStatus(6) && board->getSpaceStatus(0) != 0) {
+        return true;
+    }
+    if (board->getSpaceStatus(0) == board->getSpaceStatus(4) && board->getSpaceStatus(0) == board->getSpaceStatus(8) && board->getSpaceStatus(0) != 0) {
         return true;
     }
     if (board->getSpaceStatus(1) == board->getSpaceStatus(4) && board->getSpaceStatus(1) == board->getSpaceStatus(7) && board->getSpaceStatus(1) != 0) {
         return true;
     }
-    if (board->getSpaceStatus(1) == board->getSpaceStatus(5) && board->getSpaceStatus(1) == board->getSpaceStatus(9) && board->getSpaceStatus(1) != 0) {
+    if (board->getSpaceStatus(2) == board->getSpaceStatus(4) && board->getSpaceStatus(2) == board->getSpaceStatus(6) && board->getSpaceStatus(2) != 0) {
         return true;
     }
     if (board->getSpaceStatus(2) == board->getSpaceStatus(5) && board->getSpaceStatus(2) == board->getSpaceStatus(8) && board->getSpaceStatus(2) != 0) {
         return true;
     }
-    if (board->getSpaceStatus(3) == board->getSpaceStatus(5) && board->getSpaceStatus(3) == board->getSpaceStatus(7) && board->getSpaceStatus(3) != 0) {
+    if (board->getSpaceStatus(3) == board->getSpaceStatus(4) && board->getSpaceStatus(3) == board->getSpaceStatus(5) && board->getSpaceStatus(3) != 0) {
         return true;
     }
-    if (board->getSpaceStatus(3) == board->getSpaceStatus(6) && board->getSpaceStatus(3) == board->getSpaceStatus(9) && board->getSpaceStatus(3) != 0) {
-        return true;
-    }
-    if (board->getSpaceStatus(4) == board->getSpaceStatus(5) && board->getSpaceStatus(4) == board->getSpaceStatus(6) && board->getSpaceStatus(4) != 0) {
-        return true;
-    }
-    if (board->getSpaceStatus(7) == board->getSpaceStatus(8) && board->getSpaceStatus(7) == board->getSpaceStatus(9) && board->getSpaceStatus(7) != 0) {
+    if (board->getSpaceStatus(6) == board->getSpaceStatus(7) && board->getSpaceStatus(6) == board->getSpaceStatus(8) && board->getSpaceStatus(6) != 0) {
         return true;
     }
     return false;

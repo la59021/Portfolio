@@ -100,6 +100,63 @@ void Paladin::prompt() {
     cout << "[4] Quit" << endl;
 }
 
-char Paladin::get_mark() const {
+char Paladin::get_mark() {
     return mark;
+}
+
+
+bool Paladin::isValid(char rowChar, char colChar) {
+    array <char, 6> colRange = {'A', 'B', 'C', 'a', 'b', 'c'};
+    array <char, 3> rowRange = {'1', '2', '3'};
+    for (unsigned i = 0; i < rowRange.size(); i++) {
+        if (rowChar == rowRange[i]) {
+            for (unsigned x = 0; x < colRange.size(); x++) {
+                if (colChar == colRange[x]) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+int Paladin::changeToIndex(char rowChar, char colChar) {
+    bool validRow = false;
+    int index;
+    if (rowChar == '1') {
+        validRow = true;
+        index = 0;
+    }
+    else if (rowChar == '2') {
+        validRow = true;
+        index = 3;
+    }
+    else if (rowChar == '3') {
+        validRow = true;
+        index = 6;
+    }
+    else {
+        index = 9;
+    }
+
+    if (validRow) {
+        if (colChar == 'A' || colChar == 'a') {
+            index += 0;
+        }
+        else if (colChar == 'B' || colChar == 'b') {
+            index += 1;
+        }
+        else if (colChar == 'C' || colChar == 'c') {
+            index += 2;
+        }
+    }
+    return index;
+}
+
+bool Paladin::isEmpty(char rowChar, char colChar) {
+    int index = changeToIndex(rowChar, colChar);
+            if (this->board->getSpaceStatus(index) == 0) {
+                return true;
+            }
+            return false;
 }

@@ -10,7 +10,6 @@
 using namespace std;
 
 BGame::BGame() {
-    this->rules = new BRules(&board);
     rules = new BRules(&board);
     player1 = nullptr; 
     player2 = nullptr;
@@ -18,17 +17,17 @@ BGame::BGame() {
 
 void BGame::startGame() {
     cout << "At any point when asked for an input use \"q\" or \"Q\" to quit.\n";
-    int i = 0;
+    int turn = 0;
     createPlayers();
     rules->addPlayers(player1, player2);
     while (rules->gameInProgress()) {
-        if (i % 2 == 0) {
+        if (turn % 2 == 0) {
             rules->player1Turn();
         }
-        else {
+        else if (turn % 2 != 0) {
             rules->player2Turn();
         }
-        i++;
+        turn++;
     }
 }
 
