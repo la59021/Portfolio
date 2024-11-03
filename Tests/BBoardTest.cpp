@@ -25,6 +25,8 @@ int main() {
     expected += "2 |  P  |  P  |  ~  |  \n";
     expected += "--|-----|-----|-----|--\n";
     expected += "3 |  ~  |  P  |  P  |  \n";
+    // setting up redirection of cout
+    // from https://truong.io/posts/capturing_stdout_for_c++_unit_testing.html
     stringstream buffer;
     streambuf* prevcoutbuf = cout.rdbuf(buffer.rdbuf());
     BBoardPrinter printer(&board);
@@ -33,6 +35,5 @@ int main() {
     string text = buffer.str();
     cout.rdbuf(prevcoutbuf);
     assert(text == expected);
-    return 0;
     return 0;
 }

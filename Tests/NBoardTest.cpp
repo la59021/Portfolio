@@ -17,8 +17,6 @@ int main() {
     board.setSpaceStatus(7, 1);
     board.setSpaceStatus(8, 2);
     board.setSpaceStatus(9, 1);
-    // setting up redirection of cout
-    // from https://truong.io/posts/capturing_stdout_for_c++_unit_testing.html
     string expected;
     expected = "  |  A  |  B  |  C  |  \n";
     expected += "--|-----|-----|-----|--\n";
@@ -27,6 +25,8 @@ int main() {
     expected += "2 |  O  |  X  |  O  |  \n";
     expected += "--|-----|-----|-----|--\n";
     expected += "3 |  X  |  O  |  X  |  \n";
+    // setting up redirection of cout
+    // from https://truong.io/posts/capturing_stdout_for_c++_unit_testing.html
     stringstream buffer;
     streambuf* prevcoutbuf = cout.rdbuf(buffer.rdbuf());
     NResponses printer(&board);
