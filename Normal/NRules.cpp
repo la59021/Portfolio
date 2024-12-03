@@ -33,22 +33,28 @@ bool NRules::followsRules() {
     return false;
 }
 
-bool NRules::wasThereAWinner() {
-    return won;
+int NRules::wasThereAWinner() {
+    if (checkForTie) {
+        return 3;
+    }
+    else if (checkForWin(false) != "") {
+        return 2;
+    }
+    else if (checkForWin(true) != "") {
+        return 1;
+    }
+    return 0;
 }
 
 void NRules::takeXTurn() {
     index = 10;
     rowChar = 'R';
     colChar = 'C';
-    if (checkForWin(true) != "" || checkForWin(false) != "") {
-        won = true;
-    }
-    if (checkForWin(true) == "" && checkForWin(false) == "") {
-        goto start;
+    if (wasThereAWinner() == (1 || 2 || 3)) {
+        goto leave;
     }
     else {
-        goto leave;
+        goto start;
     }
     start:
         responses.printBoard();
@@ -78,12 +84,9 @@ void NRules::takeXTurn() {
 
     valid:
         board.setSpaceStatus(index, 1);
-        if (!won && checkForWin(true) != "") {
+        if (wasThereAWinner() == 1) {
             responses.winnerIsX();
             cout << checkForWin(true) << endl;
-            won = true;
-        }
-        else {
         }
 
     leave:
@@ -94,14 +97,11 @@ void NRules::takeOTurn() {
     index = 10;
     rowChar = 'R';
     colChar = 'C';
-    if (checkForWin(true) != "" || checkForWin(false) != "") {
-        won = true;
-    }
-    if (checkForWin(true) == "" && checkForWin(false) == "") {
-        goto start;
+    if (wasThereAWinner() == (1 || 2 || 3)) {
+        goto leave;
     }
     else {
-        goto leave;
+        goto start;
     }
     start:
         responses.printBoard();
@@ -131,13 +131,11 @@ void NRules::takeOTurn() {
 
     valid:
         board.setSpaceStatus(index, 2);
-        if (!won && checkForWin(false) != "") {
+        if (wasThereAWinner() == 2) {
             responses.winnerIsO();
             cout << checkForWin(false) << endl;
-            won = true;
         }
-        else {
-        }
+
     leave:
     index = 10; // just to get the compiler to shutup about the label at the end
 }

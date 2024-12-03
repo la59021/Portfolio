@@ -7,7 +7,7 @@ using namespace std;
 class BGame {
     public:
         BGame();
-        void startGame();
+        int startGame();
     private:
         void createPlayers();
         BBoard board;

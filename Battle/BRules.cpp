@@ -9,6 +9,19 @@ BRules::BRules(BBoard *newboard) {
     printer = new BBoardPrinter(this->board);
 }
 
+int BRules::wasThereAWinner() {
+    if (checkForTie) {
+        return 3;
+    }
+    else if (checkForWin() == 2) {
+        return 2;
+    }
+    else if (checkForWin() == 1) {
+        return 1;
+    }
+    return 0;
+}
+
 void BRules::addPlayers(Player *player1, Player *player2) {
     this->player1 = player1;
     this->player2 = player2;
@@ -168,32 +181,32 @@ int BRules::changeToIndex(const char rowChar, const char colChar) {
     return index;
 }
 
-bool BRules::checkForWin() {
+int BRules::checkForWin() {
     if (board->getSpaceStatus(0) == board->getSpaceStatus(1) && board->getSpaceStatus(0) == board->getSpaceStatus(2) && board->getSpaceStatus(0) != 0) {
-        return true;
+        return board->getSpaceStatus(0);
     }
     if (board->getSpaceStatus(0) == board->getSpaceStatus(3) && board->getSpaceStatus(0) == board->getSpaceStatus(6) && board->getSpaceStatus(0) != 0) {
-        return true;
+        return board->getSpaceStatus(0);
     }
     if (board->getSpaceStatus(0) == board->getSpaceStatus(4) && board->getSpaceStatus(0) == board->getSpaceStatus(8) && board->getSpaceStatus(0) != 0) {
-        return true;
+        return board->getSpaceStatus(0);
     }
     if (board->getSpaceStatus(1) == board->getSpaceStatus(4) && board->getSpaceStatus(1) == board->getSpaceStatus(7) && board->getSpaceStatus(1) != 0) {
-        return true;
+        return board->getSpaceStatus(1);
     }
     if (board->getSpaceStatus(2) == board->getSpaceStatus(4) && board->getSpaceStatus(2) == board->getSpaceStatus(6) && board->getSpaceStatus(2) != 0) {
-        return true;
+        return board->getSpaceStatus(2);
     }
     if (board->getSpaceStatus(2) == board->getSpaceStatus(5) && board->getSpaceStatus(2) == board->getSpaceStatus(8) && board->getSpaceStatus(2) != 0) {
-        return true;
+       return board->getSpaceStatus(2);
     }
     if (board->getSpaceStatus(3) == board->getSpaceStatus(4) && board->getSpaceStatus(3) == board->getSpaceStatus(5) && board->getSpaceStatus(3) != 0) {
-        return true;
+        return board->getSpaceStatus(3);
     }
     if (board->getSpaceStatus(6) == board->getSpaceStatus(7) && board->getSpaceStatus(6) == board->getSpaceStatus(8) && board->getSpaceStatus(6) != 0) {
-        return true;
+        return board->getSpaceStatus(6);
     }
-    return false;
+    return 0;
 }
 
 void BRules::player1Move() {

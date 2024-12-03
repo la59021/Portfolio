@@ -10,6 +10,7 @@ class BRules {
     public:
         BRules(BBoard *newboard);
         void addPlayers(Player *player1, Player *player2);
+        int wasThereAWinner();
         bool checkForTie();
         bool followsRules(const char rowChar, const char colChar);
         int gameInProgress();
@@ -17,7 +18,7 @@ class BRules {
         void player2Turn();
     private:
         int changeToIndex(const char rowChar, const char colChar);
-        bool checkForWin();
+        int checkForWin();
         void player1Move();
         void player2Move();
         string winningCombo();

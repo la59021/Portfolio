@@ -15,7 +15,7 @@ BGame::BGame() {
     player2 = nullptr;
 }
 
-void BGame::startGame() {
+int BGame::startGame() {
     cout << "At any point when asked for an input use \"q\" or \"Q\" to quit.\n";
     int turn = 0;
     createPlayers();
@@ -30,6 +30,7 @@ void BGame::startGame() {
         }
         turn++;
     }
+    return rules->wasThereAWinner();
 }
 
 void BGame::createPlayers() {

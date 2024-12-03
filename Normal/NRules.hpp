@@ -9,7 +9,7 @@ class NRules {
         NRules();
         bool checkForTie();
         bool followsRules();
-        bool wasThereAWinner();
+        int wasThereAWinner();
         void takeXTurn();
         void takeOTurn();
 
@@ -18,7 +18,7 @@ class NRules {
         bool spaceIsOpen();
         string checkForWin(bool checkingX);
         void changeToIndex();
-        bool won = false;
+        int winner;
         char colChar, rowChar;
         int index;
         NBoard board;

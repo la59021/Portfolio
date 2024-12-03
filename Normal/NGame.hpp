@@ -5,7 +5,7 @@ using namespace std;
 class NGame {
     public:
         NGame();
-        void startGame();
+        int startGame();
     private:
         void takeTurn();
         NRules rules;
